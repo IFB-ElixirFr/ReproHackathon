@@ -2,9 +2,10 @@
 
 ### Introduction
 Dans ce hackathon, nous tenterons de reproduire les résultats de [1].
-Les données originales proviennent de [2], où les auteurs ont séquencé l’ARN d’échantillons de patients atteints de mélanome uvéal. Ces patients appartiennent à deux groupes
-1) patients mutés pour le gène SF3B1 (facteur d’épissage) et
-2) patients non mutés pour ce gène. 
+Les données originales proviennent de [2], où les auteurs ont séquencé l’ARN d’échantillons de patients atteints de mélanome uvéal. Ces patients appartiennent à deux groupes:
+
+1. patients mutés pour le gène SF3B1 (facteur d’épissage) et
+2. patients non mutés pour ce gène. 
 
 Dans [2], les auteurs n’ont pas trouvé de différences d’épissage entre les patients mutés et les non mutés (bien qu’il s’agisse d’un facteur d’épissage).
 En revanche, les auteurs de [1] ont réanalysé les mêmes données, et ont trouvé les gènes suivants épissés différemment entre les deux conditions: 
