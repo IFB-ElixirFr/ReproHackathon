@@ -40,7 +40,8 @@ Nous tenterons de retrouver les gènes différentiellement épissés entre les d
 * [Samtools](http://www.htslib.org/download/)
 
 Le workflow peut se présenter comme cela:
-![RNA Workflow](hackathon_1_workflow.svg)
+
+![RNA Workflow](hackathon_1_workflow.svg =300x)
 
 ## Simulation et analyse de données phylogénétiques
 
