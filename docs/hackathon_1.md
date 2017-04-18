@@ -41,7 +41,7 @@ Nous tenterons de retrouver les gènes différentiellement épissés entre les d
 
 Le workflow peut se présenter comme cela:
 
-![RNA Workflow](hackathon_1_workflow.svg =300x)
+![RNA Workflow](hackathon_1_workflow.svg)
 
 ## Simulation et analyse de données phylogénétiques
 
