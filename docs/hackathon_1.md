@@ -66,4 +66,4 @@ Un script retraçant l'analyse est disponible [ici](https://github.com/fredericl
 ## Références
 * [1] [Furney et al. (2013)](https://www.ncbi.nlm.nih.gov/pubmed/23861464)
 * [2] [Harbour et al. (2013)](https://www.ncbi.nlm.nih.gov/pubmed/23313955)
-* [3] [Minh et et al. (2013)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670741/)
+* [3] [Minh et et al. (2013)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670741/)
