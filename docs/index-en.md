@@ -21,4 +21,4 @@ The first ReproHackathon will take place in [Gif-sur-Yvette](https://goo.gl/maps
 * RNA-Seq patient data analysis in the context of uveal melanoma ;
 * Phylogenetics data analysis and simulation. 
 
-Due to logistic constraints, the _number of participants is limited to 20_. When registering to the ReproHackathon event, you engage yourself to contribute as a developer. A feedback day will be later on organized. 
+Due to logistic constraints, **the number of participants is limited to 20**. When registering to the ReproHackathon event, you engage yourself to participate and contribute as a developer. A feedback event will be later on organized. 
