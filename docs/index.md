@@ -23,9 +23,7 @@ La première édition des ReproHackathons se déroulera les 1-2 juin 2017 à Gif
 
 ### Inscription
 
-L'inscription est gratuite mais soumise à sélection. Veuillez-remplir le formulaire suivant avant le 11 mai 2017.
-
-http://www.france-bioinformatique.fr/en/evenements/reprohackathon
+L'inscription est gratuite mais soumise à sélection. Veuillez-remplir [le formulaire](https://www.france-bioinformatique.fr/en/evenements/reprohackathon) avant le 11 mai 2017.
 
 Attention le nombre de places est limité à 20 participants. Nous effectuerons une sélection des participants sur la base des informations indiquées lors de votre inscription, et nous vous recontacterons ultérieurement (au plus tard le 12 mai 2017) pour vous confirmez votre participation.
 
