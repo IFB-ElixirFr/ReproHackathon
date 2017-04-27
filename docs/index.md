@@ -13,10 +13,23 @@ Les participants pourront se regrouper en équipes et choisir :
 
 ## Première édition des ReproHackathons
 
-La première édition des ReproHackathons se déroulera en mai 2017 à Gif-sur-Yvette.  
+La première édition des ReproHackathons se déroulera les 1-2 juin 2017 à Gif-sur-Yvette.  
 
 [Deux cas d’utilisation](hackathon_1.md) ont été sélectionnés
 * analyse de données RNA-Seq issues de patients atteints de mélanome uvéal
 * analyse et simulation de données phylogénétiques
 
-Attention le nombre de places est limité à 20 participants ! En vous inscrivant vous vous engagez à participer au hackathon en tant que co-développeur. Des journées de restitutions des résultats obtenus seront organisées ultérieurement.
+### Inscription
+
+Pour vous inscrire, veuillez-remplir le formulaire suivant avant le 11 mai 2017.
+
+http://www.france-bioinformatique.fr/en/evenements/reprohackathon#
+
+Attention le nombre de places est limité à 20 participants ! 
+
+Nous effectuerons une sélection des participants sur la base des informations indiquées lors de votre inscription, et nous vous recontacterons ultérieurement (au plus tard le 12 mai 2017) pour vous confirmez votre participation.
+
+En vous inscrivant vous vous engagez à participer au hackathon en tant que co-développeur. Des journées de restitutions des résultats obtenus seront organisées ultérieurement.
+
+
+
