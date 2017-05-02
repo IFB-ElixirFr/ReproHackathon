@@ -31,6 +31,6 @@ En vous inscrivant vous vous engagez à participer au hackathon en tant que co-d
 
 **Vous devez également vous inscrire aussi au [GDR MaDICS](https://www.madics.fr)**
 
-*La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr)*
+*La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr) et par le groupe Psay CompBio de l'Université Paris-Saclay*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png)
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.svg) 
