@@ -67,3 +67,8 @@ Un script retraçant l'analyse est disponible [ici](https://github.com/fredericl
 * [1] [Furney et al. (2013)](https://www.ncbi.nlm.nih.gov/pubmed/23861464)
 * [2] [Harbour et al. (2013)](https://www.ncbi.nlm.nih.gov/pubmed/23313955)
 * [3] [Minh et et al. (2013)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670741/)
+
+*La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr)*
+
+![MaDICS](https://github.com/IFB-ElixirFr/ReproHackathon/blob/master/docs/logo-madics.png)
+
