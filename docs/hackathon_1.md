@@ -70,5 +70,5 @@ Un script retraçant l'analyse est disponible [ici](https://github.com/fredericl
 
 *La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr)*
 
-![MaDICS](https://raw.githubusercontent.com/IFB-ElixirFr/ReproHackathon/master/docs/logo-madics.png)
+![MaDICS](hthttps://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png)
 
