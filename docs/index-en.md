@@ -19,7 +19,7 @@ Participants are encouraged to form teams and select
 
 The first ReproHackathon will take place in [Gif-sur-Yvette](https://goo.gl/maps/ceg55oQTD6E2) the 1st and 2nd of June 2017. 
 
-[Two use cases](hackathon_1.md) have been selected:
+[Two use cases](hackathon_1-en.md) have been selected:
 * RNA-Seq patient data analysis in the context of uveal melanoma ;
 * Phylogenetics data analysis and simulation. 
 
