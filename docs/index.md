@@ -33,4 +33,4 @@ En vous inscrivant vous vous engagez à participer au hackathon en tant que co-d
 
 *La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr)*
 
-![MaDICS](https://github.com/IFB-ElixirFr/ReproHackathon/blob/master/docs/logo-madics.png)
+![MaDICS](https://raw.githubusercontent.com/IFB-ElixirFr/ReproHackathon/master/docs/logo-madics.png)
