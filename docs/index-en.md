@@ -1,3 +1,5 @@
+\[[fr](index.md)\] en
+
 Due to the availability of multiple and large-scale datasets, diverse and complex data analysis tools and pipelines, reproducing computational experiments is becoming more and more challenging [[Alsheikh-Ali *et al*. 2011](https://doi.org/10.1371%2Fjournal.pone.0024357), [Nekrutenko & Taylor, 2012](https://doi.org/10.1038%2Fnrg3305)]. 
 
 [ReProVirtuFlow](https://www.madics.fr/actions/actions-en-cours/reprovirtuflow) is a research group from [GDR MaDICS](https://www.madics.fr) aiming at providing a state-of-the-art on reproducibility-oriented approaches considering as promising directions (i) scientific workflows (ii) provenance, and (iii) virtualized computing environments (virtual machines and containers). Technical coordinators of data analysis and management facilities (CNRS INSB and IN2P3) as well as experts in computer science form part of the ReProVirtuFlow consortium. 
@@ -22,3 +24,7 @@ The first ReproHackathon will take place in [Gif-sur-Yvette](https://goo.gl/maps
 * Phylogenetics data analysis and simulation. 
 
 Due to logistic constraints, **the number of participants is limited to 20**. When registering to the ReproHackathon event, you engage yourself to participate and contribute as a developer. A feedback event will be later on organized. 
+
+*The first ReproHackathon is supported by [GDR MaDICS](https://www.madics.fr) and Psay CompBio of Université Paris-Saclay*
+
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png)    ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) 
