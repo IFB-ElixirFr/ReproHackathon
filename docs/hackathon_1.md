@@ -54,7 +54,7 @@ Les auteurs de [3] présentent un algorithme rapide (UFBoot) permettant de calcu
 Nous tenterons de reproduire la [figure 1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670741/figure/mst024-F1) de l'article. Le workflow peut se décrire comme suit:
 * On simule 600 arbres bootstraps selon le modèle de Yule-Harding
 * Pour chaque arbre:
-  * On simule 1 alignement avec [gotree](https://github.com/fredericlemoine/gotree)
+  * On simule 1 alignement
   * On infère un arbre à partir de l’alignement avec [iQTree](http://www.iqtree.org/#download) (1), [RAxML](http://sco.h-its.org/exelixis/web/software/raxml/index.html) (2) et [PhyML](http://www.atgc-montpellier.fr/phyml/) (3)
   * On infère 1000 arbres bootstraps rapides (RAxML) (4);
   * On infère 100 arbres bootstraps classiques (RAxML) (5);
