@@ -56,7 +56,7 @@ We aim at reprpducing [figure 1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC36
 The main steps of the workfow comprise:
 * simulatiing of 600 bootstraps trees following the Yule-Harding model
 * for each tree:
-  * simulating 1 alignement with [gotree](https://github.com/fredericlemoine/gotree)
+  * simulating 1 alignement
   * infering a tree based on the alignment with [iQTree](http://www.iqtree.org/#download) (1), [RAxML](http://sco.h-its.org/exelixis/web/software/raxml/index.html) (2) et [PhyML](http://www.atgc-montpellier.fr/phyml/) (3)
   * infering 1000 fast bootstrap trees (RAxML) (4);
   * infering 100 classical bootstrap trees (RAxML) (5);
