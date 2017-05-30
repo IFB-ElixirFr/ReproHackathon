@@ -14,7 +14,7 @@ Vous pouvez également retrouver votre chemin en passant nous voir à nos bureau
 
 * Présentation de l'action ReproVirtuFlow (S. Cohen-Boulakia)
 
-* Présentation de Biosphère, le cloud de l'IFB (C. Blanchtet)
+* Présentation de Biosphère, le cloud de l'IFB (C. Blanchet)
 
 * Présentation des cas d'utilisation (F. Lemoine)
 
