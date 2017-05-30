@@ -38,10 +38,10 @@ En vous inscrivant vous vous engagez à participer au hackathon en tant que co-d
 * Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Sarah Cohen-Boulakia, Université Paris-Sud, Paris-Saclay, Orsay
 * Khalid Belhajjame, Université Paris-Dauphine, Paris
-* Alban Gaignard, CHU Nantes
-* Konrad Hinsen, Centre de Biophysique Moléculaire, Orléan
+* Alban Gaignard, CHU, Nantes
+* Konrad Hinsen, Centre de Biophysique Moléculaire, Orléans
 * Frédéric Lemoine, Institut Pasteur, Paris
-* Yvan Le Bras, Museum national d'Histoire Naturelle, Concarneau
+* Yvan Le Bras, Muséum National d'Histoire Naturelle, Concarneau
 * Fabien Mareuil, Institut Pasteur, Paris
 * Hervé Ménager, Institut Pasteur, Paris
 * Sandrine Perrin, Institut Français de Bioinformatique, Gif-sur-Yvette
