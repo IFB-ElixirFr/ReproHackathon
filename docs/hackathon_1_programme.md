@@ -2,7 +2,7 @@
 
 ## Lieu
 
-Le ReproHackathon se tiendra sur le campus CNRS de Gif-sur-Yvette, dans le bâtiment 34
+Le ReproHackathon se tiendra sur le campus CNRS de Gif-sur-Yvette, dans le bâtiment 34 en salle "Bibliothèque"
 ([informations pratiques](http://www.france-bioinformatique.fr/fr/plan-daccès)).
 Vous pouvez également retrouver votre chemin en passant nous voir à nos bureau au bâtiment 21.
 
