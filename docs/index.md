@@ -33,6 +33,20 @@ En vous inscrivant vous vous engagez à participer au hackathon en tant que co-d
 
 **Vous devez également vous inscrire aussi au [GDR MaDICS](https://www.madics.fr)**
 
+## Comité d'organisation
+
+* Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
+* Sarah Cohen-Boulakia, Université Paris-Sud, Paris-Saclay, Orsay
+* Khalid Belhajjame, Université Paris-Dauphine, Paris
+* Alban Gaignard, CHU Nantes
+* Konrad Hinsen, Centre de Biophysique Moléculaire, Orléan
+* Frédéric Lemoine, Institut Pasteur, Paris
+* Yvan Le Bras, Museum national d'Histoire Naturelle, Concarneau
+* Fabien Mareuil, Institut Pasteur, Paris
+* Hervé Ménager, Institut Pasteur, Paris
+* Sandrine Perrin, Institut Français de Bioinformatique, Gif-sur-Yvette
+* Christophe Pradal, Cirad, Inria, Montpellier
+
 *La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr) et par le groupe Psay CompBio de l'Université Paris-Saclay*
 
 ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) 
