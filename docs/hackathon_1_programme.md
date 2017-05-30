@@ -19,13 +19,13 @@ Vous pouvez également retrouver votre chemin en passant nous voir à nos bureau
 * Présentation du cas d'utilisation retenu (F. Lemoine), 
 Analyse de données RNA-Seq issues de patients atteints de mélanome uvéal ([Détails](hackathon_1.md))
 
-10h30 Hackathon
+10h30 ReproHackathon
 
 12h00 Bilan intermédiaire
 
 12h30 Repas
 
-14h00 Hackathon
+14h00 ReproHackathon
 
 17h30 Bilan de la première journée
 
@@ -33,13 +33,13 @@ Analyse de données RNA-Seq issues de patients atteints de mélanome uvéal ([D�
 
 ## Jour 2, 2 juin 2017
 
-9h30 Hackathon
+9h30 ReproHackathon
 
 11h30 Bilan intermédiaire
 
 12h00 Repas
 
-13h30 Hackathon
+13h30 ReproHackathon
 
 15h30 Bilan du ReproHackathon
 
