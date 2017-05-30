@@ -16,10 +16,12 @@ Vous pouvez également retrouver votre chemin en passant nous voir à nos bureau
 
 * Présentation de Biosphère, le cloud de l'IFB (C. Blanchet)
 
-* Présentation du cas d'utilisation retenu (F. Lemoine)
+* Présentation du cas d'utilisation retenu (F. Lemoine), 
 Analyse de données RNA-Seq issues de patients atteints de mélanome uvéal ([Détails](hackathon_1.md))
 
 10h30 Hackathon
+
+12h00 Bilan intermédiaire
 
 12h30 Repas
 
@@ -33,10 +35,12 @@ Analyse de données RNA-Seq issues de patients atteints de mélanome uvéal ([D�
 
 9h30 Hackathon
 
+11h30 Bilan intermédiaire
+
 12h00 Repas
 
 13h30 Hackathon
 
-15h30 Bilan du reprohackathon-1
+15h30 Bilan du ReproHackathon
 
 16h00 Fin du ReproHackathon
