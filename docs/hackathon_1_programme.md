@@ -10,13 +10,14 @@ Vous pouvez également retrouver votre chemin en passant nous voir à nos bureau
 
 9h00 Accueil
 
-9h15 Introduction
+9h30 Introduction
 
 * Présentation de l'action ReproVirtuFlow (S. Cohen-Boulakia)
 
 * Présentation de Biosphère, le cloud de l'IFB (C. Blanchtet)
 
-* Présentation des cas d'utilisation (F. Lemoine)
+* Présentation du cas d'utilisation retenu (F. Lemoine)
+Analyse de données RNA-Seq issues de patients atteints de mélanome uvéal ([Détails](hackathon_1.md))
 
 10h30 Hackathon
 
@@ -30,7 +31,7 @@ Vous pouvez également retrouver votre chemin en passant nous voir à nos bureau
 
 ## Jour 2, 2 juin 2017
 
-9h00 Hackathon
+9h30 Hackathon
 
 12h00 Repas
 
