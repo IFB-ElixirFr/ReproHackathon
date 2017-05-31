@@ -1,5 +1,15 @@
 Ce dossier contient les résultats du ReproHackathon1
 
+## Organisation proposée
+
+* Un sous-répertoire par groupe
+* Associé à une branche
+* Incluant la description
+  * des matériels et méthodes utilisés
+  * de l'avancement au fur et à mesure
+  * un bilan des réalisations en fin de hackathon
+
+
 ## Liens utiles
 
 * Une vidéo pour montrer comment [lancer l'appliance docker ReproHackathon dans Biosphère](https://www.youtube.com/watch?v=0B5GoaD58Cc)
