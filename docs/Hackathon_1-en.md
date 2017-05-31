@@ -43,29 +43,6 @@ We aim at finding again genes with differential splicing between the two conditi
 The workflow can be drafted as follows:
 ![RNA Workflow](hackathon_1_workflow.svg)
 
-## Phylogenetics: simulation and data analysis
-
-### Introduction
-
-Authors of [3] introduced a fast algorithm (UFBoot) aiming at calculating phylogenetic bootstrap. 
-UFBoot is compared to other approaches such as SBS, RBS, or Sh-aLRT.
-
-### Objectives
-
-We aim at reprpducing [figure 1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670741/figure/mst024-F1). 
-The main steps of the workfow comprise:
-* simulatiing of 600 bootstraps trees following the Yule-Harding model
-* for each tree:
-  * simulating 1 alignement
-  * infering a tree based on the alignment with [iQTree](http://www.iqtree.org/#download) (1), [RAxML](http://sco.h-its.org/exelixis/web/software/raxml/index.html) (2) et [PhyML](http://www.atgc-montpellier.fr/phyml/) (3)
-  * infering 1000 fast bootstrap trees (RAxML) (4);
-  * infering 100 classical bootstrap trees (RAxML) (5);
-  * calculating bootstrap supports of (2) with (4) and (5), calcultating ultrafast bootstrap supports of (1), and SH-aLRT supports of (3) with PhyML
-  * for each branch we know of if it's true or false (from the true tree) and we know its 4 supports (sbs, rbs, ufboot, and alrt)
-
-A script is available [here](https://github.com/fredericlemoine/reprovirtuflow/blob/master/bootstrap/bash_pipeline.sh).
-
 ## References
 * [1] [Furney et al. (2013)](https://www.ncbi.nlm.nih.gov/pubmed/23861464)
 * [2] [Harbour et al. (2013)](https://www.ncbi.nlm.nih.gov/pubmed/23313955)
-* [3] [Minh et et al. (2013)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670741/)
