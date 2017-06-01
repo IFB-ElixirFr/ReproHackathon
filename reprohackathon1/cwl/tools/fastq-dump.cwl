@@ -12,7 +12,11 @@ inputs:
     inputBinding:
       position: 1
 outputs: 
-  fastqFile:
+  fastqFile-read1:
     type: File
     outputBinding:
-      glob: "*.fastq.gz"
+      glob: "*_1.fastq.gz"
+  fastqFile-read2:
+    type: File
+    outputBinding:
+      glob: "*_2.fastq.gz"
