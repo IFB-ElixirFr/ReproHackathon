@@ -120,6 +120,7 @@ let opt_mapped_reads idx (sra : sra workflow) =
 let test_fastq_dump n sra =
   workflow ~descr:"test_fastq_dump" [
     mkdir_p tmp ;
+    mkdir_p dest ;
     pipe [
       cmd ~env:sratoolkit_env "fastq-dump" [ string "-Z" ; dep sra ] ;
       cmd "head" [ opt "-n" int (n * 4) ] ;
