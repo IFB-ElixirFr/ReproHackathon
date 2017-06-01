@@ -244,27 +244,47 @@ let genome = Ucsc_gb.genome_sequence `hg38
 
 let gff = Ensembl.gff ~chr_name:`ucsc ~release:87 ~species:`homo_sapiens
 
-let star_index = Star.index genome
+type mode = {
+  reads : [`all | `head of int] ;
+  genome : [`all | `chromosome of string] ;
+}
 
-let all_counts ?(mode = `normal) xs =
-  let fastq_dump = match mode with
-    | `preview n -> head_fastq n
-    | `normal -> Sra_toolkit.fastq_dump_pe
+let mode ?chr ?reads () =
+  {
+    genome = (
+      match chr with
+      | None -> `all
+      | Some chr -> `chromosome chr
+    ) ;
+    reads = (
+      match reads with
+      | None -> `all
+      | Some n -> `head n
+    ) ;
+  }
+
+let pipeline mode =
+  let org = `hg38 in
+  let fastq_dump = match mode.reads with
+    | `head n -> head_fastq n
+    | `all -> Sra_toolkit.fastq_dump_pe
   in
-  let f id =
+  let genome = match mode.genome with
+    | `all -> Ucsc_gb.genome_sequence org
+    | `chromosome chr -> Ucsc_gb.chromosome_sequence org "chr20"
+  in
+  let star_index = Star.index genome in
+  let sample id =
     fetch_sra id
     |> fastq_dump
     |> Star.map star_index
     |> DEXSeq.counts gff
     |> mapped_counts id
   in
-  cat (List.map xs ~f)
-
-let pipeline mode =
   let samples = srr_samples_ids Mutated @ srr_samples_ids WT in
-  dexseq (all_counts ~mode samples)
-
-let repo = Bistro_repo.[
+  let all_counts = cat (List.map samples ~f:sample) in
+  let dexseq = dexseq all_counts in
+  Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
     [ "test-fastq-dump" ] %> (test_fastq_dump 1000 (fetch_sra "SRR628585")) ;
     (* [ "dexseq" ] %> dexseq () ; *)
@@ -275,8 +295,10 @@ let logger =
   (Bistro_console_logger.create ())
 
 let () =
-  Bistro_repo.build
+  mode ~chr:"chr20" ~reads:1_000 ()
+  |> pipeline
+  |> Bistro_repo.build
     ~np:8 ~mem:(10 * 1024)
     ~keep_all:false
     ~logger
-    ~outdir:"res" repo
+    ~outdir:"res"
