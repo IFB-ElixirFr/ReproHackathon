@@ -6,7 +6,11 @@ tools:
 
 - name: 'ucsc_twobittofa'
   owner: 'iuc'
-  tool_panel_section_label: 'Manipulation of file'
+  tool_panel_section_label: 'Manipulation of files'
+
+- name: 'sra_tools'
+  owner: 'iuc'
+  tool_panel_section_label: 'Manipulation of files'
 
 - name: 'fastqc'
   owner: 'devteam'
@@ -16,7 +20,7 @@ tools:
   owner: 'bgruening'
   tool_panel_section_label: 'Quality control'
 
-- name: 'star_fusion'
+- name: 'rgrnastar'
   owner: 'iuc'
   tool_panel_section_label: 'Mapping'
 
