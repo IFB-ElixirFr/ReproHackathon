@@ -1,0 +1,13 @@
+class: SchemaDefRequirement
+types:
+  - type: record
+    name: fastqPairedFiles
+    fields:
+      - name: read_1
+        type: File
+        #outputBinding:
+        #  glob: "*_1.fastq.gz"
+      - name: seedMismatches
+        type: int
+        #outputBinding:
+        #  glob: "*_2.fastq.gz"
