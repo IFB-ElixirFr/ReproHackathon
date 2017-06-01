@@ -15,4 +15,4 @@ outputs:
   fastqFile:
     type: File
     outputBinding:
-      glob: '*.fa.gz'
+      glob: "*.fastq.gz"
