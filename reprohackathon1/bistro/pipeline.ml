@@ -1,4 +1,4 @@
-#require "bistro bistro.bioinfo core"
+#require "bistro bistro.bioinfo bistro.utils core"
 
 open Core.Std
 open Bistro.Std
@@ -151,3 +151,14 @@ let star_index = Star.index genome
 let mapped_reads x =
   Star.map star_index (sample x)
 
+let repo = List.concat @@ Bistro_repo.[
+    List.map (srr_samples_ids Mutated @ srr_samples_ids WT) ~f:(fun x ->
+        [ "mapped_reads" ; x ] %> mapped_reads x ;
+      )
+  ]
+
+let logger =
+  (* Bistro_logger.tee *)
+  (Bistro_console_logger.create ())
+
+let () = Bistro_repo.build ~np:8 ~mem:(10 * 1024) ~logger ~outdir:"res" repo
