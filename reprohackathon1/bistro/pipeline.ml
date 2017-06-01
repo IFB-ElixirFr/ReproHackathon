@@ -131,6 +131,15 @@ let dexseq_script counts = seq ~sep:"\n" [
     seq ~sep:" " [ string "count_file <-" ; dep counts ] ;
   ]
 
+let dexseq counts =
+  workflow ~descr:"dexseq" [
+    mkdir_p dest ;
+    and_list [
+      cd dest ;
+      cmd "sh" [ file_dump (dexseq_script counts) ]
+    ]
+  ]
+
 type condition =
   | Mutated
   | WT
@@ -183,8 +192,11 @@ let mapped_counts x =
 let all_counts xs =
   cat (List.map xs ~f:mapped_counts)
 
+let dexseq () =
+  dexseq (all_counts (srr_samples_ids Mutated @ srr_samples_ids WT))
+
 let repo = Bistro_repo.[
-    [ "all_counts" ] %> all_counts (srr_samples_ids Mutated @ srr_samples_ids WT) ;
+    [ "dexseq" ] %> dexseq () ;
   ]
 
 let logger =
