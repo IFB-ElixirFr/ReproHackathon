@@ -126,7 +126,7 @@ let fastq_dump_head_dir n sra =
       cmd "head" [ opt "-n" int (n * 4) ] ;
       cmd "gawk" [
         seq ~sep:"" [
-          string  "'{ if (NR % 8 < 4) print $0 > " ;
+          string  "'{ if ((NR - 1) % 8 < 4) print $0 > " ;
           quote ~using:'"' (dest // "reads_1.fastq") ;
           string " ; else print $0 > " ;
           quote ~using:'"' (dest // "reads_2.fastq") ;
