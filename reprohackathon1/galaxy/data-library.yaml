@@ -11,5 +11,3 @@ libraries:
       files:
         - url: http://appliances.france-bioinformatique.fr/reprohackathon/SRR628585.sra
           name: "SRR628585"
-
-            
