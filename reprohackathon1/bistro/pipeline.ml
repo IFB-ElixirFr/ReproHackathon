@@ -117,32 +117,10 @@ let test_fastq_dump n sra =
     ] ;
   ]
 
-(* let sra_head_to_fastq sra = *)
-(*   workflow ~descr:"sra_head_to_fastq" [ *)
-(*     mkdir_p tmp ; *)
-(*     cmd ~env:sratoolkit_env "fastq-dump" [ *)
-(*       opt "-O" ident tmp ; *)
-(*       string "--split-files" ; *)
-(*       dep sra *)
-(*     ] ; *)
-(*     mv (tmp // "*_1.fastq.gz") (fqgz 1) ; *)
-(*     mv (tmp // "*_2.fastq.gz") (fqgz 2) ; *)
-(*     cmd "STAR" ~stdout:dest ~env:Star.env [ *)
-(*       opt "--runThreadN" ident np ; *)
-(*       opt "--outSAMstrandField" string "intronMotif" ; *)
-(*       opt "--outFilterMismatchNmax" int 4 ; *)
-(*       opt "--outFilterMultimapNmax" int 10 ; *)
-(*       opt "--genomeDir" dep idx ; *)
-(*       opt "--readFilesIn" ident (seq ~sep:" " [ gunzip (fqgz 1) ; *)
-(*                                                 gunzip (fqgz 2) ]) ; *)
-(*       opt "--outSAMunmapped" string "None" ; *)
-(*       opt "--outSAMtype" string "BAM SortedByCoordinate" ; *)
-(*       opt "--outStd" string "BAM_SortedByCoordinate" ; *)
-(*       opt "--genomeLoad" string "NoSharedMemory" ; *)
-(*       opt "--limitBAMsortRAM" ident mem ; *)
-(*     ] *)
-(*   ] *)
-
+let head_fastq n sra =
+  let d = test_fastq_dump n sra in
+  d / selector [ "reads_1.fastq" ],
+  d / selector [ "reads_2.fastq" ]
 
 let dexseq_script = {rscript|
 library(DEXSeq)
@@ -220,6 +198,24 @@ let dexseq counts =
     ]
   ]
 
+
+let mapped_counts id counts =
+  workflow ~descr:"mapped.counts" [
+    pipe [
+      cmd "grep" [
+        opt "-v" (string % quote ~using:'"') "^_" ;
+        dep counts ;
+      ] ;
+      cmd "awk" ~stdout:dest [
+        string (sprintf {|'{print "!{condition}\\t%s\\t" $0}'|} id) ;
+      ]
+    ]
+  ]
+
+
+
+
+
 type condition =
   | Mutated
   | WT
@@ -250,30 +246,23 @@ let gff = Ensembl.gff ~chr_name:`ucsc ~release:87 ~species:`homo_sapiens
 
 let star_index = Star.index genome
 
-let mapped_reads x =
-  Star.map star_index (sample x)
+let all_counts ?(mode = `normal) xs =
+  let fastq_dump = match mode with
+    | `preview n -> head_fastq n
+    | `normal -> Sra_toolkit.fastq_dump_pe
+  in
+  let f id =
+    fetch_sra id
+    |> fastq_dump
+    |> Star.map star_index
+    |> DEXSeq.counts gff
+    |> mapped_counts id
+  in
+  cat (List.map xs ~f)
 
-let counts x =
-  DEXSeq.counts gff (mapped_reads x)
-
-let mapped_counts x =
-  workflow ~descr:"mapped.counts" [
-    pipe [
-      cmd "grep" [
-        opt "-v" (string % quote ~using:'"') "^_" ;
-        dep (counts x) ;
-      ] ;
-      cmd "awk" ~stdout:dest [
-        string (sprintf {|'{print "!{condition}\\t%s\\t" $0}'|} x) ;
-      ]
-    ]
-  ]
-
-let all_counts xs =
-  cat (List.map xs ~f:mapped_counts)
-
-let dexseq () =
-  dexseq (all_counts (srr_samples_ids Mutated @ srr_samples_ids WT))
+let pipeline mode =
+  let samples = srr_samples_ids Mutated @ srr_samples_ids WT in
+  dexseq (all_counts ~mode samples)
 
 let repo = Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
