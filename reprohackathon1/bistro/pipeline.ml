@@ -117,8 +117,8 @@ let opt_mapped_reads idx (sra : sra workflow) =
     ]
   ]
 
-let test_fastq_dump n sra =
-  workflow ~descr:"test_fastq_dump" [
+let fastq_dump_head_dir n sra =
+  workflow ~descr:"fastq-dump-head" [
     mkdir_p tmp ;
     mkdir_p dest ;
     pipe [
@@ -136,8 +136,8 @@ let test_fastq_dump n sra =
     ] ;
   ]
 
-let head_fastq n sra =
-  let d = test_fastq_dump n sra in
+let fastq_dump_head n sra =
+  let d = fastq_dump_head_dir n sra in
   d / selector [ "reads_1.fastq" ],
   d / selector [ "reads_2.fastq" ]
 
@@ -285,7 +285,7 @@ let mode ?chr ?reads () =
 let pipeline mode =
   let org = `hg38 in
   let fastq_dump = match mode.reads with
-    | `head n -> head_fastq n
+    | `head n -> fastq_dump_head n
     | `all -> Sra_toolkit.fastq_dump_pe
   in
   let genome = match mode.genome with
@@ -305,7 +305,7 @@ let pipeline mode =
   let dexseq = dexseq all_counts in
   Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
-    [ "test-fastq-dump" ] %> (test_fastq_dump 1000 (fetch_sra "SRR628585")) ;
+    [ "test-fastq-dump" ] %> (fastq_dump_head_dir 1000 (fetch_sra "SRR628585")) ;
     (* [ "dexseq" ] %> dexseq () ; *)
   ]
 
