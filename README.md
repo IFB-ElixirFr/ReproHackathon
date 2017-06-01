@@ -2,7 +2,7 @@ Face aux masses de données disponibles, à la multitude d’outils existants et
 
 Dans le cadre de notre action, nous lançons l'organisation d'une série de ReproHackathons visant à tester les capacités des systèmes de workflows disponibles à reproduire une expérience scientifique.
 
-Participants :
+## Participants :
 
-Victoria Dominguez del Angel
-Bérénice Batut
+- Victoria Dominguez del Angel 
+- Bérénice Batut
