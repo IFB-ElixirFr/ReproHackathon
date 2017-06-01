@@ -103,7 +103,7 @@ let test_fastq_dump n sra =
   workflow ~descr:"test_fastq_dump" [
     mkdir_p tmp ;
     pipe [
-      cmd ~env:sratoolkit_env "fasq-dump" [ string "-Z" ; dep sra ] ;
+      cmd ~env:sratoolkit_env "fastq-dump" [ string "-Z" ; dep sra ] ;
       cmd "head" [ opt "-n" int (n * 4) ] ;
       cmd "gawk" [
         seq ~sep:"" [
