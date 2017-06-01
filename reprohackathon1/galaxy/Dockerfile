@@ -1,6 +1,4 @@
-# Galaxy - ASaiM
-#
-# VERSION 0.2
+# Galaxy instance for the ReproHackathon 1
 
 FROM bgruening/galaxy-stable:17.05
 
