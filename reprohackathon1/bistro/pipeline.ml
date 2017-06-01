@@ -196,7 +196,8 @@ let dexseq () =
   dexseq (all_counts (srr_samples_ids Mutated @ srr_samples_ids WT))
 
 let repo = Bistro_repo.[
-    [ "dexseq" ] %> dexseq () ;
+    [ "star_index" ] %> star_index ;
+    (* [ "dexseq" ] %> dexseq () ; *)
   ]
 
 let logger =
