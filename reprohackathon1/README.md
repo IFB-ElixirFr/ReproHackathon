@@ -40,3 +40,53 @@ Ce dossier contient les résultats du ReproHackathon1
     * SAMTOOLS	['flemoine/samtools'](https://hub.docker.com/r/flemoine/samtools/)
 * [Exemple de workflow](https://github.com/fredericlemoine/rna-pipeline/tree/master/pmid_23313955)
 * [Données à traiter](http://appliances.france-bioinformatique.fr/reprohackathon/)
+
+## Quelques commandes utiles?
+### Téléchargement fichiers
+```bash
+for sraid in SRR628582 SRR628583 SRR628584 SRR628585 SRR628586 SRR628587 SRR628588 SRR628589
+do
+wget http://appliances.france-bioinformatique.fr/reprohackathon/${sraid}.sra
+done
+```
+### Conversion en FASTQ
+```bash
+for sraid in SRR628582 SRR628583 SRR628584 SRR628585 SRR628586 SRR628587 SRR628588 SRR628589
+do
+fastq-dump --gzip --split-files ${sraid}.sra
+done
+```
+=> Pour gagner de la place, supprimer les SRA peut être…
+
+### Téléchargement génomes
+```bash
+for chr in chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrM chrX chrY
+do
+wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/${chr}.fa.gz
+done
+```
+### Création index STAR
+```bash
+mkdir ref
+gunzip -c *.fa.gz > ref.fa
+STAR --runThreadN 10 --runMode genomeGenerate --genomeDir ref/ --genomeFastaFiles ref.fa
+rm -f ref.fa
+```
+
+### Alignement
+```bash
+for sraid in SRR628582 SRR628583 SRR628584 SRR628585 SRR628586 SRR628587 SRR628588 SRR628589
+do
+STAR --outSAMstrandField intronMotif \
+     --outFilterMismatchNmax 4 \
+     --outFilterMultimapNmax 10 \
+     --genomeDir ref \
+     --readFilesIn <(gunzip -c ${sraid}_1.fastq.gz) <(gunzip -c ${sraid}_2.fastq.gz) \
+     --runThreadN 10  \
+     --outSAMunmapped None \
+     --outSAMtype BAM SortedByCoordinate \
+     --outStd BAM_SortedByCoordinate \
+     --genomeLoad NoSharedMemory \
+     --limitBAMsortRAM 3000000000 > ${sraid}.bam
+done
+```
