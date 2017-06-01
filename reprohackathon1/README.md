@@ -21,6 +21,8 @@ Ce dossier contient les résultats du ReproHackathon1
   * *Prénom Nom?*
 * snakemake2
   * *Prénom Nom?*
+* jupyter
+  * Loïc Paulevé
 * *groupe ?*
   - Victoria Dominguez del Angel 
   - Bérénice Batut
