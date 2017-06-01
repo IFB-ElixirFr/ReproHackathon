@@ -63,6 +63,40 @@ module DEXSeq = struct
     ]
 end
 
+let sratoolkit_env =
+  docker_image ~account:"pveber" ~name:"sra-toolkit" ~tag:"2.8.0" ()
+
+let opt_mapped_reads idx (sra : sra workflow) =
+  let gunzip fq =
+    seq ~sep:"" [
+      string "<(gunzip -c " ; fq ; string ")"
+    ]
+  in
+  let fqgz n = tmp // (sprintf "reads_%d.fastq.gz" n) in
+  workflow ~descr:"opt_mapped_reads" ~np:8 ~mem:(10 * 1024) [
+    mkdir_p tmp ;
+    cmd ~env:sratoolkit_env "fastq-dump" [
+      opt "-O" ident tmp ;
+      string "--split-files" ;
+      dep sra
+    ] ;
+    mv (tmp // "*_1.fastq.gz") (fqgz 1) ;
+    mv (tmp // "*_2.fastq.gz") (fqgz 2) ;
+    cmd "STAR" ~stdout:dest ~env:Star.env [
+      opt "--runThreadN" ident np ;
+      opt "--outSAMstrandField" string "intronMotif" ;
+      opt "--outFilterMismatchNmax" int 4 ;
+      opt "--outFilterMultimapNmax" int 10 ;
+      opt "--genomeDir" dep idx ;
+      opt "--readFilesIn" ident (seq ~sep:" " [ gunzip (fqgz 1) ;
+                                                gunzip (fqgz 2) ]) ;
+      opt "--outSAMunmapped" string "None" ;
+      opt "--outSAMtype" string "BAM SortedByCoordinate" ;
+      opt "--outStd" string "BAM_SortedByCoordinate" ;
+      opt "--genomeLoad" string "NoSharedMemory" ;
+      opt "--limitBAMsortRAM" ident mem ;
+    ]
+  ]
 
 let dexseq_script = {rscript|
 library(DEXSeq)
