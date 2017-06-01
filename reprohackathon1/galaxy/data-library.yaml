@@ -1,4 +1,16 @@
 libraries:
-    - name: tutorial1
+    - name: hg19
       files:
-        - link to input data on Zenodo
+        - http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit
+    - name: "Patients with mutation"
+      files:
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628582.sra
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628583.sra
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628584.sra
+    - name: "Patients without mutation"
+      file:
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628585.sra
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628586.sra
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628587.sra
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628588.sra
+        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628589.sra
