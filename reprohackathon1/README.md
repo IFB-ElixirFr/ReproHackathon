@@ -12,7 +12,7 @@ Ce dossier contient les résultats du ReproHackathon1
 ## Participants/Groupes :
 
 * bistro
-  * *Prénom Nom?*
+  * Philippe Veber
 * galaxy
   * *Prénom Nom?*
 * nextflow
