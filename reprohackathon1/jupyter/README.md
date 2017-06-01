@@ -1,6 +1,6 @@
 # ReproHackaton1/Jupyter
 
-Authors: Loïc Paulevé <loic.pauleve@lri.fr>
+Author: Loïc Paulevé - http://loicpauleve.name
 
 ## Usage
 
@@ -11,6 +11,11 @@ docker build -t reprohackaton1_jupyter .
 ```
 
 ### Start Docker image
+
+No web password:
+```
+docker run -d -p 8888:8888 reprohackaton1_jupyter start-with-ipcluster.sh --NotebookApp.token=''
+```
 
 Binding a local directory as the working directory, allow sudo, no web password:
 ```
@@ -29,6 +34,7 @@ Then, connect to http://IP:8888
 - [X] Workflow part 2
 - [ ] Workflow part 3 (Counting)
 - [ ] Workflow part 4 (DEXSeq)
+- [ ] Explanations of the workflow
 
 ### BUGS
 

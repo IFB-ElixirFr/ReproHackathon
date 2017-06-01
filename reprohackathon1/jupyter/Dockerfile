@@ -1,6 +1,5 @@
 FROM jupyter/datascience-notebook
 MAINTAINER Loic Pauleve <loic.pauleve@lri.fr>
-CMD ["start-with-ipcluster.sh"]
 ENV ASCPKEY $HOME/.aspera/connect/etc/asperaweb_id_dsa.openssh
 ENV PATH /bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:$HOME/.aspera/connect/bin/:/opt/sratoolkit:/opt/STAR:/opt/samtools
 
@@ -51,11 +50,12 @@ RUN cd /tmp && \
   && rm -rf samtools-*
 
 # jupyter related installs
-COPY start-with-ipcluster.sh /usr/local/bin
 RUN conda install --quiet --yes \
     'ipyparallel' \
     && conda clean -tipsy \
     && ipcluster nbextension enable
+COPY start-with-ipcluster.sh /usr/local/bin
+CMD ["start-with-ipcluster.sh"]
 
 USER $NB_USER
 RUN cd $HOME \
