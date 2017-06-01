@@ -47,7 +47,7 @@ module Star = struct
     ]
 
   let map idx (fq1, fq2) : bam workflow =
-    workflow ~descr:"star.map"  ~mem:(10 * 1024) [
+    workflow ~descr:"star.map" ~mem:(30 * 1024) [
       cmd "STAR" ~stdout:dest ~env [
         opt "--runThreadN" ident np ;
         opt "--outSAMstrandField" string "intronMotif" ;
@@ -68,7 +68,7 @@ module DEXSeq = struct
   let env = docker_image ~account:"flemoine" ~name:"r-rnaseq" ()
 
   let counts gff bam =
-    workflow ~descr:"dexseq.count" [
+    workflow ~descr:"dexseq.counts" [
       cmd "python" ~env [
         string "/usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_count.py" ;
         opt "-p" string "yes" ;
@@ -314,7 +314,7 @@ let logger =
   (Bistro_console_logger.create ())
 
 let () =
-  mode ~chr:"chr20" ~reads:1_000 ()
+  mode ~chr:"chr20" ~reads:100_000 ()
   |> pipeline
   |> Bistro_repo.build
     ~np:8 ~mem:(10 * 1024)
