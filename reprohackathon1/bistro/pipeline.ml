@@ -105,6 +105,15 @@ let test_fastq_dump n sra =
     pipe [
       cmd ~env:sratoolkit_env "fasq-dump" [ string "-Z" ; dep sra ] ;
       cmd "head" [ opt "-n" int (n * 4) ] ;
+      cmd "gawk" [
+        seq ~sep:"" [
+          string  "'{ if (NR % 8 < 4) print $0 > " ;
+          quote ~using:'"' (dest // "reads_1.fastq") ;
+          string " ; else print $0 > " ;
+          quote ~using:'"' (dest // "reads_2.fastq") ;
+          string "}'"
+        ]
+      ]
     ] ;
   ]
 
