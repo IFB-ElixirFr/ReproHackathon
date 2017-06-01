@@ -317,7 +317,7 @@ let () =
   mode ~chr:"chr20" ~reads:100_000 ()
   |> pipeline
   |> Bistro_repo.build
-    ~np:8 ~mem:(10 * 1024)
+    ~np:8 ~mem:(30 * 1024)
     ~keep_all:false
     ~logger
     ~outdir:"res"
