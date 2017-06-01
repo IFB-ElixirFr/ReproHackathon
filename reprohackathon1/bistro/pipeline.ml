@@ -138,9 +138,11 @@ let srr_samples_ids = function
       "SRR628589" ;
     ]
 
-let sample x =
-  Sra_toolkit.fastq_dump_pe (Sra.fetch_srr x)
+let fetch_sra x =
+  Unix_tools.wget (sprintf "http://appliances.france-bioinformatique.fr/reprohackathon/%s.sra" x)
 
+let sample x =
+  Sra_toolkit.fastq_dump_pe (fetch_sra x)
 
 let genome = Ucsc_gb.genome_sequence `hg38
 
@@ -148,3 +150,4 @@ let star_index = Star.index genome
 
 let mapped_reads x =
   Star.map star_index (sample x)
+
