@@ -306,7 +306,7 @@ let pipeline mode =
   Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
     [ "test-fastq-dump" ] %> (fastq_dump_head_dir 1000 (fetch_sra "SRR628585")) ;
-    (* [ "dexseq" ] %> dexseq () ; *)
+    [ "dexseq" ] %> dexseq ;
   ]
 
 let logger =
