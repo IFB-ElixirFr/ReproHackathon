@@ -99,6 +99,15 @@ let opt_mapped_reads idx (sra : sra workflow) =
     ]
   ]
 
+let test_fastq_dump n sra =
+  workflow ~descr:"test_fastq_dump" [
+    mkdir_p tmp ;
+    pipe [
+      cmd ~env:sratoolkit_env "fasq-dump" [ string "-Z" ; dep sra ] ;
+      cmd "head" [ opt "-n" int (n * 4) ] ;
+    ] ;
+  ]
+
 (* let sra_head_to_fastq sra = *)
 (*   workflow ~descr:"sra_head_to_fastq" [ *)
 (*     mkdir_p tmp ; *)
@@ -258,7 +267,8 @@ let dexseq () =
   dexseq (all_counts (srr_samples_ids Mutated @ srr_samples_ids WT))
 
 let repo = Bistro_repo.[
-    [ "star_index" ] %> star_index ;
+    [ "precious" ; "star_index" ] %> star_index ;
+    [ "test-fastq-dump" ] %> (test_fastq_dump 1000 (fetch_sra "SRR628585")) ;
     (* [ "dexseq" ] %> dexseq () ; *)
   ]
 
