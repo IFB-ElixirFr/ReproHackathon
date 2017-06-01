@@ -38,7 +38,8 @@ end
 
 module DEXSeq = struct
   let env = docker_image ~account:"flemoine" ~name:"r-rnaseq" ()
-  let count gff bam =
+
+  let counts gff bam =
     workflow ~descr:"dexseq.count" [
       cmd "python" ~env [
         string "/usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_count.py" ;
@@ -146,14 +147,19 @@ let sample x =
 
 let genome = Ucsc_gb.genome_sequence `hg38
 
+let gff = Ensembl.gff ~chr_name:`ucsc ~release:87 ~species:`homo_sapiens
+
 let star_index = Star.index genome
 
 let mapped_reads x =
   Star.map star_index (sample x)
 
+let counts x =
+  DEXSeq.counts gff (mapped_reads x)
+
 let repo = List.concat @@ Bistro_repo.[
     List.map (srr_samples_ids Mutated @ srr_samples_ids WT) ~f:(fun x ->
-        [ "mapped_reads" ; x ] %> mapped_reads x ;
+        [ "counts" ; x ] %> counts x ;
       )
   ]
 
