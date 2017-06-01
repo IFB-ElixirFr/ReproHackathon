@@ -7,6 +7,13 @@ open Bistro_bioinfo.Std
 
 let ( % ) f g x = g (f x)
 
+let cat xs =
+  workflow [
+    cmd "cat" ~stdout:dest [
+      list ~sep:" " dep xs ;
+    ]
+  ]
+
 module Star = struct
   let env = docker_image ~account:"flemoine" ~name:"star" ()
 
@@ -173,10 +180,11 @@ let mapped_counts x =
     ]
   ]
 
-let repo = List.concat @@ Bistro_repo.[
-    List.map (srr_samples_ids Mutated @ srr_samples_ids WT) ~f:(fun x ->
-        [ "counts" ; x ] %> counts x ;
-      )
+let all_counts xs =
+  cat (List.map xs ~f:mapped_counts)
+
+let repo = Bistro_repo.[
+    [ "all_counts" ] %> all_counts (srr_samples_ids Mutated @ srr_samples_ids WT) ;
   ]
 
 let logger =
