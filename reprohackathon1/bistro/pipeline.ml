@@ -5,6 +5,8 @@ open Bistro.Std
 open Bistro.EDSL
 open Bistro_bioinfo.Std
 
+let ( % ) f g x = g (f x)
+
 module Star = struct
   let env = docker_image ~account:"flemoine" ~name:"star" ()
 
@@ -61,7 +63,7 @@ library(reshape2)
 options(bitmapType='cairo')
 
 ## Count data
-counts<-read.table(acounts)
+counts<-read.table(count_file)
 colnames(counts)=c("cond","sraid","exon","count")
 widecount=dcast(counts, exon ~ sraid,value.var="count")
 row.names(widecount)=widecount$exon
@@ -119,6 +121,7 @@ for(i in unique(dxr1[dxr1$padj<0.1,"groupID"])){
 let dexseq_script counts = seq ~sep:"\n" [
     string "#!/usr/bin/env Rscript" ;
     seq ~sep:" " [ string "dest <-" ; dest ] ;
+    seq ~sep:" " [ string "count_file <-" ; dep counts ] ;
   ]
 
 type condition =
@@ -156,6 +159,19 @@ let mapped_reads x =
 
 let counts x =
   DEXSeq.counts gff (mapped_reads x)
+
+let mapped_counts x =
+  workflow ~descr:"mapped.counts" [
+    pipe [
+      cmd "grep" [
+        opt "-v" (string % quote ~using:'"') "^_" ;
+        dep (counts x) ;
+      ] ;
+      cmd "awk" ~stdout:dest [
+        string (sprintf {|'{print "!{condition}\\t%s\\t" $0}'|} x) ;
+      ]
+    ]
+  ]
 
 let repo = List.concat @@ Bistro_repo.[
     List.map (srr_samples_ids Mutated @ srr_samples_ids WT) ~f:(fun x ->
