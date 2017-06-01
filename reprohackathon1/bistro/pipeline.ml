@@ -36,7 +36,7 @@ module Star = struct
   let env = docker_image ~account:"flemoine" ~name:"star" ()
 
   let index (fa : fasta workflow) =
-    workflow ~descr:"star.index" ~np:8 ~mem:(10 * 1024) [
+    workflow ~descr:"star.index" ~np:8 ~mem:(30 * 1024) [
       mkdir_p dest ;
       cmd "STAR" ~env [
         opt "--runThreadN" ident np ;
@@ -47,7 +47,7 @@ module Star = struct
     ]
 
   let map idx (fq1, fq2) : bam workflow =
-    workflow ~descr:"star.map" ~mem:(30 * 1024) [
+    workflow ~descr:"star.map" ~np:8 ~mem:(30 * 1024) [
       cmd "STAR" ~stdout:dest ~env [
         opt "--runThreadN" ident np ;
         opt "--outSAMstrandField" string "intronMotif" ;
