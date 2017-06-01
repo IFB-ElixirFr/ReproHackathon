@@ -4,7 +4,7 @@
 
 FROM bgruening/galaxy-stable:17.05
 
-MAINTAINER Bérénice Batut, berenice.batut@gmail.com; Victoria, 
+MAINTAINER Bérénice Batut, Victoria Dominguez del Angel
 
 # Enable Conda dependency resolution
 ENV GALAXY_CONFIG_BRAND="ReproHackathon"
