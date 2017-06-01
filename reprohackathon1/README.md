@@ -23,3 +23,4 @@ Ce dossier contient les résultats du ReproHackathon1
     * R/DEXSeq	:	['flemoine/r-rnaseq'](https://hub.docker.com/r/flemoine/r-rnaseq/)
     * SAMTOOLS	['flemoine/samtools'](https://hub.docker.com/r/flemoine/samtools/)
 * [Exemple de workflow](https://github.com/fredericlemoine/rna-pipeline/tree/master/pmid_23313955)
+* [Données à traiter](http://appliances.france-bioinformatique.fr/reprohackathon/)
