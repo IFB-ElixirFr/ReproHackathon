@@ -18,8 +18,8 @@ Ce dossier contient les résultats du ReproHackathon1
 * [Documentation du cloud GenoStack](http://www.genouest.org/outils/genostack/getting-started.html) (IFB-GenOuest)
   * example de commande : ssh -A -t cloud-username@openstack.genouest.org ssh root@192.168.101.XX
 * Images Docker
-    * STAR	:	'flemoine/star'
-    * SRA Toolkit: 	'flemoine/sratoolkit'
-    * R/DEXSeq	:	'flemoine/r-rnaseq’
-    * SAMTOOLS	'flemoine/samtools’
+    * STAR	:	['flemoine/star'](https://hub.docker.com/r/flemoine/star/)
+    * SRA Toolkit: 	['flemoine/sratoolkit'](https://hub.docker.com/r/flemoine/sratoolkit/)
+    * R/DEXSeq	:	['flemoine/r-rnaseq'](https://hub.docker.com/r/flemoine/r-rnaseq/)
+    * SAMTOOLS	['flemoine/samtools'](https://hub.docker.com/r/flemoine/samtools/)
 * [Exemple de workflow](https://github.com/fredericlemoine/rna-pipeline/tree/master/pmid_23313955)
