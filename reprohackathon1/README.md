@@ -9,6 +9,22 @@ Ce dossier contient les résultats du ReproHackathon1
   * de l'avancement au fur et à mesure
   * un bilan des réalisations en fin de hackathon
 
+## Participants/Groupes :
+
+* bistro
+  * *Prénom Nom?*
+* galaxy
+  * *Prénom Nom?*
+* nextflow
+  * *Prénom Nom?*
+* snakemake1
+  * *Prénom Nom?*
+* snakemake2
+  * *Prénom Nom?*
+* *groupe ?*
+  - Victoria Dominguez del Angel 
+  - Bérénice Batut
+
 
 ## Liens utiles
 
