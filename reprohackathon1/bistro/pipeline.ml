@@ -310,8 +310,9 @@ let pipeline mode =
   ]
 
 let logger =
-  (* Bistro_logger.tee *)
-  (Bistro_console_logger.create ())
+  Bistro_logger.tee
+    (Bistro_console_logger.create ())
+    (Bistro_html_logger.create "report.html")
 
 let () =
   mode ~chr:"chr20" ~reads:100_000 ()
