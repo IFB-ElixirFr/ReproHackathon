@@ -1,0 +1,22 @@
+---
+
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+
+- name: 'fastqc'
+  owner: 'devteam'
+  tool_panel_section_label: 'Quality control'
+
+- name: 'trim_galore'
+  owner: 'bgruening'
+  tool_panel_section_label: 'Quality control'
+
+- name: 'star_fusion'
+  owner: 'iuc'
+  tool_panel_section_label: 'Mapping'
+
+- name: 'dexseq'
+  owner: 'iuc'
+  tool_panel_section_label: 'Differential analysis'
+
