@@ -6,9 +6,11 @@ open Bistro.EDSL
 open Bistro_bioinfo.Std
 
 module Star = struct
+  let env = docker_image ~account:"flemoine" ~name:"star" ()
+
   let index fa =
     workflow ~descr:"star.index" ~np:8 ~mem:(10 * 1024) [
-      cmd "STAR" [
+      cmd "STAR" ~env [
         opt "--runThreadN" ident np ;
         opt "--runMode" string "genomeGenerate" ;
         opt "--genomeDir" ident dest ;
@@ -18,7 +20,7 @@ module Star = struct
 
   let map idx (fq1, fq2) : bam workflow =
     workflow ~descr:"star.map"  ~mem:(10 * 1024) [
-      cmd "STAR" ~stdout:dest [
+      cmd "STAR" ~stdout:dest ~env [
         opt "--runThreadN" ident np ;
         opt "--outSAMstrandField" string "intronMotif" ;
         opt "--outFilterMismatchNmax" int 4 ;
