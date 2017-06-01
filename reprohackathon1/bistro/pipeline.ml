@@ -14,6 +14,24 @@ let cat xs =
     ]
   ]
 
+module Ucsc_gb = struct
+  include Ucsc_gb
+
+  let chromosome_sequence org chr =
+    let org = string_of_genome org in
+    let url =
+      sprintf
+        "ftp://hgdownload.cse.ucsc.edu/goldenPath/%s/chromosomes/%s.fa.gz"
+        org chr
+    in
+    let descr = sprintf "ucsc_gb.chromosome_sequence(%s,%s)" org chr in
+    workflow ~descr [
+      wget ~dest:(tmp // "seq.fa.gz") url ;
+      cmd "gunzip" [ tmp // "seq.fa.gz" ] ;
+      cmd "mv" [ tmp // "seq.fa" ; dest ] ;
+    ]
+end
+
 module Star = struct
   let env = docker_image ~account:"flemoine" ~name:"star" ()
 
