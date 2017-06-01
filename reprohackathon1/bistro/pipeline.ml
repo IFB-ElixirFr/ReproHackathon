@@ -203,4 +203,9 @@ let logger =
   (* Bistro_logger.tee *)
   (Bistro_console_logger.create ())
 
-let () = Bistro_repo.build ~np:8 ~mem:(10 * 1024) ~logger ~outdir:"res" repo
+let () =
+  Bistro_repo.build
+    ~np:8 ~mem:(10 * 1024)
+    ~keep_all:false
+    ~logger
+    ~outdir:"res" repo
