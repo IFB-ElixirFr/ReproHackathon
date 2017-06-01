@@ -73,6 +73,19 @@ STAR --runThreadN 10 --runMode genomeGenerate --genomeDir ref/ --genomeFastaFile
 rm -f ref.fa
 ```
 
+* Fichiers en sortie
+```
+ref/
+├── chrLength.txt
+├── chrNameLength.txt
+├── chrName.txt
+├── chrStart.txt
+├── Genome
+├── genomeParameters.txt
+├── SA
+└── SAindex
+```
+
 ### Alignement
 ```bash
 for sraid in SRR628582 SRR628583 SRR628584 SRR628585 SRR628586 SRR628587 SRR628588 SRR628589
