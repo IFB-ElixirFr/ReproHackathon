@@ -1,16 +1,63 @@
 libraries:
-    - name: hg19
+    - name: "Reference genome"
       files:
-        - http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr1.fa.gz
+          name: "hg19-chr1"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr2.fa.gz
+          name: "hg19-chr2"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr3.fa.gz
+          name: "hg19-chr3"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr4.fa.gz
+          name: "hg19-chr4"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr5.fa.gz
+          name: "hg19-chr5"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr6.fa.gz
+          name: "hg19-chr6"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr7.fa.gz
+          name: "hg19-chr7"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr8.fa.gz
+          name: "hg19-chr8"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr9.fa.gz
+          name: "hg19-chr9"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr10.fa.gz
+          name: "hg19-chr10"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr11.fa.gz
+          name: "hg19-chr11"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr12.fa.gz
+          name: "hg19-chr12"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr13.fa.gz
+          name: "hg19-chr13"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr14.fa.gz
+          name: "hg19-chr14"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr15.fa.gz
+          name: "hg19-chr15"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr16.fa.gz
+          name: "hg19-chr16"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr17.fa.gz
+          name: "hg19-chr17"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr18.fa.gz
+          name: "hg19-chr18"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr19.fa.gz
+          name: "hg19-chr19"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr20.fa.gz
+          name: "hg19-chr20"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr21.fa.gz
+          name: "hg19-chr21"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr22.fa.gz
+          name: "hg19-chr22"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chrM.fa.gz
+          name: "hg19-chrM"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chrX.fa.gz
+          name: "hg19-chrX"
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chrY.fa.gz
+          name: "hg19-chrY"
     - name: "Patients with mutation"
       files:
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628582.sra
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628583.sra
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628584.sra
+        - url: http://appliances.france-bioinformatique.fr/reprohackathon/SRR628582.sra
+          name: "SRR628582"
     - name: "Patients without mutation"
-      file:
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628585.sra
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628586.sra
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628587.sra
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628588.sra
-        - http://appliances.france-bioinformatique.fr/reprohackathon/SRR628589.sra
+      files:
+        - url: http://appliances.france-bioinformatique.fr/reprohackathon/SRR628585.sra
+          name: "SRR628585"
+
+            
