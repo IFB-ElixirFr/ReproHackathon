@@ -4,6 +4,10 @@ api_key: admin
 galaxy_instance: http://localhost:8080
 tools:
 
+- name: 'ucsc_twobittofa'
+  owner: 'iuc'
+  tool_panel_section_label: 'Manipulation of file'
+
 - name: 'fastqc'
   owner: 'devteam'
   tool_panel_section_label: 'Quality control'
