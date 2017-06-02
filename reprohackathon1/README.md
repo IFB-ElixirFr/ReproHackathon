@@ -23,6 +23,9 @@ Ce dossier contient les résultats du ReproHackathon1
   * *Prénom Nom?*
 * jupyter
   * Loïc Paulevé
+* NodeJS
+  - Guillaume Launay
+  - Mélanie Garnier
 * *groupe ?*
   - Victoria Dominguez del Angel 
   - Bérénice Batut
