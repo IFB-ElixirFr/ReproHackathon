@@ -3,7 +3,7 @@ from bioblend.galaxy import GalaxyInstance
 configfile: "config.yaml"
 
 
-def check_hist(hist_name):
+def get_hist_id(hist_name):
     '''
     Check if an history exist and return its id if it's exist
     '''
@@ -25,11 +25,11 @@ def get_tool_id(tool_name):
     return tool_id
 
 
-def get_librairy_id(library_name):
+def get_library_id(library_name):
     '''
     '''
     library_id = ''
-    for library in librairies:
+    for library in libraries:
         if library["name"] == library_name:
             library_id = library["id"]
     return library_id
@@ -50,84 +50,141 @@ gi = GalaxyInstance(config["galaxy_url"], config["api_key"])
 # Get tools in the Galaxy instance
 tools = gi.tools.get_tools()
 # Get the data librairies in the Galaxy instance
-librairies = gi.libraries.get_libraries()
+libraries = gi.libraries.get_libraries()
+lib_id = get_library_id("Training Data")
+assert lib_id != ''
+lib_content = gi.libraries.show_library(lib_id, contents=True)
 # Get workflows
 workflows = gi.workflows.get_workflows()
+# Create an history for the data library data
+histories = gi.histories.get_histories()
+
 
 rule all:
     input:
         "tmp/run_differential_analysis"
 
 
-rule import_data_library_data:
-    '''
-    Import the data in the data library into an history
-    '''
-    output:
-        temp("tmp/import_data_library_data")
-    run:
-        # Create an history for the data library data
-        input_hist = gi.histories.create_history(
-            config["hist"]["ref_genome_prep"])["id"]
-        # Get the id of the reference genome
-        lib_id = get_librairy_id("Training data")
-        gi.upload_dataset_from_library(input_hist, lib_id)
-
-
 rule prepare_ref_genome:
     '''
-    Prepare the reference genome
+    Prepare the reference genome: merge the chromosome files and prepare the
+    GTF file for DEXSeq
     '''
-    input:
-        "tmp/import_data_library_data"
-    output:
-        temp("tmp/prepare_ref_genome")
     run:
-        hist = gi.histories.create_history(
-            config["hist"]["ref_genome_prep"])["id"]
+        hist = gi.histories.create_history("Reference genomes")["id"]
+        assert hist != ''
+        # Import the data from the data library
+        for dataset in lib_content:
+            if dataset['name'].find("chr") != -1:
+                gi.histories.upload_dataset_from_library(hist, dataset['id'])
+            if dataset['name'].find("gtf") != -1:
+                gi.histories.upload_dataset_from_library(hist, dataset['id'])
+        # Retrieve the dataset to merge
         datamap = dict()
         datamap["inputs"] = []
-        # Retrieve the dataset to merge
         for dataset in gi.histories.show_matching_datasets(hist):
             if dataset['name'].find("chr") != -1:
-                to_merge.append({'src':'hda', 'id': dataset["id"]})
+                datamap["inputs"].append({'src':'hda', 'id': dataset["id"]})
         # Combine the chromosome files together
         tool_id = get_tool_id("Concatenate datasets")
+        assert tool_id != ''
         info = gi.tools.run_tool(hist, tool_id, datamap)
+        # Retrieve the GTF file and prepare the input
+        datamap = {
+            "mode|mode_select": "prepare",
+            "mode|aggregate": "yes",
+            "mode|gtffile": []}
+        for dataset in gi.histories.show_matching_datasets(hist):
+            if dataset['name'].find("gtf") != -1:
+                print(dataset['name'])
+                datamap["mode|gtffile"].append(
+                    {'src':'hda', 'id': dataset["id"]})
+        # Prepare the GTF for DEXSeq
+        tool_id = get_tool_id("DEXSeq-Count")
+        assert tool_id != ''
+        info = gi.tools.run_tool(hist, tool_id, datamap)
+
+
+rule download_input_data:
+    '''
+    Download input data
+    '''
+    run:
+        # Download samples
+        # Create the history
+        sample_hist = gi.histories.create_history("Samples data")["id"]
+        # Add a file with the sample ids
+        sample_ids = "\n".join(config["data"]["mutated_patients"])
+        sample_ids += "\n"
+        sample_ids += "\n".join(config["data"]["non_mutated_patients"])
+        sample_id_file = gi.tools.paste_content(sample_ids, sample_hist)
+        sample_id_file_id = sample_id_file['outputs'][0]['id']
+        print(sample_id_file_id)
+        # Get the download sample workflow id
+        wf_id = get_workflow_id("download_samples")
+        assert wf_id != ''
+        # Configure and launch the workflow
+        inputs = {
+            'Samples': {'id': sample_id_file_id, 'src': 'hda'}}
+        gi.workflows.invoke_workflow(
+            wf_id,
+            inputs=inputs,
+            history_name=sample_hist)
 
 
 rule extract_sample_count_tables:
     '''
     Launch workflow to extract the count tables for each sample
     '''
-    input:
-        "tmp/prepare_ref_genome"
-    output:
-        temp("tmp/extract_sample_count_tables")
-    run:
+    run:        
+        # Get the reference genome dataset id
+        ref_hist = gi.histories.get_hist_id("Reference genomes")
+        assert ref_hist != ''
+        ref_genome_id = ""
+        ref_annotation_id = ""
+        dexseq_annotation_id = ""
+        assert ref_hist != ''
+        for dataset in gi.histories.show_matching_datasets(ref_hist):
+            if dataset['name'].find("Concatenate") == -1:
+                ref_genome_id = dataset["id"]
+            if dataset['name'].find("gtf") == -1:
+                ref_annotation_id = dataset["id"]
+            if dataset['name'].find("DEXSeq prepare") == -1:
+                dexseq_annotation_id = dataset["id"]
+        assert ref_genome_id != ""
+        assert ref_annotation_id != ""
+        assert dexseq_annotation_id != ""
+        # Get the history
+        sample_hist = gi.histories.get_hist_id("Samples")
+        assert sample_hist != -1
         # Get workflow id
         wf_id = get_workflow_id("sample_analysis")["id"]
-        # Retrieve all the samples
-        for dataset in gi.histories.show_matching_datasets(hist):
-            if not dataset['name'].endswith("sra"):
-                continue
-            # Extract the workflow name
-            sample_name = dataset['name'].split("/")[1].split(".")[0]
+        assert wf_id != -1
+        # Launch the workflow for each sample
+        for dataset in gi.histories.show_matching_datasets(sample_hist):
+            # Parse the dataset collection
+            # Extract the sample name (name in the dataset in the collection)
+            sample_name = "" 
+            # Create a new history for the sample
+            input_hist = gi.histories.create_history(sample_name)["id"]
             # Launch the workflow
+            inputs = {
+                'Reference Genome': {'id': ref_genome_id, 'src': 'hda'},
+                'Reference Annotation': {'id': ref_annotation_id, 'src': 'hda'},
+                'DEXSeq prepared annotation': {
+                    'id': dexseq_annotation_id,
+                    'src': 'hda'},
+                'Sample': {'id': dataset['id'], 'src': 'hda'}}
             gi.workflows.invoke_workflow(
                 wf_id,
-                inputs={'1': {'id': dataset['id'], 'src': 'hda'}},
-                history_name=sample_name)
+                inputs=inputs,
+                history_name=sample_id)            
 
 
 rule run_differential_analysis:
     '''
     Launch workflow to run the differential analysis
     '''
-    input:
-        "tmp/extract_sample_count_tables"
-    output:
-        temp("tmp/run_differential_analysis")
     run:
         # Get workflow id
         wf_id = get_workflow_id("differential_analysis")["id"]
