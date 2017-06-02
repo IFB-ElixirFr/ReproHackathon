@@ -12,6 +12,10 @@ tools:
   owner: 'iuc'
   tool_panel_section_label: 'Manipulation of files'
 
+- name: 'fastq_paired_end_deinterlacer'
+  owner: 'devteam'
+  tool_panel_section_label: 'Manipulation of files'
+  
 - name: 'fastqc'
   owner: 'devteam'
   tool_panel_section_label: 'Quality control'
