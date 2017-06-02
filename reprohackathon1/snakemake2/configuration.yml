@@ -1,0 +1,122 @@
+Chromosom : 
+#  - "chr1"
+#  - "chr2"
+#  - "chr3"
+#  - "chr4"
+#  - "chr5"
+#  - "chr6"
+#  - "chr7"
+#  - "chr8"
+#  - "chr9"
+#  - "chr10"
+#  - "chr11"
+#  - "chr12"
+#  - "chr13"
+#  - "chr14"
+#  - "chr15"
+#  - "chr16"
+#  - "chr17"
+#  - "chr18"
+#  - "chr19"
+  - "chr20"
+#  - "chr21"
+#  - "chr22"
+#  - "chrM"
+#  - "chrX"
+#  - "chrY"
+
+NCBI_id :
+  - SRR628582
+  - SRR628583
+  - SRR628584
+  - SRR628585
+  - SRR628586
+  - SRR628587
+  - SRR628588
+  - SRR628589
+
+Individual_conditions :
+  SRR628582 : SF3B1 
+  SRR628583 : SF3B1
+  SRR628584 : SF3B1
+  SRR628585 : WT
+  SRR628586 : WT
+  SRR628587 : WT
+  SRR628588 : WT
+  SRR628589 : WT
+
+Input : 
+  GTF : "tables.gtf"
+  Table : "tables_names.txt"
+
+Log :  
+  Repertory : Log/  
+  Extension : 
+    Out : .out
+    Err : .err
+
+GetGenome :
+  Repertory : GetGenome/
+  Extension : .fa.gz
+  Filename : genome
+  threads : 1
+  version : 1
+
+GetFastq :
+  Repertory : GetFastq/
+  Extension : .fastq.gz
+  threads : 1
+  version : 1
+
+CreateIndex:
+  Repertory : CreateIndex/
+  Extension : .ind
+  Filename : index 
+  threads : 1
+  version : 1
+
+PrepareAnnotations:
+  Repertory : PrepareAnnotations/
+  Extension : .gtf
+  Filename : PrepareAnnotations 
+  threads : 1
+  version : 1
+
+PrepareDEXSeqAnnotations:
+  Repertory : PrepareDEXSeqAnnotations/
+  Extension : .gtf
+  Filename : PrepareDEXSeqAnnotations 
+  threads : 1
+  version : 1
+
+MappingSTAR :
+  Repertory : MappingSTAR/
+  Extension : .bam
+  threads : 1
+  version : 1
+
+IndexBam :
+  Repertory : IndexBam/
+  Extension : .sorted.bam
+  samtools : /bin/samtools/
+  threads : 1
+  version : 1
+
+CountDEXSeq : 
+  Repertory : CountDEXSeq/
+  Extension : .counts
+  threads : 1
+  version : 1
+
+InsertConditions : 
+  Repertory : InsertConditions/
+  Extension : .counts
+  threads : 1
+  version : 1
+
+AnalysisDEXSeq : 
+  Repertory : AnalysisDEXSeq/
+  Extension : .spliced
+  Filename : AnalysisDEXSeq
+  threads : 1
+  version : 1

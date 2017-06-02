@@ -1,0 +1,47 @@
+__threads_MSTAR = config["MappingSTAR"]["threads"]
+__version_MSTAR = config["MappingSTAR"]["version"]
+__params_MSTAR_Index_Repertory = config["CreateIndex"]["Repertory"]
+__params_MSTAR_Bam_Repertory = config["MappingSTAR"]["Repertory"]
+#####
+
+rule MappingSTAR :
+  input :
+    fastq1 = __input_MSTAR_fastq1,
+    fastq2 = __input_MSTAR_fastq2,
+    index = __input_MSTAR_index
+
+  params :
+    index_repertory = __params_MSTAR_Index_Repertory,
+    ncbid_id = __params_MSTAR_NCBI_id,
+    bam_repertory = __params_MSTAR_Bam_Repertory
+
+  output :
+    bam = __output_MSTAR_bam
+
+  message :
+    "Mapping on {input.fastq1} {input.fastq2} with STAR"
+
+  threads :
+    __threads_MSTAR
+
+  version :
+    __version_MSTAR
+
+  log :
+    out = __stdout_MSTAR,
+    err = __stderr_MSTAR
+
+  shell :
+    "STAR --outSAMstrandField intronMotif \
+     --outFilterMismatchNmax 4 \
+     --outFilterMultimapNmax 10 \
+     --genomeDir {params.index_repertory} \
+     --readFilesIn <(gunzip -c {input.fastq1}) <(gunzip -c {input.fastq2}) \
+     --runThreadN 8  \
+     --outSAMunmapped None \
+     --outSAMtype BAM SortedByCoordinate \
+     --outStd BAM_SortedByCoordinate \
+     --genomeLoad NoSharedMemory \
+     --limitBAMsortRAM 3000000000 > {params.ncbid_id}.bam 2> {log.err};\
+samtools view -b -F 4 {params.ncbid_id}.bam > {params.bam_repertory}{params.ncbid_id}.bam;\
+rm {params.ncbid_id}.bam"

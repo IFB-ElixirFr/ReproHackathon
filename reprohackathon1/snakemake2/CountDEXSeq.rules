@@ -1,0 +1,28 @@
+__threads_CDEXS = config["CountDEXSeq"]["threads"]
+__version_CDEXS = config["CountDEXSeq"]["version"]
+
+#####
+
+rule CountDEXSeq :
+  input :
+    bam = __input_CDEXS_bam,
+    annotation = __input_CDEXS_annotation
+
+  output :
+    counts = __output_CDEXS_counts
+
+  message :
+    "Get counts from {input.bam} with DEXSeq"
+
+  threads :
+    __threads_CDEXS
+
+  version :
+    __version_CDEXS
+
+  log :
+    out = __stdout_CDEXS,
+    err = __stderr_CDEXS
+
+  shell :
+    "python /usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_count.py -p yes -r pos -s no -f bam {input.annotation} {input.bam} {output.counts}"
