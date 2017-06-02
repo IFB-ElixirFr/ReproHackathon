@@ -23,6 +23,7 @@ Galaxy infrastructure for the ReproHackathon1
 1. Prepare reference genomes
     1. Merge the chromosome sequences together
     2. Prepare the GTF with annotation to be used with DEXSeq
+2. Download the input data using the SRA ids
 2. Extract count tables for each sample (workflow)
     1. Transform SRA to FastQ 
     2. De-interlace the generated FastQ into 2 FastQ files with paired-end
@@ -64,13 +65,19 @@ Galaxy infrastructure for the ReproHackathon1
         $ snakemake --snakefile src/run_analysis.py prepare_ref_genome
         ```
 
-    2. Extract count tables for each sample
+    3. Download the input data using the SRA ids
+
+        ```
+        $ snakemake --snakefile src/run_analysis.py download_input_data
+        ```
+
+    2. Extract count tables for each sample (not tested)
 
         ```
         $ snakemake --snakefile src/run_analysis.py extract_sample_count_tables
         ```
 
-    3. Run the differential transcript analysis
+    3. Run the differential transcript analysis (not developed)
 
         ```
         $ snakemake --snakefile src/run_analysis.py run_differential_analysis
