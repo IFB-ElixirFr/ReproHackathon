@@ -1,9 +1,9 @@
 
 ## Participants :
 
-Mathieu VALADE
-Laurent BOURI
-Hugo PEREIRA
+- Mathieu VALADE
+- Laurent BOURI
+- Hugo PEREIRA
 
 ## Travail effectué
 
