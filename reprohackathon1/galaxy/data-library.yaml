@@ -7,7 +7,6 @@ libraries:
       files:
         - url: ftp://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/Homo_sapiens.GRCh37.75.gtf.gz
           name: "hg19-gtf"
-          file_type: "gtf"
     - name: "Patients with mutation"
       files:
         - url: http://appliances.france-bioinformatique.fr/reprohackathon/SRR628582.sra
