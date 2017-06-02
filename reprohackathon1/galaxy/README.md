@@ -18,7 +18,25 @@ Galaxy infrastructure for the ReproHackathon1
 > Because we've used an Ubuntu 14:04 . We have to modify /etc/default/docker file 
 > `DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4 --storage-driver=devicemapper"`
 
-# Automatic running
+# Analysis
+
+1. Prepare reference genomes
+    1. Merge the chromosome sequences together
+    2. Prepare the GTF with annotation to be used with DEXSeq
+2. Extract count tables for each sample (workflow)
+    1. Transform SRA to FastQ 
+    2. De-interlace the generated FastQ into 2 FastQ files with paired-end
+    3. Control the sequence quality of both paired-end files with FastQC
+    4. Trim the paired-end files with Trim Galore!
+    5. Map on the reference genome with STAR
+    6. Infer the library type
+        1. Extract 200,000 reads
+        2. Map on the reference genome with STAR
+        3. Infer the library type with `infer_experiment` with RSeQC
+    7. Count the with DEXSeq
+3. Run the differential transcript analysis
+
+# Automatic launch of the analysis
 
 ## Requirements
 
@@ -40,7 +58,20 @@ Galaxy infrastructure for the ReproHackathon1
     ```
 
 - Reproduce the analysis
+    1. Prepare the reference genomes
 
-    ```
-    $ snakemake --snakefile src/run_analysis.py
-    ```
+        ```
+        $ snakemake --snakefile src/run_analysis.py prepare_ref_genome
+        ```
+
+    2. Extract count tables for each sample
+
+        ```
+        $ snakemake --snakefile src/run_analysis.py extract_sample_count_tables
+        ```
+
+    3. Run the differential transcript analysis
+
+        ```
+        $ snakemake --snakefile src/run_analysis.py run_differential_analysis
+        ```
