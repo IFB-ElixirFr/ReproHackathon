@@ -124,7 +124,7 @@ wget http://appliances.france-bioinformatique.fr/reprohackathon/${sraid}.bam
 done
 ```
 
-### Countage
+### Comptages
 
 Pour DEXseq, il est demandé si la librarie est spécifique à un brin. Pour avoir cette information, on peut inférer cette information
 
