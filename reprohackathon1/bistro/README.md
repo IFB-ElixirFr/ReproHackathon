@@ -1,3 +1,26 @@
+* Développement
+
+Le pipeline proposé a été implémenté en utilisant la bibliothèque
+[bistro](https://github.com/pveber/bistro) écrite pour le langage
+[OCaml](http://ocaml.org/). Cette bibliothèque offre une
+représentation de haut-niveau pour les chaînes de traitement
+typiquement implémentées par un ensemble de scripts shell
+interdépendants. Une fois les différents outils déclarés, on peut les
+composer avec de simples appels de fonctions et obtenir sans autre
+effort un certain nombre de services :
+- distribution des calculs sur une machine
+- reprise sur erreur
+- vérification statique des formats de fichiers
+- pas de noms de fichiers à trouver aux cibles intermédiaires
+
+Un certain nombre d'outils nécessaires étaient déjà disponibles et
+d'autres ont été réalisé pendant le hackathon. Pour lancer le
+pipeline, on invoque :
+```
+utop pipeline.ml
+```
+
+
 * Déroulement
 
 ** Jour 1
