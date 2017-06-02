@@ -11,7 +11,7 @@ Ce dossier contient les résultats du ReproHackathon1
 
 ## Participants/Groupes :
 
-* bistro
+* [bistro](https://github.com/pveber/bistro) (OCaml library for distributed workflows)
   * Philippe Veber
 * galaxy
   * *Prénom Nom?*
