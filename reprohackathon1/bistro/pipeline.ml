@@ -14,6 +14,8 @@ let cat xs =
     ]
   ]
 
+let select p w = w / p
+
 module Ucsc_gb = struct
   include Ucsc_gb
 
@@ -46,9 +48,11 @@ module Star = struct
       ]
     ]
 
-  let map idx (fq1, fq2) : bam workflow =
+  let map idx (fq1, fq2) : [`STAR] directory workflow =
     workflow ~descr:"star.map" ~np:8 ~mem:(30 * 1024) [
-      cmd "STAR" ~stdout:dest ~env [
+      mkdir_p dest ;
+      cmd "STAR" ~stdout:(dest // "sorted.bam") ~env [
+        opt "--outFileNamePrefix" ident dest ;
         opt "--runThreadN" ident np ;
         opt "--outSAMstrandField" string "intronMotif" ;
         opt "--outFilterMismatchNmax" int 4 ;
@@ -62,12 +66,14 @@ module Star = struct
         opt "--limitBAMsortRAM" ident mem ;
       ]
     ]
+
+  let sorted_mapped_reads = selector ["sorted.bam"]
 end
 
 module DEXSeq = struct
   let env = docker_image ~account:"flemoine" ~name:"r-rnaseq" ()
 
-  let counts gff bam =
+  let counts gff (bam : bam workflow) =
     workflow ~descr:"dexseq.counts" [
       cmd "python" ~env [
         string "/usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_count.py" ;
@@ -297,6 +303,7 @@ let pipeline mode =
     fetch_sra id
     |> fastq_dump
     |> Star.map star_index
+    |> select Star.sorted_mapped_reads
     |> DEXSeq.counts gff
     |> mapped_counts id
   in
