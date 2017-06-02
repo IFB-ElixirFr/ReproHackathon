@@ -10,12 +10,9 @@ inputs:
     type: {type: array, items: string}
 
 outputs:
-  - id: fastq-reads1
-    type: {type: array, items: File}
-    outputSource: fastq-dump/fastqFile-read1
-  - id: fastq-reads2
-    type: {type: array, items: File}
-    outputSource: fastq-dump/fastqFile-read2
+  - id: fastqFile-reads
+    type: File
+    outputSource: fastq-dump/fastqFile-reads
 
 steps:
   - id: get_sra
