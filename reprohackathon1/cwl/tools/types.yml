@@ -1,0 +1,9 @@
+class: SchemaDefRequirement
+types:
+  - type: record
+    name: fastqPairedFiles
+    fields:
+      - name: read_1
+        type: File
+      - name: read_2
+        type: File
