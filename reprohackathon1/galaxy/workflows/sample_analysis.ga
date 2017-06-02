@@ -20,7 +20,7 @@
             "outputs": [], 
             "position": {
                 "left": 199.7301025390625, 
-                "top": 306.477294921875
+                "top": 306.4772644042969
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -46,7 +46,7 @@
             "outputs": [], 
             "position": {
                 "left": 933.9488525390625, 
-                "top": 1020.46875
+                "top": 1020.4687194824219
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -71,8 +71,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 926.9460144042969, 
-                "top": 1124.4886169433594
+                "left": 926.9176025390625, 
+                "top": 1124.4885864257812
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -97,7 +97,7 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 1421.3920059204102, 
+                "left": 1421.3920288085938, 
                 "top": 1278.60791015625
             }, 
             "tool_errors": null, 
@@ -146,7 +146,7 @@
             ], 
             "position": {
                 "left": 380.72442626953125, 
-                "top": 339.5170593261719
+                "top": 339.51702880859375
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -200,8 +200,8 @@
                 }
             ], 
             "position": {
-                "left": 691.7613525390625, 
-                "top": 493.5369338989258
+                "left": 691.761360168457, 
+                "top": 493.5369110107422
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -255,8 +255,8 @@
                 }
             ], 
             "position": {
-                "left": 915.5965881347656, 
-                "top": 272.4858093261719
+                "left": 915.5965805053711, 
+                "top": 272.48577880859375
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -310,8 +310,8 @@
                 }
             ], 
             "position": {
-                "left": 1021.960205078125, 
-                "top": 464.3323974609375
+                "left": 1021.9602203369141, 
+                "top": 464.3323669433594
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -389,8 +389,8 @@
                 }
             ], 
             "position": {
-                "left": 979.9715576171875, 
-                "top": 657.5
+                "left": 979.9715728759766, 
+                "top": 657.4999780654907
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -432,8 +432,8 @@
                 }
             ], 
             "position": {
-                "left": 1387.9118957519531, 
-                "top": 583.9346618652344
+                "left": 1387.9119262695312, 
+                "top": 583.9204330444336
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -475,8 +475,8 @@
                 }
             ], 
             "position": {
-                "left": 1365.8806476593018, 
-                "top": 657.9261360168457
+                "left": 1365.8806762695312, 
+                "top": 657.9261150360107
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -562,8 +562,8 @@
                 }
             ], 
             "position": {
-                "left": 1339.8863306045532, 
-                "top": 847.4431762695312
+                "left": 1389.8721313476562, 
+                "top": 913.4374694824219
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -587,6 +587,10 @@
             "input_connections": {
                 "refGenomeSource|genomeFastaFiles": {
                     "id": 1, 
+                    "output_name": "output"
+                }, 
+                "refGenomeSource|sjdbGTFfile": {
+                    "id": 2, 
                     "output_name": "output"
                 }, 
                 "singlePaired|input1": {
@@ -645,8 +649,8 @@
                 }
             ], 
             "position": {
-                "left": 1652.8976745605469, 
-                "top": 582.9403419494629
+                "left": 1652.897705078125, 
+                "top": 582.9403228759766
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -704,7 +708,7 @@
                 }
             ], 
             "position": {
-                "left": 1689.4175720214844, 
+                "left": 1689.4176025390625, 
                 "top": 1188.6221313476562
             }, 
             "post_job_actions": {}, 
@@ -756,7 +760,7 @@
             ], 
             "position": {
                 "left": 1988.3663940429688, 
-                "top": 893.90625
+                "top": 893.9062194824219
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -774,5 +778,5 @@
             "workflow_outputs": []
         }
     }, 
-    "uuid": "dfa7caa5-aa2a-4232-8c28-7baa097fe312"
+    "uuid": "6bf8c910-ced3-4b42-aae4-785836c2aa63"
 }
