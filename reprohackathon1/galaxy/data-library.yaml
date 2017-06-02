@@ -2,16 +2,16 @@ libraries:
     - name: "Reference genome"
       files:
         - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr20.fa.gz
-          name: "hg19-chr20"
+          file_type: "fasta"
     - name: "Annotation"
       files:
         - url: ftp://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/Homo_sapiens.GRCh37.75.gtf.gz
-          name: "hg19-gtf"
+          file_type: "gtf"
     - name: "Patients with mutation"
       files:
         - url: http://appliances.france-bioinformatique.fr/reprohackathon/SRR628582.sra
-          name: "SRR628582"
+          file_type: "sra"
     - name: "Patients without mutation"
       files:
         - url: http://appliances.france-bioinformatique.fr/reprohackathon/SRR628585.sra
-          name: "SRR628585"
+          file_type: "sra"
