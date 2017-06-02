@@ -29,9 +29,9 @@ Les inscriptions sont closes.
 
 ## Comité d'organisation
 
-* Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Sarah Cohen-Boulakia, Université Paris-Sud, Paris-Saclay, Orsay
 * Khalid Belhajjame, Université Paris-Dauphine, Paris
+* Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Alban Gaignard, CHU, Nantes
 * Konrad Hinsen, Centre de Biophysique Moléculaire, Orléans
 * Frédéric Lemoine, Institut Pasteur, Paris
