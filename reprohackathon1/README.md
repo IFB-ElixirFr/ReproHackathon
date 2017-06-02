@@ -116,6 +116,14 @@ STAR --outSAMstrandField intronMotif \
 done
 ```
 
+Si besoin les bam sont également disponibles ici:
+```bash
+for sraid in SRR628582 SRR628583 SRR628584 SRR628585 SRR628586 SRR628587 SRR628588 SRR628589
+do
+wget http://appliances.france-bioinformatique.fr/reprohackathon/${sraid}.bam
+done
+```
+
 ### Countage
 
 Pour DEXseq, il est demandé si la librarie est spécifique à un brin. Pour avoir cette information, on peut inférer cette information
