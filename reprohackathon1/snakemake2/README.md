@@ -1,5 +1,5 @@
 
-**Participants : **
+** Participants : **
 
 Mathieu VALADE
 Laurent BOURI
