@@ -28,4 +28,4 @@ rule InsertConditions :
     err = __stderr_IC
 
   shell :
-    "grep -v \"^_\" {input.counts} | awk '{print \"{params.condition}\\t{params.ncbi_id}\\t\" $0}' > {output.mapcounts}"
+    "grep -v \"^_\" {input.counts} | awk '{{print \"{params.condition}\\t{params.ncbi_id}\\t\" $0}}' > {output.mapcounts}"
