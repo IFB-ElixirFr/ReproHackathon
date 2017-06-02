@@ -2,9 +2,8 @@
 
 ## Lieu
 
-Le ReproHackathon se tiendra sur le campus CNRS de Gif-sur-Yvette, dans le bâtiment 34 en salle "Bibliothèque"
+Le ReproHackathon s'est tenu sur le campus CNRS de Gif-sur-Yvette, dans les bâtiments 34 et 21
 ([informations pratiques](http://www.france-bioinformatique.fr/fr/plan-daccès)).
-Vous pouvez également retrouver votre chemin en passant nous voir à nos bureaux au bâtiment 21.
 
 ## Jour 1, 1er Juin 2017
 
@@ -44,3 +43,7 @@ Analyse de données RNA-Seq issues de patients atteints de mélanome uvéal ([D�
 15h30 Bilan du ReproHackathon
 
 16h00 Fin du ReproHackathon
+
+*La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), par le groupe Psay CompBio de l'Université Paris-Saclay et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
+
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
