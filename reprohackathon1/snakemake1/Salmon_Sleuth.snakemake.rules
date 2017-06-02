@@ -45,7 +45,7 @@ rule salmon_index:
             config["OUTPUT_DIRECTORY"],
             config["INDEX_STEM"],
             "%s.bin" % f
-         ) for f in ["rds", "sa", "txpInfo"]],
+         ) for f in ["rsd", "sa", "txpInfo"]],
         [joins(
             config["OUTPUT_DIRECTORY"],
             config["INDEX_STEM"],
@@ -88,16 +88,17 @@ rule salmon_quant_single:
         sample = "{samples}",
         index = joins(config["OUTPUT_DIRECTORY"], config["INDEX_STEM"])
     output:
-        [joins("SAQuant_{samples}", f)
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", f)
          for f in ["quant.sf", "cmd_info.json", "lib_format_counts.json"]],
-        joins("SAQuant_{samples}", "lib_format_counts", "flenDist.txt"),
-        [joins("SAQuant_{samples}", "aux_info", f)
+        joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "lib_format_counts", "flenDist.txt"),
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "aux_info", f)
          for f in ["expected_bias.gz", "fld.gz",
                    "observed_bias.gz", "meta_info.json"]],
-        [joins("SAQuant_{samples}", "aux_info", "bootstrap", f)
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}",
+               "aux_info", "bootstrap", f)
          for f in ["bootstraps.gz", "names.tsv.gz"]],
-        temp(joins("SAQuant_{samples}", "logs", "salmon_quant.log")),
-        outdir = "SAQuant_{samples}"
+        temp(joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "logs", "salmon_quant.log")),
+        outdir = joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}")
     message:
         "Quantifying {input.sample}"
     threads:
@@ -137,18 +138,19 @@ rule salmon_quant_paired:
         downstream = "{downstream}",
         index = joins(config["OUTPUT_DIRECTORY"], config["INDEX_STEM"])
     output:
-        [joins("SAQuant_{upstream}_{downstream}", f)
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}", f)
          for f in ["quant.sf", "cmd_info.json", "lib_format_counts.json"]],
-        joins("SAQuant_{upstream}_{downstream}",
+        joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}",
               "lib_format_counts", "flenDist.txt"),
-        [joins("SAQuant_{upstream}_{downstream}", "aux_info", f)
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}", "aux_info", f)
          for f in ["expected_bias.gz", "fld.gz",
                    "observed_bias.gz", "meta_info.json"]],
-        [joins("SAQuant_{upstream}_{downstream}", "aux_info", "bootstrap", f)
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}", "aux_info", "bootstrap", f)
          for f in ["bootstraps.gz", "names.tsv.gz"]],
-        temp(joins("SAQuant_{upstream}_{downstream}",
+        temp(joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}",
                    "logs", "salmon_quant.log")),
-        outdir = "SAQuant_{upstream}_{downstream}"
+        outdir = joins(config["OUTPUT_DIRECTORY"],
+                       "SAQuant_{upstream}_{downstream}")
     message:
         "Quantifying {input.upstream} and {input.downstream}"
     threads:
@@ -158,11 +160,11 @@ rule salmon_quant_paired:
     log:
         out = joins(
             config["LOG_DIRECTORY"],
-            "{upstream}_{downstream}_salmon_quatification.err"
+            "{upstream}_{downstream}_salmon_quantification.err"
         ),
         err = joins(
             config["LOG_DIRECTORY"],
-            "{upstream}_{downstream}_salmon_quatification.err"
+            "{upstream}_{downstream}_salmon_quantification.err"
         )
     params:
         bootstrap = config["BOOTSTRAP"],
@@ -185,9 +187,10 @@ rule salmon_quant_paired:
 
 rule salmon_to_sleuth:
     input:
-        joins("SAQuant_{samples}", "quant.sf")
+        joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "quant.sf")
     output:
-        temp(joins("SAQuant_{samples}", "abundance.h5"))
+        temp(joins(config["OUTPUT_DIRECTORY"],
+                   "SAQuant_{samples}", "abundance.h5"))
     threads:
         1
     message:
@@ -205,7 +208,7 @@ rule transcript_to_gene_table:
     input:
         config["GTF"]
     output:
-        temp("t2g.tsv")
+        temp(joins(config["OUTPUT_DIRECTORY"], "t2g.tsv"))
     message:
         "Building the transcript to gene table from {input}"
     threads:
@@ -222,12 +225,12 @@ rule transcript_to_gene_table:
 rule sleuth:
     input:
         abundacies = [
-            "SAQuant_%s/abundance.h5" % (sample
-                                         if type(sample) == str
-                                         else "_".join(sample))
+            "%s/SAQuant_%s/abundance.h5" % (config["OUTPUT_DIRECTORY"],
+                                            (sample if type(sample) == str
+                                             else "_".join(sample)))
             for sample in config["SAMPLES"]
         ],
-        tr_gene = "t2g.tsv"
+        tr_gene = joins(config["OUTPUT_DIRECTORY"], "t2g.tsv")
     output:
         [joins(config["OUTPUT_DIRECTORY"], "sleuth%s" % f)
          for f in [".rds", "_transctipy_table.tsv", "_genes_table.tsv"]]
