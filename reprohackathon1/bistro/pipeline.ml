@@ -91,7 +91,7 @@ end
 module Kissplice = struct
   let env = docker_image ~account:"pveber" ~name:"kissplice" ~tag:"2.4.0" ()
 
-  let kissplice k fq1 fq2 : [`kissplice] directory workflow =
+  let kissplice k (fq1 : 'a fastq workflow) (fq2 : 'a fastq workflow) : [`kissplice] directory workflow =
     workflow ~descr:"kissplice" ~np:8 ~mem:(4 * 1024) [
       mkdir_p dest ;
       cmd "kissplice" ~env [
@@ -228,8 +228,9 @@ for(i in unique(dxr1[dxr1$padj<0.1,"groupID"])){
 
 let dexseq_script counts = seq ~sep:"\n" [
     string "#!/usr/bin/env Rscript" ;
-    seq ~sep:" " [ string "dest <-" ; dest ] ;
-    seq ~sep:" " [ string "count_file <-" ; dep counts ] ;
+    seq ~sep:" " [ string "dest <-" ; quote ~using:'"' dest ] ;
+    seq ~sep:" " [ string "count_file <-" ; quote ~using:'"' (dep counts) ] ;
+    string dexseq_script ;
   ]
 
 let dexseq counts =
