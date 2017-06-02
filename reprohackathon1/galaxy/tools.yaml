@@ -16,6 +16,10 @@ tools:
   owner: 'devteam'
   tool_panel_section_label: 'Manipulation of files'
 
+- name: 'suite_samtools_1_2'
+  owner: 'devteam'
+  tool_panel_section_label: 'Manipulation of files'
+
 - name: 'fastqc'
   owner: 'devteam'
   tool_panel_section_label: 'Quality control'
