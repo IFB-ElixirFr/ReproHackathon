@@ -15,6 +15,8 @@ Nous allons utiliser les environnements :
 
 Actuellement :
  * Snakefile - Complet
- * Docker - en cours
- * Tests - en cours
+ * Docker - Complet
  * Disponibilité - Docker disponible : edmri/reprohackathon2017
+ * Extraction des données - en cours
+ * Tests - en cours
+ * Résultats - indisponibles
