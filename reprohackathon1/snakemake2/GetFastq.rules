@@ -1,0 +1,34 @@
+__threads_GF = config["GetFastq"]["threads"]
+__version_GF = config["GetFastq"]["version"]
+__params_GF_Repertory = config["GetFastq"]["Repertory"]
+
+#####
+
+rule GetFastq : 
+  params :
+    id = __params_GF_NCBI_id,
+    repertory = __params_GF_Repertory
+  
+  output :
+    fastq_1 = __output_GF_Fastq1,
+    fastq_2 = __output_GF_Fastq2
+  
+  message :
+    "GetFastq with sra toolkit for {params.id} NCBI_id"
+  
+  threads :
+    __threads_GF
+  
+  version :
+    __version_GF
+  
+  log :
+    out = __stdout_GF,
+    err = __stderr_GF
+
+  shell :
+    "wget http://appliances.france-bioinformatique.fr/reprohackathon/{params.id}.sra 1> {log.out} 2> {log.err};\
+fastq-dump --gzip --split-files {params.id}.sra 1> {log.out} 2> {log.err}; \
+mv {params.id}_1.fastq.gz {params.repertory}{params.id}_1.fastq.gz 1> {log.out} 2> {log.err};\
+mv {params.id}_2.fastq.gz {params.repertory}{params.id}_2.fastq.gz 1> {log.out} 2> {log.err};\
+rm {params.id}.sra"

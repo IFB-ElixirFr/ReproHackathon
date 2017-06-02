@@ -1,0 +1,32 @@
+__params_PA_Repertory = config["PrepareAnnotations"]["Repertory"]
+__threads_PA = config["PrepareAnnotations"]["threads"]
+__version_PA = config["PrepareAnnotations"]["version"]
+
+#####
+
+rule PrepareAnnotations :
+  input :
+    gtf = __input_PA_GTF,
+    table = __input_PA_Table
+  
+  params :
+    repertory = __params_PA_Repertory
+
+  output :
+    annotation = __output_PA_Annotation
+
+  message :
+    "Preparing the file for annotation with previous files {input.gtf} & {input.table}"
+  
+  threads :
+    __threads_PA
+
+  version :
+    __version_PA
+
+  log :
+    out = __stdout_PA,
+    err = __stderr_PA
+  
+  shell :
+    "python {input.gtf} {input.table} "

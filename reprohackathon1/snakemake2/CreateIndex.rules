@@ -1,0 +1,41 @@
+__threads_CI = config["CreateIndex"]["threads"]
+__version_CI = config["CreateIndex"]["version"]
+__params_CI_Repertory = config["CreateIndex"]["Repertory"]
+__params_CI_Repertory_Ref = config["GetGenome"]["Repertory"]
+
+#####
+
+rule CreateIndex :
+  input :
+    genome = __input_CI_Genome
+  
+  params :
+    repertory = __params_CI_Repertory,
+    ref_repertory = __params_CI_Repertory_Ref
+    
+  output :
+    ChrL =__output_CI_ChrL,
+    ChrNL = __output_CI_ChrNL,
+    ChrN = __output_CI_ChrN,
+    ChrS = __output_CI_ChrS,
+    Genome = __output_CI_Genome,
+    GenomeP = __output_CI_GenomeP,
+    SA = __output_CI_SA,
+    SAi = __output_CI_SAi
+  
+  message :
+    "Creating index from {input.genome}"
+  threads :
+    __threads_CI
+
+  version :
+    __version_CI
+
+  log :
+    out = __stdout_CI,
+    err = __stderr_CI
+
+  shell :
+    "gunzip -c {params.ref_repertory}*.fa.gz > {params.ref_repertory}ref.fa 2> {log.err}; \
+STAR --runThreadN 10 --runMode genomeGenerate --genomeDir {params.repertory} --genomeFastaFiles {params.ref_repertory}ref.fa 1> {log.out} 2> {log.err};\
+rm {params.ref_repertory}ref.fa 1> {log.out} 2> {log.err}"

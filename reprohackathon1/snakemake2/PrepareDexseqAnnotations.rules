@@ -1,0 +1,31 @@
+__params_PDEXSA_Repertory = config["PrepareDEXSeqAnnotations"]["Repertory"]
+__threads_PDEXSA = config["PrepareDEXSeqAnnotations"]["threads"]
+__version_PDEXSA = config["PrepareDEXSeqAnnotations"]["version"]
+
+#####
+
+rule PrepareDEXSeqAnnotations :
+  input :
+    annotation = __input_PDEXSA_Annotation
+  
+  params :
+    repertory = __params_PDEXSA_Repertory
+
+  output :
+    annotation = __output_PDEXSA_Annotation
+
+  message :
+    "Preparing annotation for DEXSeq with {input.annotation}"
+  
+  threads :
+    __threads_PDEXSA
+
+  version :
+    __version_PDEXSA
+
+  log :
+    out = __stdout_PDEXSA,
+    err = __stderr_PDEXSA
+  
+  shell :
+    "python /usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_prepare_annotation.py ann.gtf annotations_DEXSeq.gtf "

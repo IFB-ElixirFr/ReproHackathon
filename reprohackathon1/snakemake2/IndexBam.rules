@@ -1,0 +1,24 @@
+__threads_IB = config["IndexBam"]["threads"]
+__params_IB_Samtools_dir = config["IndexBam"]["samtools"]
+
+#####
+
+rule IndexBam:
+  input:
+    bam = __input_IB_Bam
+
+  output:
+    sorted_bam = __output_IB_Sorted_Bam
+
+  log:
+    out = __stdout_IB,
+    err = __stderr_IB
+    
+  params:
+    samtools_bin_dir = __params_IB_Samtools_dir
+  
+  threads :
+    __threads_IB
+
+  shell:
+    "{params.samtools_bin_dir}/samtools index {input} {output} 2> {log.err} 1> {log.out}"

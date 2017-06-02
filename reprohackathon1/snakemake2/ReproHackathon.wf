@@ -1,0 +1,182 @@
+import os
+import sys
+
+###
+# Define Workflow
+###
+
+#### GetGenome
+# ~~ parameters depending on inputs
+__params_GG_Chromosom = "{chromosom}"
+
+# ~~ log
+__stdout_GG = config["Log"]["Repertory"] + config["GetGenome"]["Repertory"] + "{chromosom}" + config["Log"]["Extension"]["Out"]
+__stderr_GG = config["Log"]["Repertory"] + config["GetGenome"]["Repertory"] + "{chromosom}" + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_GG_Genome = config["GetGenome"]["Repertory"] + "{chromosom}" + config["GetGenome"]["Extension"]
+
+#### CreateIndex
+# ~~ input
+__input_CI_Genome = expand("{repertory}{filename}{extension}",
+                            repertory = config["GetGenome"]["Repertory"],
+                            filename = config["Chromosom"],
+                            extension = config["GetGenome"]["Extension"])
+
+# ~~ parameters depending on inputs
+
+# ~~ log
+__stdout_CI = config["Log"]["Repertory"] + config["CreateIndex"]["Repertory"] + config["CreateIndex"]["Filename"] + config["Log"]["Extension"]["Out"]
+__stderr_CI = config["Log"]["Repertory"] + config["CreateIndex"]["Repertory"] + config["CreateIndex"]["Filename"] + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_CI_ChrL = config["CreateIndex"]["Repertory"] + "chrLength.txt"
+__output_CI_ChrNL = config["CreateIndex"]["Repertory"] + "chrNameLength.txt"
+__output_CI_ChrN = config["CreateIndex"]["Repertory"] + "chrName.txt"
+__output_CI_ChrS = config["CreateIndex"]["Repertory"] + "chrStart.txt"
+__output_CI_Genome = config["CreateIndex"]["Repertory"] + "Genome"
+__output_CI_GenomeP = config["CreateIndex"]["Repertory"] + "genomeParameters.txt"
+__output_CI_SA = config["CreateIndex"]["Repertory"] + "SA"
+__output_CI_SAi= config["CreateIndex"]["Repertory"] + "SAindex"
+
+#### PrepareAnnotations
+# ~~ input 
+__input_PA_GTF =  config["Input"]["GTF"]
+__input_PA_Table = config["Input"]["Table"]
+
+# ~~ log
+__stdout_PA = config["Log"]["Repertory"] + config["PrepareAnnotations"]["Repertory"] + config["PrepareAnnotations"]["Filename"] + config["Log"]["Extension"]["Out"]
+__stderr_PA = config["Log"]["Repertory"] + config["PrepareAnnotations"]["Repertory"] + config["PrepareAnnotations"]["Filename"]  + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_PA_Annotation = config["PrepareAnnotations"]["Repertory"] + config["PrepareAnnotations"]["Filename"] + config["PrepareAnnotations"]["Extension"]
+
+#### PrepareDEXSeqAnnotations
+# ~~ input 
+__input_PDEXSA_Annotation =  __output_PA_Annotation
+
+# ~~ log
+__stdout_PDEXSA = config["Log"]["Repertory"] + config["PrepareDEXSeqAnnotations"]["Repertory"] + config["PrepareDEXSeqAnnotations"]["Filename"] + config["Log"]["Extension"]["Out"]
+__stderr_PDEXSA = config["Log"]["Repertory"] + config["PrepareDEXSeqAnnotations"]["Repertory"] + config["PrepareDEXSeqAnnotations"]["Filename"]  + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_PDEXSA_Annotation = config["PrepareDEXSeqAnnotations"]["Repertory"] + config["PrepareDEXSeqAnnotations"]["Filename"] + config["PrepareDEXSeqAnnotations"]["Extension"]
+
+#### GetFastq
+
+# ~~ parameters depending on inputs
+__params_GF_NCBI_id = "{ncbi_id}"
+
+# ~~ log
+__stdout_GF = config["Log"]["Repertory"] + config["GetFastq"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Out"]
+__stderr_GF = config["Log"]["Repertory"] + config["GetFastq"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_GF_Fastq1 = temp(config["GetFastq"]["Repertory"] + "{ncbi_id}" + "_1" + config["GetFastq"]["Extension"])
+__output_GF_Fastq2 = temp(config["GetFastq"]["Repertory"] + "{ncbi_id}" + "_2" + config["GetFastq"]["Extension"])
+
+#### MappingSTAR
+# ~~ input
+__input_MSTAR_fastq1 = __output_GF_Fastq1
+__input_MSTAR_fastq2 = __output_GF_Fastq2
+__input_MSTAR_index = __output_CI_SAi
+
+# ~~ parameters depending on inputs
+__params_MSTAR_NCBI_id = "{ncbi_id}"
+
+# ~~ log
+__stdout_MSTAR = config["Log"]["Repertory"] + config["MappingSTAR"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Out"]
+__stderr_MSTAR = config["Log"]["Repertory"] + config["MappingSTAR"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_MSTAR_bam = temp(config["MappingSTAR"]["Repertory"] + "{ncbi_id}" + config["MappingSTAR"]["Extension"])
+
+#### IndexBam
+# ~~ input
+__input_IB_Bam = __output_MSTAR_bam
+
+# ~~ log
+__stdout_IB = config["Log"]["Repertory"] + config["IndexBam"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Out"]
+__stderr_IB = config["Log"]["Repertory"] + config["IndexBam"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_IB_Sorted_Bam = temp(config["IndexBam"]["Repertory"] + "{ncbi_id}" + config["IndexBam"]["Extension"])
+
+#### CountDEXSeq
+# ~~ input
+__input_CDEXS_bam = __output_IB_Sorted_Bam
+__input_CDEXS_annotation = __output_PDEXSA_Annotation
+
+# ~~ parameters depending on inputs
+__params_ADEXS_conditions = config["Individual_conditions"]
+
+# ~~ log
+__stdout_CDEXS = config["Log"]["Repertory"] + config["CountDEXSeq"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Out"]
+__stderr_CDEXS = config["Log"]["Repertory"] + config["CountDEXSeq"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_CDEXS_counts = temp(config["CountDEXSeq"]["Repertory"] + "{ncbi_id}" + config["CountDEXSeq"]["Extension"])
+
+#### InsertConditions
+# ~~ input
+__input_IC_count = __output_CDEXS_counts
+
+# ~~ parameters depending on inputs
+__params_IC_Condition = lambda wildcard : config["Individual_conditions"][wildcard.ncbi_id]
+__params_IC_NCBI_id = "{ncbi_id}"
+
+# ~~ log
+__stdout_IC = config["Log"]["Repertory"] + config["InsertConditions"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Out"]
+__stderr_IC = config["Log"]["Repertory"] + config["InsertConditions"]["Repertory"] + "{ncbi_id}" + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_IC_mapcounts = temp(config["InsertConditions"]["Repertory"] + "{ncbi_id}" + config["InsertConditions"]["Extension"])
+
+
+#### AnalysisDEXSeq
+# ~~ input
+__input_ADEXS_counts = expand("{repertory}{filename}{extension}",
+                              repertory = config["InsertConditions"]["Repertory"],
+                              filename = config["NCBI_id"],
+                              extension = config["InsertConditions"]["Extension"])
+
+__input_ADEXS_Annotation = __output_PDEXSA_Annotation
+
+# ~~ log
+__stdout_ADESX = config["Log"]["Repertory"] + config["AnalysisDEXSeq"]["Repertory"] + config["AnalysisDEXSeq"]["Filename"] + config["Log"]["Extension"]["Out"]
+__stderr_ADESX = config["Log"]["Repertory"] + config["AnalysisDEXSeq"]["Repertory"] + config["AnalysisDEXSeq"]["Filename"] + config["Log"]["Extension"]["Err"]
+
+# ~~ output
+__output_ADESX_Exon =  config["AnalysisDEXSeq"]["Repertory"] + "Exon" + config["AnalysisDEXSeq"]["Extension"]
+__output_ADESX_Maplot =  config["AnalysisDEXSeq"]["Repertory"] + "MAplot" + config["AnalysisDEXSeq"]["Extension"]
+__output_ADESX_Dispersion =  config["AnalysisDEXSeq"]["Repertory"] + "Dispersion" + config["AnalysisDEXSeq"]["Extension"]
+__output_ADESX_Out_Png = config["AnalysisDEXSeq"]["Repertory"] + config["AnalysisDEXSeq"]["Filename"] + config["AnalysisDEXSeq"]["Extension"]
+
+####
+## Include Rules 
+####
+
+include : os.getcwd() + "/GetGenome.rules"
+include : os.getcwd() + "/CreateIndex.rules"
+include : os.getcwd() + "/PrepareAnnotations.rules"
+include : os.getcwd() + "/PrepareDexseqAnnotations.rules"
+include : os.getcwd() + "/GetFastq.rules"
+include : os.getcwd() + "/MappingSTAR.rules"
+include : os.getcwd() + "/IndexBam.rules"
+include : os.getcwd() + "/CountDEXSeq.rules"
+include : os.getcwd() + "/InsertConditions.rules"
+include : os.getcwd() + "/AnalysisDEXSeq.rules"
+
+####
+## Rule Target
+####
+
+rule targets :
+  input : 
+    __output_ADESX_Exon,
+    __output_ADESX_Maplot,
+    __output_ADESX_Dispersion,
+    __output_ADESX_Out_Png
+
+  message :
+    "All the workflow is done !!"
