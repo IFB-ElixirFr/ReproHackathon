@@ -325,6 +325,6 @@ let () =
   |> pipeline
   |> Bistro_repo.build
     ~np:8 ~mem:(30 * 1024)
-    ~keep_all:false
+    ~keep_all:true
     ~logger
     ~outdir:"res"
