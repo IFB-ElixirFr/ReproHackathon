@@ -52,7 +52,7 @@ module Star = struct
     workflow ~descr:"star.map" ~np:8 ~mem:(30 * 1024) [
       mkdir_p dest ;
       cmd "STAR" ~stdout:(dest // "sorted.bam") ~env [
-        opt "--outFileNamePrefix" ident dest ;
+        opt "--outFileNamePrefix" ident (dest // "star") ;
         opt "--runThreadN" ident np ;
         opt "--outSAMstrandField" string "intronMotif" ;
         opt "--outFilterMismatchNmax" int 4 ;
@@ -312,7 +312,6 @@ let pipeline mode =
   let dexseq = dexseq all_counts in
   Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
-    [ "test-fastq-dump" ] %> (fastq_dump_head_dir 1000 (fetch_sra "SRR628585")) ;
     [ "dexseq" ] %> dexseq ;
   ]
 
