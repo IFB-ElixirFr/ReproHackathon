@@ -17,5 +17,4 @@ Actuellement :
  * Snakefile - Complet
  * Docker - en cours
  * Tests - en cours
- * Disponibilité - aucune
-
+ * Disponibilité - Docker disponible : edmri/reprohackathon2017
