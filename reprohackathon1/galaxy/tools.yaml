@@ -20,6 +20,10 @@ tools:
   owner: 'devteam'
   tool_panel_section_label: 'Manipulation of files'
 
+- name: 'text_processing'
+  owner: 'bgruening'
+  tool_panel_section_label: 'Manipulation of files'
+
 - name: 'fastqc'
   owner: 'devteam'
   tool_panel_section_label: 'Quality control'
@@ -39,4 +43,5 @@ tools:
 - name: 'dexseq'
   owner: 'iuc'
   tool_panel_section_label: 'Differential analysis'
+
 
