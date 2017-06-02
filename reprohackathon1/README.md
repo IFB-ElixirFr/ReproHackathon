@@ -112,3 +112,20 @@ STAR --outSAMstrandField intronMotif \
      --limitBAMsortRAM 3000000000 > ${sraid}.bam
 done
 ```
+
+### Countage
+
+Pour DEXseq, il est demandé si la librarie est spécifique à un brin. Pour avoir cette information, on peut inférer cette information
+
+1. Mapper un échantillon des reads sur le génome de référence
+2. Inférer les statistiques du type de librairies avec `infer_experiment.py` de [RSeQC](http://rseqc.sourceforge.net/) à partir du reads pré-mappés et les annotations des gènes (fichier GTF)
+
+   Tableau de correspondance:
+
+   Sequencing type | **Infer Experiment** | **TopHat** | **HISAT2** | **htseq-count** | **featureCounts**
+   --- | --- | --- | --- | --- | ---
+   Paired-End (PE) | "1++,1--,2+-,2-+" | "FR Second Strand" | "Second Strand F/FR" | "yes" | "1"
+   PE | "1+-,1-+,2++,2--" | "FR First Strand" | "First Strand R/RF" | "reverse" | "2"
+   Single-End (SE) | "++,--" | "FR Second Strand" | "Second Strand F/FR" | "yes" | "1"
+   SE | "+-,-+" | "FR First Strand" | "First Strand R/RF" | "reverse" | "2"
+   SE,PE | undecided | "FR Unstranded" | default | "no" | "0"
