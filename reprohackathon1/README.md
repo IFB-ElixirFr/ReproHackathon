@@ -47,6 +47,10 @@ Ce dossier contient les résultats du ReproHackathon1
 * [Données à traiter](http://appliances.france-bioinformatique.fr/reprohackathon/)
 
 ## Quelques commandes utiles?
+### Fix Docker net host
+```bash
+iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+```
 ### Téléchargement fichiers
 ```bash
 for sraid in SRR628582 SRR628583 SRR628584 SRR628585 SRR628586 SRR628587 SRR628588 SRR628589
