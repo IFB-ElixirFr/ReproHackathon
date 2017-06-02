@@ -129,7 +129,7 @@ let fastq_dump_head_dir n sra =
     mkdir_p dest ;
     pipe [
       cmd ~env:sratoolkit_env "fastq-dump" [ string "-Z" ; dep sra ] ;
-      cmd "head" [ opt "-n" int (n * 4) ] ;
+      cmd "head" [ opt "-n" int (n * 4 * 2) ] ;
       cmd "gawk" [
         seq ~sep:"" [
           string  "'{ if ((NR - 1) % 8 < 4) print $0 > " ;
@@ -321,7 +321,7 @@ let logger =
     (Bistro_html_logger.create "report.html")
 
 let () =
-  mode ~chr:"chr20" ~reads:100_000 ()
+  mode ~chr:"chr20" ~reads:1_000_000 ()
   |> pipeline
   |> Bistro_repo.build
     ~np:8 ~mem:(30 * 1024)
