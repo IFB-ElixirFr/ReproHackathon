@@ -49,12 +49,19 @@ RUN cd /tmp && \
   && cd .. \
   && rm -rf samtools-*
 
-USER $NB_USER
 
 # jupyter related installs
 RUN pip install \
     'ipyparallel' \
-    && ipcluster nbextension enable
+    && ipcluster nbextension enable\
+    && chown -R $NB_USER /home/$NB_USER
+
+
+COPY libbz2-dev_1.0.6-7+b3_amd64.deb /tmp
+RUN dpkg -i /tmp/libbz2-dev_1.0.6-7+b3_amd64.deb \
+	&& pip2 install htseq
+
+USER $NB_USER
 
 #RUN cd $HOME \
 #    && wget -O - http://download.asperasoft.com/download/sw/connect/3.6.2/aspera-connect-3.6.2.117442-linux-64.tar.gz \

@@ -29,8 +29,11 @@ Then, connect to http://IP:8888
 
 ### TODO
 
-- [ ] Comptage
-- [ ] Test workflow après calcul des bam
+- [ ] Test workflow après calcul des comptages
+- [ ] Dockerfile clean (pas le -nonet)
+- [ ] Explications des différentes parties
+* [ ] Nettoyer script R final
+* [ ] Pythoniser certaines parties, échange des counts python -> R en mémoire
 
 ### Problèmes rencontrés
 
@@ -46,7 +49,9 @@ Avec Jupyter:
   méthode plus propre, i.e., subprocess)
 * parallélisation avec ipyparallel: l'environnement doit être envoyé
   manuellement aux différents nœuds + dépendances des module: pas très
-  transparent.
+  transparent ; il y a sûrement d'autres méthodes plus simples pour paralléliser (threads, joblib, ...).
+* pas de lancement de cellule en parallèle: il faut utilier des notebook
+  différents (par exemple pour annotation et genome).
 
 
 

@@ -11,6 +11,7 @@ USER root
 
 RUN apt-get update --fix-missing \
     && apt-get install -y \
+        libbz2-dev \
         zlib1g-dev
 
 # STAR
@@ -32,6 +33,8 @@ RUN \
     conda config --add channels bioconda && \
     conda install --quiet --yes  \
         bioconductor-dexseq \
+    && pip2 install \
+        'htseq' \
     && chmod +x /usr/local/lib/R/library/DEXSeq/python_scripts/* && \
     mkdir -p /opt/dexseq && ln -s /usr/local/lib/R/library/DEXSeq/python_scripts/ /opt/dexseq \
     && patch -i /tmp/dexseq.patch /usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_prepare_annotation.py
@@ -53,8 +56,6 @@ RUN conda install --quiet --yes \
     'ipyparallel' \
     && conda clean -tipsy \
     && ipcluster nbextension enable
-COPY start-with-ipcluster.sh /usr/local/bin
-CMD ["start-with-ipcluster.sh"]
 
 USER $NB_USER
 RUN cd $HOME \
