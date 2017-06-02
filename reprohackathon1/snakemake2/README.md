@@ -17,7 +17,7 @@ Il nécessite pour être éxécuter un fichier de configuration.yml comme prése
 
 La commande pour lancer le workflow :
 
-    snakemake -s /root/ReproHackathon/reprohackathon1/snakemake2/ReproHackathon.wf --configfile /root/ReproHackathon/reprohackathon1/snakemake2/configuration.yml -j 1 -k --printshellcmds
+    snakemake -s $PWD/ReproHackathon.wf --configfile $PWD/configuration.yml -j 1 -k --printshellcmds
     
 ** Option de la commande **
 - s : fichier snakefile pour éxécuter un workflow, ici comme le nom du fichier n'est pas Snakefile, il est nécessaire de l'indiquer et ainsi de lui donner le PATH absolu pour aucune erreur.
