@@ -5,23 +5,24 @@
 - Laurent BOURI
 - Hugo PEREIRA
 
-## Travail effectué
+## Travail effectué :
 
 Ecriture du workflow présenté en Snakemake.
 
-Le développement du workflow Snakemake a été réalisé en séparant les régèles de l'écriture de l'enchainement d'étapes.
+Le développement du workflow Snakemake a été réalisé en séparant les règles de l'écriture de l'enchainement d'étapes.
 
-Chaque règle peut être retrouvée dans un fichier .rules. Le workflow est présent dans le fichier ReproHackathon.wf.
+Chaque règle peut être retrouvée dans un fichier *.rules*. Le workflow est présent dans le fichier *ReproHackathon.wf*.
 
-Il nécessite pour être éxécuter un fichier de configuration.yml comme présent dans le dossier, et également des fichier tables.gtf et tables_names.txt pour l'éxécution de la règle PrepareAnnotation.rules.
+Il nécessite pour être éxécuter un fichier de *configuration.yml* comme présent dans le dossier, et également les fichier *tables.gtf* et *tables_names.txt* pour l'éxécution de la règle *PrepareAnnotation.rules*.
 
 La commande pour lancer le workflow :
 
     snakemake -s $PWD/ReproHackathon.wf --configfile $PWD/configuration.yml -j 1 -k --printshellcmds
     
-La commande est à éxécuter au sein du répertoire contenant tous les fichiers précdemment énoncé. (Intégralité des fichiers dans ce répertoire)
+La commande est **à éxécuter** au sein du répertoire contenant tous les fichiers précdemment énoncé. (Intégralité des fichiers dans ce répertoire)
     
-## Option de la commande
+## Option de la commande :
+
 - s : fichier snakefile pour éxécuter un workflow, ici comme le nom du fichier n'est pas Snakefile, il est nécessaire de l'indiquer et ainsi de lui donner le PATH absolu pour aucune erreur.
 - configfile : fichier de configuration essentiel au bon déroulement du workflow, à indiquer avec son PATH absolu.
 - j : nombre de job à lancer en meme temps. Ici 1 pour ne pas surchager la machine avec le multithreading de STAR.
