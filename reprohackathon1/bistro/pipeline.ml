@@ -238,7 +238,7 @@ let dexseq counts =
     mkdir_p dest ;
     and_list [
       cd dest ;
-      cmd "Rscript" [ file_dump (dexseq_script counts) ]
+      cmd "Rscript" ~env:DEXSeq.env [ file_dump (dexseq_script counts) ]
     ]
   ]
 
