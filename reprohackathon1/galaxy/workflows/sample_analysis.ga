@@ -19,8 +19,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 199.78692626953125, 
-                "top": 306.50567626953125
+                "left": 199.7301025390625, 
+                "top": 306.477294921875
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -45,8 +45,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 933.9488372802734, 
-                "top": 1020.4687080383301
+                "left": 933.9488525390625, 
+                "top": 1020.46875
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -71,8 +71,8 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 932.9545135498047, 
-                "top": 1117.4999542236328
+                "left": 926.9460144042969, 
+                "top": 1124.4886169433594
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -97,7 +97,7 @@
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 1421.42041015625, 
+                "left": 1421.3920059204102, 
                 "top": 1278.60791015625
             }, 
             "tool_errors": null, 
@@ -145,8 +145,8 @@
                 }
             ], 
             "position": {
-                "left": 380.88067626953125, 
-                "top": 339.51702880859375
+                "left": 380.72442626953125, 
+                "top": 339.5170593261719
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -200,8 +200,8 @@
                 }
             ], 
             "position": {
-                "left": 691.9033813476562, 
-                "top": 493.5368957519531
+                "left": 691.7613525390625, 
+                "top": 493.5369338989258
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -255,8 +255,8 @@
                 }
             ], 
             "position": {
-                "left": 915.7812194824219, 
-                "top": 272.48577880859375
+                "left": 915.5965881347656, 
+                "top": 272.4858093261719
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -310,8 +310,8 @@
                 }
             ], 
             "position": {
-                "left": 1021.9601941108704, 
-                "top": 464.4176025390625
+                "left": 1021.960205078125, 
+                "top": 464.3323974609375
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -390,7 +390,7 @@
             ], 
             "position": {
                 "left": 979.9715576171875, 
-                "top": 657.4999694824219
+                "top": 657.5
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -409,8 +409,94 @@
         }, 
         "9": {
             "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/2.5.2b-0", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/1.1.0", 
             "id": 9, 
+            "input_connections": {
+                "infile": {
+                    "id": 8, 
+                    "output_name": "trimmed_reads_pair1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Select first", 
+                    "name": "infile"
+                }
+            ], 
+            "label": null, 
+            "name": "Select first", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1387.9118957519531, 
+                "top": 583.9346618652344
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/1.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "20344ce0c811", 
+                "name": "text_processing", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"count\": \"\\\"800000\\\"\", \"__page__\": 0, \"complement\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "05fbb4e4-236f-43e6-bd37-307a3880d8a2", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/1.1.0", 
+            "id": 10, 
+            "input_connections": {
+                "infile": {
+                    "id": 8, 
+                    "output_name": "trimmed_reads_pair2"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Select first", 
+                    "name": "infile"
+                }
+            ], 
+            "label": null, 
+            "name": "Select first", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1365.8806476593018, 
+                "top": 657.9261360168457
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/1.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "20344ce0c811", 
+                "name": "text_processing", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"count\": \"\\\"800000\\\"\", \"__page__\": 0, \"complement\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "863a745b-f58c-46f5-9ff1-2adf4fce6d62", 
+            "workflow_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/2.5.2b-0", 
+            "id": 11, 
             "input_connections": {
                 "refGenomeSource|genomeFastaFiles": {
                     "id": 1, 
@@ -476,8 +562,8 @@
                 }
             ], 
             "position": {
-                "left": 1339.9289245605469, 
-                "top": 847.4431457519531
+                "left": 1339.8863306045532, 
+                "top": 847.4431762695312
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -494,13 +580,96 @@
             "uuid": "6ecc5958-d5b1-4567-a335-bbd3ac955f4f", 
             "workflow_outputs": []
         }, 
-        "10": {
+        "12": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/2.5.2b-0", 
+            "id": 12, 
+            "input_connections": {
+                "refGenomeSource|genomeFastaFiles": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "singlePaired|input1": {
+                    "id": 9, 
+                    "output_name": "outfile"
+                }, 
+                "singlePaired|input2": {
+                    "id": 10, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool RNA STAR", 
+                    "name": "refGenomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool RNA STAR", 
+                    "name": "refGenomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool RNA STAR", 
+                    "name": "singlePaired"
+                }, 
+                {
+                    "description": "runtime parameter for tool RNA STAR", 
+                    "name": "singlePaired"
+                }
+            ], 
+            "label": null, 
+            "name": "RNA STAR", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "chimeric_junctions", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "chimeric_reads", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "splice_junctions", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "mapped_reads", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "reads_per_gene", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1652.8976745605469, 
+                "top": 582.9403419494629
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/2.5.2b-0", 
+            "tool_shed_repository": {
+                "changeset_revision": "318b2a9d54dd", 
+                "name": "rgrnastar", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"singlePaired\": \"{\\\"input2\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"sPaired\\\": \\\"paired\\\", \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"output_params\": \"{\\\"__current_case__\\\": 1, \\\"output_select\\\": \\\"no\\\"}\", \"__rerun_remap_job_id__\": null, \"params\": \"{\\\"settingsType\\\": \\\"default\\\", \\\"__current_case__\\\": 0}\", \"refGenomeSource\": \"{\\\"sjdbOverhang\\\": \\\"100\\\", \\\"geneSource\\\": \\\"history\\\", \\\"genomeFastaFiles\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"sjdbGTFfile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"quantMode\": \"\\\"false\\\"\"}", 
+            "tool_version": "2.5.2b-0", 
+            "type": "tool", 
+            "uuid": "c07dfe78-46ce-49fc-b130-9329543badfd", 
+            "workflow_outputs": []
+        }, 
+        "13": {
             "annotation": "", 
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/dexseq/dexseq_count/1.0", 
-            "id": 10, 
+            "id": 13, 
             "input_connections": {
                 "mode|bamfile": {
-                    "id": 9, 
+                    "id": 11, 
                     "output_name": "mapped_reads"
                 }, 
                 "mode|flattened_gtf_in": {
@@ -535,8 +704,8 @@
                 }
             ], 
             "position": {
-                "left": 1689.4317626953125, 
-                "top": 1188.6221160888672
+                "left": 1689.4175720214844, 
+                "top": 1188.6221313476562
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -552,7 +721,58 @@
             "type": "tool", 
             "uuid": "862b2975-621e-451e-83ac-d2a3c3eb913c", 
             "workflow_outputs": []
+        }, 
+        "14": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_infer_experiment/2.4galaxy1", 
+            "id": 14, 
+            "input_connections": {
+                "input": {
+                    "id": 12, 
+                    "output_name": "chimeric_reads"
+                }, 
+                "refgene": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Infer Experiment", 
+                    "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool Infer Experiment", 
+                    "name": "refgene"
+                }
+            ], 
+            "label": null, 
+            "name": "Infer Experiment", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1988.3663940429688, 
+                "top": 893.90625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_infer_experiment/2.4galaxy1", 
+            "tool_shed_repository": {
+                "changeset_revision": "f242ee103277", 
+                "name": "rseqc", 
+                "owner": "nilesh", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"refgene\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"sample_size\": \"\\\"200000\\\"\", \"mapq\": \"\\\"30\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "2.4galaxy1", 
+            "type": "tool", 
+            "uuid": "ae4f07b5-05a6-4cdc-8b30-39949b893691", 
+            "workflow_outputs": []
         }
     }, 
-    "uuid": "60127ab1-ea54-4a06-8155-908b97f1f20d"
+    "uuid": "dfa7caa5-aa2a-4232-8c28-7baa097fe312"
 }
