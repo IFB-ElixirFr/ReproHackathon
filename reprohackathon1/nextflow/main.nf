@@ -9,16 +9,6 @@ rna_meta = extract_meta(tsv_file)
 params.genome = ""
 params.out = "~/data/results"
 out_dir = params.out
-// chrs_list = Channel.from("chr20")
-
-/*
- * 1. PRE-PROCESSING
- */
-
- /*
- * Download Data 
- */
-
 
 rna_meta = rna_meta.view {"$it"} // Verbose
 
@@ -95,7 +85,6 @@ process quant {
 
 //process sleuth {
 
-//	cache false
 //
 //	input:
 //
@@ -107,7 +96,17 @@ process quant {
 //	suppressMessages({
 //  		library("sleuth")
 //	})
-//		
+
+//	tx2gene <- function(){
+//	mart <- biomaRt::useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+//	t2g <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id",
+//            	"external_gene_name"), mart = mart)
+//	t2g <- dplyr::rename(t2g, target_id = ensembl_transcript_id,
+//                 	ens_gene = ensembl_gene_id, ext_gene = external_gene_name)
+//	return(t2g)
+//	}
+
+//	t2g <- tx2gene()	
 //	'''
 //}
 
