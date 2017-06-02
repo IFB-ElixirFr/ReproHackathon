@@ -15,7 +15,7 @@ Les participants pourront se regrouper en équipes et choisir :
 
 ## Première édition des ReproHackathons
 
-La première édition des ReproHackathons se déroulera les 1-2 juin 2017 à Gif-sur-Yvette ([Informations pratiques et programme](hackathon_1_programme.md)).
+La première édition des ReproHackathons s'est déroulée les 1-2 juin 2017 à Gif-sur-Yvette ([Informations pratiques et programme](hackathon_1_programme.md)).
 
 ### Cas d’utilisation
 
