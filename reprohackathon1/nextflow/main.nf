@@ -9,7 +9,7 @@ rna_meta = extract_meta(tsv_file)
 params.genome = ""
 params.out = "~/data/results"
 out_dir = params.out
-chrs_list = Channel.from("chr20")
+// chrs_list = Channel.from("chr20")
 
 /*
  * 1. PRE-PROCESSING
@@ -42,37 +42,76 @@ process downloadSRA {
 process fastqDump {
 
   input:
-    set sra_id, status, sra_file from sra_files
+    set sra_id, status, file(sra_file) from sra_files
 
   output:
-    set sra_id, status, file("${sra_id}_1.gz"), file("${sra_id}_2.gz") into fastq_files
+    set sra_id, status, file("${sra_id}_1.fastq.gz"), file("${sra_id}_2.fastq.gz") into fastq_files
 
   // when: step == 'preprocessing'
 
-  script:
+  shell:
   """
-  fastq-dump --gzip --split-files ./$sra_file
+  fastq-dump --gzip --split-files !{sra_file}
   """
 
 }
 
-
-process downloadRefGenome {
-
-  storeDir '/db/genome'
-  input:
-  val chr from chrs_list
-
+process downloadRefTrans {
+  
   output:
-  file "${chr}.fa" into ref_genome
+  file "transcripts.fa" into ref
 
-  script:
+  shell:
   '''
-  wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/!{chr}.fa.gz | gunzip -c
+  wget ftp://ftp.ensembl.org/pub/release-75/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh37.75.cdna.all.fa.gz
+  gunzip -c Homo_sapiens.GRCh37.75.cdna.all.fa.gz > transcripts.fa 
   '''
 }
 
+process kallIndex {
 
+    input:
+	file transcript_fa from ref	
+    output:
+	file "transcripts.idx" into idx_trans
+    shell:
+'''        
+    kallisto index -i transcripts.idx !{transcript_fa}
+'''
+}
+
+process quant {
+  input:
+      set sra_id, status, file(fastq1), file(fastq2) from fastq_files	
+      file(idx) from idx_trans
+  output:
+      file "output/*" into reads_quant
+  shell:
+'''
+      mkdir output
+      kallisto quant -i transcripts.idx -o "output" -b 100 !{sra_id}_1.fastq.gz !{sra_id}_2.fastq.gz
+'''
+}
+
+//process sleuth {
+
+//	cache false
+//
+//	input:
+//
+//	output:
+//
+//	shell:
+//	'''
+//	#!/usr/bin/env Rscript
+//	suppressMessages({
+//  		library("sleuth")
+//	})
+//		
+//	'''
+//}
+
+  
 def extract_meta(tsv_file) {
   // Reading samples metadata
   // Format is: "SRA_ID Status"
@@ -81,7 +120,7 @@ def extract_meta(tsv_file) {
     .map{line ->
       list = line.split()
       sra_id = list[0]
-      status    = list[1]
+      status = list[1]
 
       [ sra_id, status ]
     }
