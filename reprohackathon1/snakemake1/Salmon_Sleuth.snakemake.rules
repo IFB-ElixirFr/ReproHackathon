@@ -3,6 +3,10 @@
 This snakemake file handles the Salmon -> Wasabi -> Sleuth pipeline.
 Please refer to the joint yaml files to find some help.
 
+Authors : Maude Ardin, Emilie Drouineau, Jeremy Le Coz, Thibault Dayris
+IFB : Reprohackathon 2017
+06.02.2017
+
 """
 
 from os.path import sep
