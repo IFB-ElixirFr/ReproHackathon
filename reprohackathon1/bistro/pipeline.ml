@@ -88,6 +88,24 @@ module DEXSeq = struct
     ]
 end
 
+module Kissplice = struct
+  let env = docker_image ~account:"pveber" ~name:"kissplice" ~tag:"2.4.0" ()
+
+  let kissplice k fq1 fq2 : [`kissplice] directory workflow =
+    workflow ~descr:"kissplice" ~np:8 ~mem:(4 * 1024) [
+      mkdir_p dest ;
+      cmd "kissplice" ~env [
+        opt "-r" dep fq1 ;
+        opt "-r" dep fq2 ;
+        opt "-k" int k ;
+        opt "-o" ident dest ;
+        opt "-d" ident tmp ;
+        opt "-t" ident np ;
+        opt "--max-memory" ident mem ;
+      ]
+    ]
+end
+
 let sratoolkit_env =
   docker_image ~account:"pveber" ~name:"sra-toolkit" ~tag:"2.8.0" ()
 
