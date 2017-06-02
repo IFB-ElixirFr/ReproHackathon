@@ -51,6 +51,9 @@ Ce dossier contient les résultats du ReproHackathon1
 ```bash
 iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 ```
+### Get public IP
+```PUBLIC_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)```
+
 ### Téléchargement fichiers
 ```bash
 for sraid in SRR628582 SRR628583 SRR628584 SRR628585 SRR628586 SRR628587 SRR628588 SRR628589
