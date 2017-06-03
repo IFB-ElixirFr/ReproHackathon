@@ -73,6 +73,14 @@ end
 module DEXSeq = struct
   let env = docker_image ~account:"flemoine" ~name:"r-rnaseq" ()
 
+  let prepare_annotation gff =
+    workflow ~descr:"dexseq.prepare_annotation" [
+      cmd "dexseq_prepare_annotation" ~env [
+        dep gff ;
+        dest
+      ]
+    ]
+
   let counts gff (bam : bam workflow) =
     workflow ~descr:"dexseq.counts" [
       cmd "python" ~env [
@@ -323,7 +331,7 @@ let pipeline mode =
     |> fastq_dump
     |> Star.map star_index
     |> select Star.sorted_mapped_reads
-    |> DEXSeq.counts gff
+    |> DEXSeq.counts (DEXSeq.prepare_annotation gff)
     |> mapped_counts id
   in
   let samples = srr_samples_ids Mutated @ srr_samples_ids WT in
