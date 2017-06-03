@@ -76,7 +76,7 @@ module DEXSeq = struct
   let prepare_annotation gff =
     workflow ~descr:"dexseq.prepare_annotation" [
       cmd "python" ~env [
-        string "/usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_prepare_annotation" ;
+        string "/usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_prepare_annotation.py" ;
         dep gff ;
         dest ;
       ]
