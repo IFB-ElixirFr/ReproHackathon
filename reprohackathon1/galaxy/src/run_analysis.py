@@ -212,23 +212,49 @@ rule run_differential_analysis:
     '''
     run:
         # Get workflow id
-        wf_id = get_workflow_id("differential_analysis")["id"]
+        wf_id = get_workflow_id("differential_exon_analysis")["id"]
+        assert wf_id != -1
         inputs = {}
+        # Get the id for the dexseq annotation
+        ref_hist = gi.histories.get_hist_id("Reference genomes")
+        assert ref_hist != ''
+        dexseq_annotation_id = ""
+        for dataset in gi.histories.show_matching_datasets(ref_hist):
+            if dataset['name'].find("DEXSeq prepare") == -1:
+                dexseq_annotation_id = dataset["id"]
+        assert dexseq_annotation_id != ""
+        # Get the id for the dexseq annotation in the workflow
+        input_ids = gi.workflows.get_workflow_inputs(
+            wf_id,
+            "DEXSeq prepared annotation")
+        assert len(input_ids) == 1
+        dexseq_input_id = input_ids[0]
+        # Fil the inputs for the workflow
+        inputs[dexseq_input_id] =  {
+            'id': dexseq_annotation_id,
+            'src': 'hda'}
         # Retrieve the histories for every samples
         for hist in gi.histories.get_histories():
             if not hist['name'].startswith("SRR"):
                 continue
             sample_name = hist['name']
-            inputs.setdefault(sample_name, {})
+            # Get id in workflow
+            dexseq_input_id = input_ids[0]
+            input_ids = gi.workflows.get_workflow_inputs(
+                wf_id,
+                sample_name)
+            assert len(input_ids) == 1
+            input_id = input_ids[0]
             # Retrieve the count table in the history and add it as input for
             # the workflow
             for dataset in gi.histories.show_matching_datasets(hist["id"]):
                 if not dataset['name'].find("count") != 0:
                     continue
-                inputs[sample_name]['id'] = dataset['name']
-                inputs[sample_name]['src'] = 'hda'
+                inputs[input_id] =  {
+                    'id': dataset['id'],
+                    'src': 'hda'}
         # Launch the workflow
         gi.workflows.invoke_workflow(
             wf_id,
             inputs=inputs,
-            history_name="Differential analysis")
+            history_name="Differential exon analysis")
