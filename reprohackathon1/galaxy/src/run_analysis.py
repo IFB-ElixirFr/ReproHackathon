@@ -96,7 +96,6 @@ rule prepare_ref_genome:
             "mode|gtffile": []}
         for dataset in gi.histories.show_matching_datasets(hist):
             if dataset['name'].find("gtf") != -1:
-                print(dataset['name'])
                 datamap["mode|gtffile"].append(
                     {'src':'hda', 'id': dataset["id"]})
         # Prepare the GTF for DEXSeq
@@ -119,17 +118,20 @@ rule download_input_data:
         sample_ids += "\n".join(config["data"]["non_mutated_patients"])
         sample_id_file = gi.tools.paste_content(sample_ids, sample_hist)
         sample_id_file_id = sample_id_file['outputs'][0]['id']
-        print(sample_id_file_id)
         # Get the download sample workflow id
         wf_id = get_workflow_id("download_samples")
         assert wf_id != ''
+        # Get id of workflow input
+        input_ids = gi.workflows.get_workflow_inputs(wf_id, "Samples")
+        assert len(input_ids) == 1
+        input_id = input_ids[0]
         # Configure and launch the workflow
         inputs = {
-            'Samples': {'id': sample_id_file_id, 'src': 'hda'}}
+            input_id: {'id': sample_id_file_id, 'src': 'hda'}}
         gi.workflows.invoke_workflow(
             wf_id,
             inputs=inputs,
-            history_name=sample_hist)
+            history_id=sample_hist)
 
 
 rule extract_sample_count_tables:
