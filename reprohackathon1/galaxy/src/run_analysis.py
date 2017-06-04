@@ -162,6 +162,27 @@ rule extract_sample_count_tables:
         # Get workflow id
         wf_id = get_workflow_id("sample_analysis")["id"]
         assert wf_id != -1
+        # Get the input ids inside the workflow
+        input_ids = gi.workflows.get_workflow_inputs(
+            wf_id,
+            "Reference Genome")
+        assert len(input_ids) == 1
+        ref_genome_input_id = input_ids[0]
+        input_ids = gi.workflows.get_workflow_inputs(
+            wf_id,
+            "Reference Annotation")
+        assert len(input_ids) == 1
+        ref_annotation_input_id = input_ids[0]
+        input_ids = gi.workflows.get_workflow_inputs(
+            wf_id,
+            "DEXSeq prepared annotation")
+        assert len(input_ids) == 1
+        dexseq_input_id = input_ids[0]
+        input_ids = gi.workflows.get_workflow_inputs(
+            wf_id,
+            "Sample")
+        assert len(input_ids) == 1
+        sample_input_id = input_ids[0]
         # Launch the workflow for each sample
         for dataset in gi.histories.show_matching_datasets(sample_hist):
             # Parse the dataset collection
@@ -171,12 +192,14 @@ rule extract_sample_count_tables:
             input_hist = gi.histories.create_history(sample_name)["id"]
             # Launch the workflow
             inputs = {
-                'Reference Genome': {'id': ref_genome_id, 'src': 'hda'},
-                'Reference Annotation': {'id': ref_annotation_id, 'src': 'hda'},
-                'DEXSeq prepared annotation': {
+                ref_genome_input_id: {'id': ref_genome_id, 'src': 'hda'},
+                ref_annotation_input_id: {
+                    'id': ref_annotation_id,
+                    'src': 'hda'},
+                dexseq_input_id: {
                     'id': dexseq_annotation_id,
                     'src': 'hda'},
-                'Sample': {'id': dataset['id'], 'src': 'hda'}}
+                sample_input_id: {'id': dataset['id'], 'src': 'hda'}}
             gi.workflows.invoke_workflow(
                 wf_id,
                 inputs=inputs,
