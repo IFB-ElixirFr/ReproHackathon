@@ -252,7 +252,15 @@ let dexseq counts =
   ]
 
 
-let mapped_counts id counts =
+type condition =
+  | Mutated
+  | WT
+
+let string_of_condition = function
+  | Mutated -> "mut"
+  | WT -> "wt"
+
+let mapped_counts cond id counts =
   workflow ~descr:"mapped.counts" [
     pipe [
       cmd "grep" [
@@ -260,7 +268,7 @@ let mapped_counts id counts =
         dep counts ;
       ] ;
       cmd "awk" ~stdout:dest [
-        string (sprintf {|'{print "!{condition}\\t%s\\t" $0}'|} id) ;
+        string (sprintf {|'{print "%s\t%s\t" $0}'|} (string_of_condition cond) id) ;
       ]
     ]
   ]
@@ -269,9 +277,6 @@ let mapped_counts id counts =
 
 
 
-type condition =
-  | Mutated
-  | WT
 
 let srr_samples_ids = function
   | Mutated -> [
@@ -327,16 +332,16 @@ let pipeline mode =
     | `chromosome chr -> Ucsc_gb.chromosome_sequence org "chr20"
   in
   let star_index = Star.index genome in
-  let sample id =
+  let sample cond id =
     fetch_sra id
     |> fastq_dump
     |> Star.map star_index
     |> select Star.sorted_mapped_reads
     |> DEXSeq.counts (DEXSeq.prepare_annotation gff)
-    |> mapped_counts id
+    |> mapped_counts cond id
   in
-  let samples = srr_samples_ids Mutated @ srr_samples_ids WT in
-  let all_counts = cat (List.map samples ~f:sample) in
+  let counts cond = List.map (srr_samples_ids cond) ~f:(sample cond) in
+  let all_counts = cat (counts Mutated @ counts WT) in
   let dexseq = dexseq all_counts in
   Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
