@@ -1,4 +1,4 @@
-* Développement
+# Développement
 
 Le pipeline proposé a été implémenté en utilisant la bibliothèque
 [bistro](https://github.com/pveber/bistro) écrite pour le langage
@@ -21,9 +21,9 @@ utop pipeline.ml
 ```
 
 
-* Déroulement
+# Déroulement
 
-** Jour 1
+## Jour 1
 
 - implémentation du pipeline complet en collant au script nextflow
   fourni par Frédéric
@@ -36,7 +36,7 @@ utop pipeline.ml
   un seul chromosome et les n premières lectures des échantillons
 
 
-** Jour 2
+## Jour 2
 
 - le temps de calcul sur un seul chromosome est beaucoup plus long
   qu'attendu
@@ -45,3 +45,7 @@ utop pipeline.ml
   temps de calcul très longs
 - wrapping d'une méthode alternative de découverte de variants:
   kissplice
+
+## Epilogue
+
+- correction des wrappers qui n'avaient pu être testé pendant le hackathon
