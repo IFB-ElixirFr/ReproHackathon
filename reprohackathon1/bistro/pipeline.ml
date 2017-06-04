@@ -206,7 +206,7 @@ write.table(file=paste0(sample,".txt"),data.frame(row.names=row.names(widecount)
 }
 
 # Create DEXSeqDataSet
-dxd= DEXSeqDataSetFromHTSeq(countfiles,sampleData=sampleTable,design=~sample+exon+condition:exon,flattenedfile="!{annot}")
+dxd= DEXSeqDataSetFromHTSeq(countfiles,sampleData=sampleTable,design=~sample+exon+condition:exon,flattenedfile=annot)
 
 # Stat analysis
 dxd=estimateSizeFactors(dxd)
@@ -235,19 +235,23 @@ for(i in unique(dxr1[dxr1$padj<0.1,"groupID"])){
 }
 |rscript}
 
-let dexseq_script counts = seq ~sep:"\n" [
+let assign var path =
+  seq ~sep:" " [ string var ; string " <-" ; quote ~using:'"' path ]
+
+let dexseq_script counts annot = seq ~sep:"\n" [
     string "#!/usr/bin/env Rscript" ;
-    seq ~sep:" " [ string "dest <-" ; quote ~using:'"' dest ] ;
-    seq ~sep:" " [ string "count_file <-" ; quote ~using:'"' (dep counts) ] ;
+    assign "dest" dest ;
+    assign "count_file" (dep counts) ;
+    assign "annot <-" (dep annot) ;
     string dexseq_script ;
   ]
 
-let dexseq counts =
+let dexseq counts annot =
   workflow ~descr:"dexseq" [
     mkdir_p dest ;
     and_list [
       cd dest ;
-      cmd "Rscript" ~env:DEXSeq.env [ file_dump (dexseq_script counts) ]
+      cmd "Rscript" ~env:DEXSeq.env [ file_dump (dexseq_script counts annot) ]
     ]
   ]
 
@@ -332,12 +336,13 @@ let pipeline mode =
     | `chromosome chr -> Ucsc_gb.chromosome_sequence org "chr20"
   in
   let star_index = Star.index genome in
+  let annot = DEXSeq.prepare_annotation gff in
   let sample cond id =
     fetch_sra id
     |> fastq_dump
     |> Star.map star_index
     |> select Star.sorted_mapped_reads
-    |> DEXSeq.counts (DEXSeq.prepare_annotation gff)
+    |> DEXSeq.counts annot
     |> mapped_counts cond id
   in
   let counts cond = List.map (srr_samples_ids cond) ~f:(sample cond) in
@@ -345,7 +350,7 @@ let pipeline mode =
   let dexseq = dexseq all_counts in
   Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
-    [ "dexseq" ] %> dexseq ;
+    [ "dexseq" ] %> dexseq annot ;
   ]
 
 let logger =
