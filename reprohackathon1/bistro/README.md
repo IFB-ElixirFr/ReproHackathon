@@ -53,7 +53,7 @@ utop pipeline.ml
   erreur (`Error in plot.new() : figure margins too large`) que je
   n'ai pas réussi à corriger
 - les exons différentiellement exprimés sont au nombre de 56 pour une
-  FDR à 1%
+  FDR à 1%, correspondant à 37 gènes.
 ```
                  groupID featureID     stat       pvalue         padj
 100 chr20_ENSG00000101019-      E001 64.48148 9.744412e-16 2.211888e-10
