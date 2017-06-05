@@ -228,11 +228,11 @@ png("maplot_out.png")
 plotMA(dxr1,cex=0.8)
 dev.off()
 
-for(i in unique(dxr1[dxr1$padj<0.1,"groupID"])){
-  png(paste0(i,"_out.png"))
-  plotDEXSeq( dxr1,i,legend=TRUE,cex.axis=1.2,cex=1.3,lwd=2,norCounts=TRUE,splicing=TRUE,displayTranscripts=TRUE)
-  dev.off()
-}
+#for(i in unique(dxr1[dxr1$padj<0.1,"groupID"])){
+#  png(paste0(i,"_out.png"))
+#  plotDEXSeq( dxr1,i,legend=TRUE,cex.axis=1.2,cex=1.3,lwd=2,norCounts=TRUE,splicing=TRUE,displayTranscripts=TRUE)
+#  dev.off()
+#}
 |rscript}
 
 let assign var path =
@@ -242,17 +242,19 @@ let dexseq_script counts annot = seq ~sep:"\n" [
     string "#!/usr/bin/env Rscript" ;
     assign "dest" dest ;
     assign "count_file" (dep counts) ;
-    assign "annot <-" (dep annot) ;
+    assign "annot" (dep annot) ;
     string dexseq_script ;
   ]
 
 let dexseq counts annot =
   workflow ~descr:"dexseq" [
     mkdir_p dest ;
-    and_list [
-      cd dest ;
-      cmd "Rscript" ~env:DEXSeq.env [ file_dump (dexseq_script counts annot) ]
-    ]
+    docker DEXSeq.env (
+      and_list [
+        cd dest ;
+        cmd "Rscript" [ file_dump (dexseq_script counts annot) ]
+      ]
+    )
   ]
 
 
