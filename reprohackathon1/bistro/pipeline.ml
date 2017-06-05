@@ -73,6 +73,15 @@ end
 module DEXSeq = struct
   let env = docker_image ~account:"flemoine" ~name:"r-rnaseq" ()
 
+  let prepare_annotation gff =
+    workflow ~descr:"dexseq.prepare_annotation" [
+      cmd "python" ~env [
+        string "/usr/local/lib/R/library/DEXSeq/python_scripts/dexseq_prepare_annotation.py" ;
+        dep gff ;
+        dest ;
+      ]
+    ]
+
   let counts gff (bam : bam workflow) =
     workflow ~descr:"dexseq.counts" [
       cmd "python" ~env [
@@ -197,7 +206,7 @@ write.table(file=paste0(sample,".txt"),data.frame(row.names=row.names(widecount)
 }
 
 # Create DEXSeqDataSet
-dxd= DEXSeqDataSetFromHTSeq(countfiles,sampleData=sampleTable,design=~sample+exon+condition:exon,flattenedfile="!{annot}")
+dxd= DEXSeqDataSetFromHTSeq(countfiles,sampleData=sampleTable,design=~sample+exon+condition:exon,flattenedfile=annot)
 
 # Stat analysis
 dxd=estimateSizeFactors(dxd)
@@ -219,31 +228,45 @@ png("maplot_out.png")
 plotMA(dxr1,cex=0.8)
 dev.off()
 
-for(i in unique(dxr1[dxr1$padj<0.1,"groupID"])){
-  png(paste0(i,"_out.png"))
-  plotDEXSeq( dxr1,i,legend=TRUE,cex.axis=1.2,cex=1.3,lwd=2,norCounts=TRUE,splicing=TRUE,displayTranscripts=TRUE)
-  dev.off()
-}
+#for(i in unique(dxr1[dxr1$padj<0.1,"groupID"])){
+#  png(paste0(i,"_out.png"))
+#  plotDEXSeq( dxr1,i,legend=TRUE,cex.axis=1.2,cex=1.3,lwd=2,norCounts=TRUE,splicing=TRUE,displayTranscripts=TRUE)
+#  dev.off()
+#}
 |rscript}
 
-let dexseq_script counts = seq ~sep:"\n" [
+let assign var path =
+  seq ~sep:" " [ string var ; string " <-" ; quote ~using:'"' path ]
+
+let dexseq_script counts annot = seq ~sep:"\n" [
     string "#!/usr/bin/env Rscript" ;
-    seq ~sep:" " [ string "dest <-" ; quote ~using:'"' dest ] ;
-    seq ~sep:" " [ string "count_file <-" ; quote ~using:'"' (dep counts) ] ;
+    assign "dest" dest ;
+    assign "count_file" (dep counts) ;
+    assign "annot" (dep annot) ;
     string dexseq_script ;
   ]
 
-let dexseq counts =
+let dexseq counts annot =
   workflow ~descr:"dexseq" [
     mkdir_p dest ;
-    and_list [
-      cd dest ;
-      cmd "Rscript" ~env:DEXSeq.env [ file_dump (dexseq_script counts) ]
-    ]
+    docker DEXSeq.env (
+      and_list [
+        cd dest ;
+        cmd "Rscript" [ file_dump (dexseq_script counts annot) ]
+      ]
+    )
   ]
 
 
-let mapped_counts id counts =
+type condition =
+  | Mutated
+  | WT
+
+let string_of_condition = function
+  | Mutated -> "mut"
+  | WT -> "wt"
+
+let mapped_counts cond id counts =
   workflow ~descr:"mapped.counts" [
     pipe [
       cmd "grep" [
@@ -251,7 +274,7 @@ let mapped_counts id counts =
         dep counts ;
       ] ;
       cmd "awk" ~stdout:dest [
-        string (sprintf {|'{print "!{condition}\\t%s\\t" $0}'|} id) ;
+        string (sprintf {|'{print "%s\t%s\t" $0}'|} (string_of_condition cond) id) ;
       ]
     ]
   ]
@@ -260,9 +283,6 @@ let mapped_counts id counts =
 
 
 
-type condition =
-  | Mutated
-  | WT
 
 let srr_samples_ids = function
   | Mutated -> [
@@ -318,20 +338,21 @@ let pipeline mode =
     | `chromosome chr -> Ucsc_gb.chromosome_sequence org "chr20"
   in
   let star_index = Star.index genome in
-  let sample id =
+  let annot = DEXSeq.prepare_annotation gff in
+  let sample cond id =
     fetch_sra id
     |> fastq_dump
     |> Star.map star_index
     |> select Star.sorted_mapped_reads
-    |> DEXSeq.counts gff
-    |> mapped_counts id
+    |> DEXSeq.counts annot
+    |> mapped_counts cond id
   in
-  let samples = srr_samples_ids Mutated @ srr_samples_ids WT in
-  let all_counts = cat (List.map samples ~f:sample) in
+  let counts cond = List.map (srr_samples_ids cond) ~f:(sample cond) in
+  let all_counts = cat (counts Mutated @ counts WT) in
   let dexseq = dexseq all_counts in
   Bistro_repo.[
     [ "precious" ; "star_index" ] %> star_index ;
-    [ "dexseq" ] %> dexseq ;
+    [ "dexseq" ] %> dexseq annot ;
   ]
 
 let logger =
