@@ -10,7 +10,8 @@ requirements:
 inputs:
   sraids:
     type: {type: array, items: string}
-
+  chrs:
+    type: {type: array, items: string}
 outputs:
   fastqFile-reads:
     type: {type: array, items: types.yml#fastqPairedFiles}
@@ -41,4 +42,17 @@ steps:
     in:
       sraid: sraids
     out:
-      [fastqFile-reads]      
+      [fastqFile-reads]
+  - id: get_chrs
+    run: get_chr.cwl
+    in:
+      chr: chrs
+    scatter: get_chrs/chr
+    out:
+      [fastaFile]
+  - id: cat_chrs
+    run: cat_chrs.cwl
+    in:
+      fastaGzFiles: get_chrs/fastaFile
+    out:
+      [fastaFile]
