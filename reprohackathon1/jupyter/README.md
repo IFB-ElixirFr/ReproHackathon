@@ -19,7 +19,7 @@ docker run -d -p 8888:8888 reprohackaton1_jupyter start-notebook.sh --NotebookAp
 
 Binding a local directory as the working directory, allow sudo, no web password:
 ```
-docker run -d -p 8888:8888 --volume $PWD/nb:/nb -w /nb  -e GRANT_SUDO=yes reprohackaton1_jupyter start-notebook.sh --NotebookApp.token=''
+docker run -d -p 8888:8888 --volume $PWD:/nb -w /nb -u root -e GRANT_SUDO=yes reprohackaton1_jupyter start-notebook.sh --NotebookApp.token=''
 ```
 
 Then, connect to http://IP:8888
@@ -29,11 +29,10 @@ Then, connect to http://IP:8888
 
 ### TODO
 
-- [ ] Test workflow après calcul des comptages
-- [ ] Dockerfile clean (pas le -nonet)
+- [ ] Test workflow après analyse statistique
 - [ ] Explications des différentes parties
-* [ ] Nettoyer script R final
-* [ ] Pythoniser certaines parties, échange des counts python -> R en mémoire
+- [ ] Nettoyer script R final
+- [ ] Pythoniser certaines parties, échange des counts python -> R en mémoire
 
 ### Problèmes rencontrés
 
