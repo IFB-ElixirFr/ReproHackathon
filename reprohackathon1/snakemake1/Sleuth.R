@@ -13,14 +13,15 @@ args = matrix(c(
   'design', 'd', 1, 'character',
   'Comma separated list of conditions per sample',
 
-  'transcript_table', 't', 2, 'character'
+  'transcript_table', 't', 2, 'character',
   'Path to the trancript to gene table',
 
   'output', 'o', 2, 'character',
   'Path to output file'),
-  ncol = 4, byrow = TRUE);
+  ncol = 5, byrow = TRUE);
 
 opt <- getopt(args);
+print(opt);
 
 if (!is.null(opt$help)) {
   cat(getopt(args, usage=TRUE));
@@ -49,6 +50,7 @@ if (is.null(opt$transcript_table)) {
   so <- sleuth_prep(s2c, ~ condition);
 } else {
   t2g <- read.table(as.character(opt$transcript_table));
+  colnames(t2g) <- c("target_id", "ens_gene", "ext_gene");
   so <- sleuth_prep(s2c, ~ condition, target_mapping=t2g);
 }
 print("3 Data Prepared");
