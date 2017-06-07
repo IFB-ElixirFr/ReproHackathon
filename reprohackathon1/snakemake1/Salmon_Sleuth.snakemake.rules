@@ -196,13 +196,10 @@ rule salmon_to_sleuth:
     message:
         "Converting {input} from Salmon to Kallisto format"
     log:
-        joins(config["LOG_DIRECTORY"], "wasabi_{samples}.out")
-    run:
-        R("""
-        sink({log});
-        library("wasabi");
-        prepare_fish_for_sleuth({input});
-        """)
+        out = joins(config["LOG_DIRECTORY"], "wasabi_{samples}.out"),
+	err = joins(config["LOG_DIRECTORY"], "wasabi_{samples}.err")
+    shell:
+        'R --vanilla -e \'library("wasabi"); prepare_fish_for_sleuth(dirname("{input}"));\' > {log.out} 2> {log.err}'
 
 rule transcript_to_gene_table:
     input:
@@ -216,15 +213,13 @@ rule transcript_to_gene_table:
     log:
         joins(config["LOG_DIRECTORY"], "t2g.err")
     shell:
-        'grep -oP "gene_id \"[\w+\.]+\"; .*transcript_id \"[\w+\.]+\";'
-        ' .*gene_name \"[A-Za-z0-9\/\_\.\-]+\";" {input} |'
-        ' grep -oP "(gene_id \"[\w+\.]+\"|transcript_id '
-        '\"[\w+\.]+\"|gene_name \"[A-Za-z0-9\/\_\.\-]+\")" '
-        '| cut -d\'"\' -f2 | paste - - - | sort | uniq > {output} 2> {log}'
+        'grep -oP "gene_id \\\"[\w+\.]+\\\"; .*transcript_id \\\"[\w+\.]+\\\"; .*gene_name \\\"[A-Za-z0-9\/\_\.\-]+\\\";" {input} |'
+        ' grep -oP "(gene_id \\\"[\w+\.]+\\\"|transcript_id \\\"[\w+\.]+\\\"|gene_name \\\"[A-Za-z0-9\/\_\.\-]+\\\")" |'
+	' cut -d\'"\' -f2 | paste - - - | sort | uniq > {output} 2> {log}'
 
 rule sleuth:
     input:
-        abundacies = [
+        abundancies = [
             "%s/SAQuant_%s/abundance.h5" % (config["OUTPUT_DIRECTORY"],
                                             (sample if type(sample) == str
                                              else "_".join(sample)))
@@ -244,9 +239,9 @@ rule sleuth:
     params:
         conditions = ",".join(config["CONDITIONS"]),
         samples = ",".join([
-            "SAQuant_%s/abundance.h5" % (sample
+            "%s/SAQuant_%s/abundance.h5" % (config["OUTPUT_DIRECTORY"], (sample
                                          if type(sample) == str
-                                         else "_".join(sample))
+                                         else "_".join(sample)))
             for sample in config["SAMPLES"]
         ])
     shell:
@@ -254,6 +249,6 @@ rule sleuth:
         "-q {params.samples} "  # Path to abundancies
         "-d {params.conditions} "  # Expresmental design
         "-t {input.tr_gene} "  # Path to transcript to gene table
-        "-o sleuth"  # Output stem name
-        "> {log.out}"  # Stdout
-        "2> {log.err}"  # Stderr
+        "-o sleuth "  # Output stem name
+        "> {log.out} "  # Stdout
+        "2> {log.err} "  # Stderr
