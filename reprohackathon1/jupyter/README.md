@@ -2,6 +2,11 @@
 
 Author: Loïc Paulevé - http://loicpauleve.name
 
+###
+
+Visualize resulting notebook:
+http://nbviewer.jupyter.org/github/IFB-ElixirFr/ReproHackathon/blob/jupyter/reprohackathon1/jupyter/Reprohackaton.ipynb
+
 ## Usage
 
 ### Build Docker image
@@ -29,7 +34,6 @@ Then, connect to http://IP:8888
 
 ### TODO
 
-- [ ] Test workflow après analyse statistique
 - [ ] Explications des différentes parties
 - [ ] Nettoyer script R final
 - [ ] Pythoniser certaines parties, échange des counts python -> R en mémoire
