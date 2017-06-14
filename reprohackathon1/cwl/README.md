@@ -1,7 +1,7 @@
 This directory contains the Common Workflow Language implementation of the RNA-seq workflow
 
 # Workflow overview:
-![RNA-Seq workflow overview](https://view.commonwl.org/workflows/59307130857aba00019ff192/graph/png)
+![RNA-Seq workflow overview](https://view.commonwl.org/workflows/593ff305857aba000193844b/graph/png)
 
 # Installation of cwlref-runner:
 
