@@ -1,0 +1,9 @@
+libraries:
+    - name: "Reference genome"
+      files:
+        - url: http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr20.fa.gz
+          file_type: "fasta"
+    - name: "Annotation"
+      files:
+        - url: ftp://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/Homo_sapiens.GRCh37.75.gtf.gz
+          file_type: "gtf"

@@ -1,0 +1,318 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "differential_exon_analysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "DEXSeq prepared annotation", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 259, 
+                "top": 145
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "a6a2b5be-37ab-4ea4-9888-eb5e0381ffaa", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628582", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 260, 
+                "top": 256
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "c6d03483-ec49-4cfb-95b7-20f739e7abb2", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628583", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 258, 
+                "top": 322
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ce44c804-0333-440f-9fe7-9dd777a4232d", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628584", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 259, 
+                "top": 393
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "536d0d15-b2f5-4720-bd57-b9003ae3d3e7", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628585", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 261, 
+                "top": 462
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "be87122c-d2a8-4685-a5c4-6daa7c2df701", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628586", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 261, 
+                "top": 531
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "b82d1060-d07a-4f4e-82b9-512e34ae6033", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628587", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 261, 
+                "top": 607
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "90aa252d-840a-4340-9ff4-c635e5b62c0e", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628588", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 263, 
+                "top": 675
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "4c9670a3-aed3-4e3a-8b7a-61d4598087b1", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "SRR628589", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 260, 
+                "top": 743
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "77ff8a3b-2838-4383-9003-fd8f662c0be5", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/dexseq/dexseq/1.20.1", 
+            "errors": null, 
+            "id": 9, 
+            "input_connections": {
+                "gtf": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "rep_factorName_0|countFiles1": [
+                    {
+                        "id": 1, 
+                        "output_name": "output"
+                    }, 
+                    {
+                        "id": 2, 
+                        "output_name": "output"
+                    }, 
+                    {
+                        "id": 3, 
+                        "output_name": "output"
+                    }
+                ], 
+                "rep_factorName_0|countFiles2": [
+                    {
+                        "id": 4, 
+                        "output_name": "output"
+                    }, 
+                    {
+                        "id": 5, 
+                        "output_name": "output"
+                    }, 
+                    {
+                        "id": 6, 
+                        "output_name": "output"
+                    }, 
+                    {
+                        "id": 7, 
+                        "output_name": "output"
+                    }, 
+                    {
+                        "id": 8, 
+                        "output_name": "output"
+                    }
+                ]
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool DEXSeq", 
+                    "name": "gtf"
+                }
+            ], 
+            "label": null, 
+            "name": "DEXSeq", 
+            "outputs": [
+                {
+                    "name": "dexseq_out", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "htmlreport", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 557, 
+                "top": 355
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/dexseq/dexseq/1.20.1", 
+            "tool_shed_repository": {
+                "changeset_revision": "f1c406f9554c", 
+                "name": "dexseq", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"fdr_cutoff\": \"\\\"0.05\\\"\", \"gtf\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"rep_factorName\": \"[{\\\"factorName\\\": \\\"condition\\\", \\\"countFiles1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"factorLevel2\\\": \\\"non_mutated\\\", \\\"factorLevel1\\\": \\\"mutated\\\", \\\"countFiles2\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__index__\\\": 0}]\", \"report\": \"\\\"true\\\"\"}", 
+            "tool_version": "1.20.1", 
+            "type": "tool", 
+            "uuid": "61799b49-290f-444a-8277-6286bc4189f8", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "Filter1", 
+            "errors": null, 
+            "id": 10, 
+            "input_connections": {
+                "input": {
+                    "id": 9, 
+                    "output_name": "dexseq_out"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 879, 
+                "top": 354
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "Filter1", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"header_lines\": \"\\\"0\\\"\", \"cond\": \"\\\"c8<=0.05\\\"\", \"__page__\": null}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "5ef67fe6-79a0-4156-9e4c-6f5901ab437c", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "8d7620c7-4a28-417b-89fb-8fa53d5a9e01"
+}
