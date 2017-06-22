@@ -1,0 +1,72 @@
+# Perform (or not) bias correction : true / false
+BIAS_CORRECT: true
+
+# Number of boostrap during the quantification setp. (default: 100)
+# The higher, the better.
+BOOTSTRAP: 100
+
+# Conditions, one per pair of sample. If multiple sample belong
+# to the same condition, please repeat the condition
+# as many time as needed.
+CONDITIONS:
+- SF3B1
+- SF3B1
+- SF3B1
+- WT
+- WT
+- WT
+- WT
+- WT
+
+# Does the annotation come from gene code ? true / false
+GENCODE: true
+
+# Path to the gtf file
+GTF: genes.gtf
+
+# Stem name of the index
+INDEX_STEM: index
+
+# The kmer size used in indexing step. Modify only if you know
+# what you're doing
+KMER_SIZE: 31
+
+# The library used while sequencing. Please refer to
+# Salmon help page to have more information
+LIBRARY: ISR
+
+# Path to the log directory
+LOG_DIRECTORY: Reprohackathon_Logs
+
+# Path to the output directory
+OUTPUT_DIRECTORY: Reprohackathon_Results
+
+# Name of the samples. Please notice that paired-end reads
+# are decribed as follow. Refer to the "single-end" yaml
+# if you plan to work with songle end reads.
+SAMPLES:
+- - SRR628582_1.fastq.gz
+  - SRR628582_2.fastq.gz
+- - SRR628583_1.fastq.gz
+  - SRR628583_2.fastq.gz
+- - SRR628584_1.fastq.gz
+  - SRR628584_2.fastq.gz
+- - SRR628585_1.fastq.gz
+  - SRR628585_2.fastq.gz
+- - SRR628586_1.fastq.gz
+  - SRR628586_2.fastq.gz
+- - SRR628587_1.fastq.gz
+  - SRR628587_2.fastq.gz
+- - SRR628588_1.fastq.gz
+  - SRR628588_2.fastq.gz
+- - SRR628589_1.fastq.gz
+  - SRR628589_2.fastq.gz
+
+# Maximum number of threads used
+# Please note that more than 8 or 10 cores are not
+# necessary, yet still possible.
+# For quantification step, 10 cores will be used at max.
+THREADS: 8
+
+# Path to the transcritome file
+TRANSCRIPTOME_FASTA: chr20.fa
