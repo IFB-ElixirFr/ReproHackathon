@@ -340,7 +340,8 @@ inputs:
       string: feature type in GTF file to be used as exons for building
       transcripts
   genomeDir:
-    type: Directory
+    #type: Directory
+    type: string
     inputBinding:
       position: 1
       prefix: --genomeDir
