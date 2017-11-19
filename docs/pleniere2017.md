@@ -29,6 +29,6 @@ La journée comportera une session dédiée à la présentation du [premier Repr
 
 16h30 : Clôture de la journée
 
-*La journée ReproVirtuFlow 2017 est soutenue par le [GDR MaDICS](https://www.madics.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
+*La journée ReproVirtuFlow 2017 est soutenue par le [GDR MaDICS](https://www.madics.fr), par le groupe Psay CompBio de l'Université Paris-Saclay et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
