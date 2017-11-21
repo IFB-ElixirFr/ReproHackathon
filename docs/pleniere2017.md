@@ -10,24 +10,24 @@ La journée comportera une session dédiée à la présentation du [premier Repr
 
 * 9h30 : Café de Bienvenue 
 
-* 10h00 : Sarah Cohen-Boulakia : Présentation de l’Action et Bilan 
+* 10h00 : Sarah Cohen-Boulakia : Présentation de l’Action et Bilan.
 
 * 10h30 : Retour sur le ReproHackathon
-  * Frédéric Lemoine : Présentation du pipeline d’analyse et des données, tâches à effectuer par les participants
-  * Christophe Blanchet : Le Cloud de l’IFB comme environnement du ReproHackathon, les différentes équipes participantes
-  * Philippe Veber : Reproduction de l’analyse RNA-seq avec bistro, une bibliothèque OCaml pour le développement de pipelines bioinformatiques https://github.com/IFB-ElixirFr/ReproHackathon/tree/master/reprohackathon1/bistro
+  * Frédéric Lemoine : Présentation du pipeline d’analyse et des données, tâches à effectuer par les participants et synthèse des résultats obtenus.
+  * Christophe Blanchet : Le Cloud de l’IFB comme support du ReproHackathon, et les environnements virtuels mis à disposition.
+  * Philippe Veber : Reproduction de l’analyse RNA-seq avec [bistro](https://github.com/IFB-ElixirFr/ReproHackathon/tree/master/reprohackathon1/bistro), une bibliothèque OCaml pour le développement de pipelines bioinformatiques.
 
 * 12h00 : Repas
 
 * 13h30 : Approches émergentes
-  * Christophe Pradal : La reproductibilité des expériences en phénotypage haut-débit des plantes
-  * Konrad Hinsen : La reproductibilité des calculs numériques en HPC : problèmes et solutions existantes
-  * Alban Gaignard : Harmonisation de traces de provenance (ESWC workshop) exposé/démo  (sur un scénario WF multi-engine galaxy/taverna)
+  * Christophe Pradal : La reproductibilité des expériences en phénotypage haut-débit des plantes.
+  * Konrad Hinsen : La reproductibilité des calculs numériques en HPC : problèmes et solutions existantes.
+  * Alban Gaignard : Harmonisation de traces de provenance (ESWC workshop).
 
 * 15h00 : Pause
 
 * 15h30 : Discussion
-  *  S. Cohen-Boulakia, C. Blanchet : présentation des futures actions du groupe, appel à participation
+  *  S. Cohen-Boulakia, C. Blanchet : présentation des futures actions du groupe, appel à participation.
 
 * 16h30 : Clôture de la journée
 
