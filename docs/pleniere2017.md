@@ -10,24 +10,26 @@ La journée comportera une session dédiée à la présentation du [premier Repr
 
 * 9h30 : Café de Bienvenue 
 
-* 9h45 : Sarah Cohen-Boulakia : Présentation de l’Action et Bilan 
+* 10h00 : Sarah Cohen-Boulakia : Présentation de l’Action et Bilan 
 
-* 10h-12h30 : Retour sur le ReproHackathon
+* 10h30 : Retour sur le ReproHackathon
   * Frédéric Lemoine : Présentation du pipeline d’analyse et des données, tâches à effectuer par les participants
   * Christophe Blanchet : Le Cloud de l’IFB comme environnement du ReproHackathon, les différentes équipes participantes
   * Philippe Veber : Reproduction de l’analyse RNA-seq avec bistro, une bibliothèque OCaml pour le développement de pipelines bioinformatiques https://github.com/IFB-ElixirFr/ReproHackathon/tree/master/reprohackathon1/bistro
 
-* 12h30-13h30 : Repas
+* 12h00 : Repas
 
-* 13h30-16h00 : Approches émergentes
+* 13h30 : Approches émergentes
   * Christophe Pradal : La reproductibilité des expériences en phénotypage haut-débit des plantes
   * Konrad Hinsen : La reproductibilité des calculs numériques en HPC : problèmes et solutions existantes
   * Alban Gaignard : Harmonisation de traces de provenance (ESWC workshop) exposé/démo  (sur un scénario WF multi-engine galaxy/taverna)
 
-* 16h-16h30
-  *  S.Cohen-Boulakia, Ch. Blanchet : Discussion et présentation des futures actions du groupe, appel à participation
+* 15h00 : Pause
 
-16h30 : Clôture de la journée
+* 15h30 : Discussion
+  *  S. Cohen-Boulakia, C. Blanchet : présentation des futures actions du groupe, appel à participation
+
+* 16h30 : Clôture de la journée
 
 *La journée ReproVirtuFlow 2017 est soutenue par le [GDR MaDICS](https://www.madics.fr), par le groupe Psay CompBio de l'Université Paris-Saclay et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
