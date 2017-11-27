@@ -1,5 +1,9 @@
 # Journée MaDICS-ReproVirtuFlow 2017
-12 décembre 2017, Gif-sur-Yvette
+12 décembre 2017
+
+Amphithéatre du bâtiment 21, Campus CNRS, Gif-sur-Yvette
+
+[Plan d'accès](http://www.dr4.cnrs.fr/spip.php?article10)
 
 ## Contexte
 
