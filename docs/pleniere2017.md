@@ -5,12 +5,19 @@ Amphithéatre du bâtiment 21, Campus CNRS, Gif-sur-Yvette
 
 [Plan d'accès](http://www.dr4.cnrs.fr/spip.php?article10)
 
+## Inscription
+
+L’inscription est gratuite mais *obligatoire* et doit être effectuée avant le 4 décembre. 
+Pour vous inscrire il convient de vous inscrire d’abord au GDR MaDICS (merci de suivre les instructions sur le site).
+
+[Formulaire d'inscription](https://www.madics.fr/event/1511189515-9975/?instance_id=770)
+
 ## Contexte
 
 L’objectif de cette journée est de présenter les activités de l’action ReproVirtuFlow, fondée et soutenue par le GDR MaDICS, qui s'intéresse à la problématique de reproductibilité computationnelle.
 La journée comportera une session dédiée à la présentation du [premier ReproHackathon](https://ifb-elixirfr.github.io/ReproHackathon) organisé par notre groupe, ainsi que des sessions décrivants des éléments de solutions et des retours d’expériences autour de la problématique de reproductibilité computationnelle. 
 
-## Programme (provisoire)
+## Programme
 
 * 9h30 : Café de Bienvenue 
 
