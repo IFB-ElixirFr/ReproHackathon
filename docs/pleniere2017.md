@@ -7,7 +7,7 @@ Amphithéatre du bâtiment 21, Campus CNRS, Gif-sur-Yvette
 
 ## Inscription
 
-L’inscription est gratuite mais *obligatoire* et doit être effectuée avant le 4 décembre. 
+L’inscription est gratuite mais *obligatoire* et doit être effectuée avant le **6 décembre**. 
 Pour vous inscrire il convient de vous inscrire d’abord au GDR MaDICS (merci de suivre les instructions sur le site).
 
 [Formulaire d'inscription](https://www.madics.fr/event/1511189515-9975/?instance_id=770)
