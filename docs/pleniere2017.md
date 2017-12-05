@@ -14,7 +14,7 @@ Face aux masses de données disponibles, à la multitude d’outils existants et
 Les activités que nous avons menées durant les deux premières années de cette action nous ont permis de comprendre le paysage de la reproductibilité computationnelle en particulier lorsque les traitements de données sont effectués à l’aide de systèmes de workflows scientifiques.
 
 La journée du 12 décembre 2017 présentera l’état de l’art que nous avons effectué des différents éléments de solutions disponibles à la communauté bioinformatique pour tendre vers une meilleure reproductibilité des analyses de données bioinformatiques.
-Elle comportera des retours d'expériences d’utilisateurs d’outils aidant à la reproductibilité computationnelle. En particulier, nous présenterons les résultats que nous avons obtenus au premier ReproHackathon organisé par notre groupe dans lequel plusieurs équipes ont cherché à reproduire les résultats d’une publication scientifique (*cf.* notre [premier ReproHackathon](https://ifb-elixirfr.github.io/ReproHackathon)).
+Elle comportera des retours d'expériences d’utilisateurs d’outils aidant à la reproductibilité computationnelle. En particulier, nous présenterons les résultats que nous avons obtenus au premier ReproHackathon organisé par notre groupe dans lequel plusieurs équipes ont cherché à reproduire les résultats d’une publication scientifique (voir le site du [premier ReproHackathon](https://ifb-elixirfr.github.io/ReproHackathon)).
 Notre journée comportera enfin des présentations sur les approches émergentes dans le domaine de la reproductibilité.
 
 
