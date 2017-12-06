@@ -1,3 +1,5 @@
+<p align="center"><b>*** Prolongation des inscriptions au 8 décembre ***</b></p>
+
 # Journée MaDICS-ReproVirtuFlow 2017
 12 décembre 2017
 
@@ -45,7 +47,7 @@ Notre journée comportera enfin des présentations sur les approches émergentes
 
 ## Inscription
 
-L’inscription est gratuite mais *obligatoire* et doit être effectuée avant le **6 décembre**. 
+L’inscription est gratuite mais *obligatoire* et doit être effectuée avant le **8 décembre**. 
 Pour vous inscrire il convient de vous inscrire d’abord au GDR MaDICS (merci de suivre les instructions sur le site).
 
 [Formulaire d'inscription](https://www.madics.fr/event/1511189515-9975/?instance_id=770)
