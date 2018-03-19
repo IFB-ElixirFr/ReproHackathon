@@ -13,19 +13,9 @@ Les participants pourront se regrouper en équipes et choisir :
 * un cas d’utilisation parmi ceux proposés,
 * un système de workflows pour implémenter le cas d’utilisation et tester s'ils retrouvent les résultats attendus.
 
-## Première édition des ReproHackathons
+## Liste des ReproHackathons
 
-La première édition des ReproHackathons s'est déroulée les 1-2 juin 2017 à Gif-sur-Yvette ([Informations pratiques et programme](hackathon_1_programme.md)).
-
-### Cas d’utilisation
-
-[Deux cas d’utilisation](hackathon_1.md) ont été sélectionnés
-* analyse de données RNA-Seq issues de patients atteints de mélanome uvéal
-* analyse et simulation de données phylogénétiques
-
-### Inscription
-
-Les inscriptions sont closes.
+* [Première édition](hackathon_1_programme.md) les 1-2 juin 2017 à Gif-sur-Yvette
 
 ## Comité d'organisation
 
