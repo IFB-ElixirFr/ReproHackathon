@@ -16,6 +16,7 @@ Les participants pourront se regrouper en équipes et choisir :
 ## Liste des ReproHackathons
 
 * [Première édition](hackathon_1_programme.md) les 1-2 juin 2017 à Gif-sur-Yvette
+* [Deuxième édition](hackathon_2_programme.md)
 
 ## Comité d'organisation
 
