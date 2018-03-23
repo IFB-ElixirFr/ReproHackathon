@@ -1,5 +1,3 @@
-<p align="center"><b>*** Prolongation des inscriptions au 8 décembre ***</b></p>
-
 # Journée MaDICS-ReproVirtuFlow 2017
 12 décembre 2017
 
