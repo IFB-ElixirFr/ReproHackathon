@@ -1,5 +1,7 @@
 # ReproHackathon - 2, 2018
 
+Cas d'usage : [Comparaison de programmes d'inférence phylogénétique](hackathon_2.html)
+
 ## Lieu
 
 Le 2e ReproHackathon se tiendra au LBBE-PRABI, [Campus LyonTech-la Doua](https://www.univ-lyon1.fr/campus/plan-des-campus/) à Lyon.
