@@ -15,8 +15,8 @@ Les participants pourront se regrouper en équipes et choisir :
 
 ## Liste des ReproHackathons
 
-* [Première édition](hackathon_1_programme.md) les 1-2 juin 2017 à Gif-sur-Yvette
-* [Deuxième édition](hackathon_2.md)
+* [Première édition](hackathon_1_programme.md), 1-2 juin 2017, IFB-core, Campus CNRS, Gif-sur-Yvette
+* [Deuxième édition](hackathon_2.md), (dates à venir), LBBE-PRABI, [Campus LyonTech-la Doua](https://www.univ-lyon1.fr/campus/plan-des-campus/), Lyon
 
 ## Comité d'organisation
 
@@ -29,9 +29,9 @@ Les participants pourront se regrouper en équipes et choisir :
 * Yvan Le Bras, Muséum National d'Histoire Naturelle, Concarneau
 * Fabien Mareuil, Institut Pasteur, Paris
 * Hervé Ménager, Institut Pasteur, Paris
-* Sandrine Perrin, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Christophe Pradal, Cirad, Inria, Montpellier
+* Philippe Véber, Laboratoire de Biométrie et Biologie Evolutive, Lyon
 
-*La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), par le groupe Psay CompBio de l'Université Paris-Saclay et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
+*La série des ReproHackathons est (ou a été) soutenue par le [GDR MaDICS](https://www.madics.fr), par le groupe Psay CompBio de l'Université Paris-Saclay et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
 ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
