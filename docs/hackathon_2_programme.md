@@ -2,7 +2,7 @@
 
 **9-10 juillet 2018**
 
-Le 2e ReproHackathon se tiendra au LBBE-PRABI, [Campus LyonTech-la Doua](https://www.univ-lyon1.fr/campus/plan-des-campus/) à Lyon.
+La deuxième édition des ReproHackathons se tiendra au LBBE-PRABI, [Campus LyonTech-la Doua](https://www.univ-lyon1.fr/campus/plan-des-campus/) à Lyon.
 
 ## Cas d'usage
 
@@ -12,17 +12,28 @@ Le 2e ReproHackathon se tiendra au LBBE-PRABI, [Campus LyonTech-la Doua](https:/
 
 ## Programme
 
+(*version préliminaire*)
+
 ### 9 juillet 2018
 
 9h00 Accueil
 
-*Détail à venir*
+* 9h00-10h30 : Présentation des use cases et du cloud de l'IFB
+* 11h00-12h30 : Démarrage du hackathon
+* 12h30-14h00 : *Pause déjeuner*
+* 14h00-17h00 : Phase 1 hackathon
+* 17h00-17h30 : Rapport d’avancement : tâches effectuées, difficultés rencontrées
 
 ### 10 juillet 2018
 
 9h00 Accueil
 
-*Détail à venir*
+* 9h00-12h00 : Phase 2 hackathon
+* 12h00–12h30 : Rapport d’avancement 
+* 12h30-14h00 : *Pause déjeuner*
+* 14h00-16h00 : Phase finale hackathon
+* 16h00-16h30 : Rapport final d’avancement, conclusions
+
 
 *La seconde édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
