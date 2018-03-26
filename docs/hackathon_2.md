@@ -1,8 +1,9 @@
-# ReproHackathon-2, 2018
+# ReproHackathon-2, 9-10 juillet 2018
 
 ## Comparaison de programmes d'inférence phylogénétique 
 
 ### Introduction
+
 Dans ce hackathon, nous partirons de l'étude de Zhou et. al[1], dans laquelle les auteurs analysent de nombreux jeux de données phylogénomiques afin de comparer les principaux outils d'inférence phylogénétique :
 
 - FastTree,
@@ -21,6 +22,6 @@ Pour cela nous pourrons former des groupes qui travailleront sur des sous-partie
 ## Références
 * [1] [Zhou et al. (MBE, 2018)](https://www.ncbi.nlm.nih.gov/pubmed/29177474)
 
-* Cette seconde édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), par le groupe Psay CompBio de l'Université Paris-Saclay et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
+* Cette seconde édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
