@@ -16,13 +16,13 @@ La deuxième édition des ReproHackathons se tiendra au LBBE-PRABI, [Campus Lyon
 
 ### 9 juillet 2018
 
-9h00 Accueil
+10h00 Accueil
 
-* 9h00-10h30 : Présentation des use cases et du cloud de l'IFB
-* 11h00-12h30 : Démarrage du hackathon
+* 10h30-11h30 : Présentation des use cases et du cloud de l'IFB
+* 11h30-12h30 : Démarrage du hackathon
 * 12h30-14h00 : *Pause déjeuner*
-* 14h00-17h00 : Phase 1 hackathon
-* 17h00-17h30 : Rapport d’avancement : tâches effectuées, difficultés rencontrées
+* 14h00-17h30 : Phase 1 hackathon
+* 17h30-18h00 : Rapport d’avancement : tâches effectuées, difficultés rencontrées
 
 ### 10 juillet 2018
 
