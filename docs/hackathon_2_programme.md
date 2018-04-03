@@ -35,6 +35,6 @@ La deuxième édition des ReproHackathons se tiendra au LBBE-PRABI, [Campus Lyon
 * 16h00-16h30 : Rapport final d’avancement, conclusions
 
 
-*La seconde édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
+*La seconde édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![BIM](https://ifb-elixirfr.github.io/ReproHackathon/logo-gdrbim-web.jpg) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
