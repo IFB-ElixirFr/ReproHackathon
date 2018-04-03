@@ -32,6 +32,6 @@ Les participants pourront se regrouper en équipes et choisir :
 * Christophe Pradal, Cirad, Inria, Montpellier
 * Philippe Véber, Laboratoire de Biométrie et Biologie Evolutive, Lyon
 
-*La série des ReproHackathons est (ou a été) soutenue par le [GDR MaDICS](https://www.madics.fr), par le groupe Psay CompBio de l'Université Paris-Saclay et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
+*La série des ReproHackathons est (ou a été) soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) , le groupe Psay CompBio de l'Université Paris-Saclay et l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![BIM](https://ifb-elixirfr.github.io/ReproHackathon/logo-gdrbim-web.jpg) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
