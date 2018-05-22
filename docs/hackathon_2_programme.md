@@ -8,7 +8,7 @@ La deuxième édition des ReproHackathons se tiendra au LBBE-PRABI, [Campus Lyon
 
 (*version préliminaire*)
 
-[Comparaison de programmes d'inférence phylogénétique](hackathon_2.html)
+[Comparaison de programmes d'inférence phylogénétique](hackathon_2.md)
 
 ## Programme
 
@@ -33,6 +33,10 @@ La deuxième édition des ReproHackathons se tiendra au LBBE-PRABI, [Campus Lyon
 * 12h30-14h00 : *Pause déjeuner*
 * 14h00-16h00 : Phase finale hackathon
 * 16h00-16h30 : Rapport final d’avancement, conclusions
+
+## Inscriptions
+
+Les inscriptions se font via [ce formulaire](https://goo.gl/bhyVHW).
 
 
 *La seconde édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
