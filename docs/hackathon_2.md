@@ -4,7 +4,7 @@
 
 ### Introduction
 
-Dans ce hackathon, nous partirons de l'étude de Zhou et. al[1], dans laquelle les auteurs analysent de nombreux jeux de données phylogénomiques afin de comparer les principaux outils d'inférence phylogénétique :
+Dans cette deuxième édition du [reprohackathon](hackathon_2_programme.md), nous partirons de l'étude de Zhou et. al[1], dans laquelle les auteurs analysent de nombreux jeux de données phylogénomiques afin de comparer les principaux outils d'inférence phylogénétique :
 
 - FastTree,
 - IQ-Tree,
