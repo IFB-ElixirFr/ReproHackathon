@@ -2,7 +2,7 @@
 
 **9-10 juillet 2018**
 
-La deuxième édition des ReproHackathons se tiendra au LBBE-PRABI, [Campus LyonTech-la Doua](https://www.univ-lyon1.fr/campus/plan-des-campus/) à Lyon.
+La deuxième édition des [ReproHackathons](index.md) se tiendra au LBBE-PRABI, [Campus LyonTech-la Doua](https://www.univ-lyon1.fr/campus/plan-des-campus/) à Lyon.
 
 ## Cas d'usage
 
