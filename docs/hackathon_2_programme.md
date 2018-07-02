@@ -10,8 +10,6 @@ La deuxième édition des [ReproHackathons](index.md) se tiendra au LBBE-PRABI, 
 
 ## Programme
 
-(*version préliminaire*)
-
 ### 9 juillet 2018
 
 10h00 Accueil
