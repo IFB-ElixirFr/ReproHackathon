@@ -6,8 +6,6 @@ La deuxième édition des [ReproHackathons](index.md) se tiendra au LBBE-PRABI, 
 
 ## Cas d'usage
 
-(*version préliminaire*)
-
 [Comparaison de programmes d'inférence phylogénétique](hackathon_2.md)
 
 ## Programme
