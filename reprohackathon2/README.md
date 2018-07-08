@@ -14,7 +14,7 @@
 
 ## Liens utiles
 
-* Article: [Ahou MBE 2018](https://academic.oup.com/mbe/article/35/2/486/4644721)
+* Article: [Zhou MBE 2018](https://academic.oup.com/mbe/article/35/2/486/4644721)
 * Images Docker utiles: [evolbioinfo](https://hub.docker.com/r/evolbioinfo/)
 * Données de l'article: [FigShare](https://figshare.com/projects/Evaluating_fast_maximum_likelihood-based_phylogenetic_programs_using_empirical_phylogenomic_data_sets/22040)
 
