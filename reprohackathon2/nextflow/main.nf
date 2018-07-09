@@ -21,7 +21,7 @@ process getalignments {
 	'''
 }
 
-align.into{alignFASTTREE}
+align.into{alignFASTTREE; alignRAXML}
 
 process getbesttrees {
 	publishDir "$resultdir/trees_best"
@@ -52,3 +52,23 @@ process fasttree {
 	FastTree -nt -gtr -gamma -spr 4 -mlacc 2 -slownni !{align} > !{align}.nhx
 	'''
 }
+
+
+process raxml {
+	publishDir "$resultdir/trees/raxml"
+
+	tag "$align"
+
+	input:
+	file align from alignRAXML
+
+	output:
+	set val("raxml"), file("${align}.nhx") into raxml
+
+	shell:
+	'''
+	raxmlHPC -T !{task.cpus} -p 1 -m GTRGAMMA --no-bfgs -s !{align} -n !{align}
+	mv RAxML_bestTree.!{align} !{align}.nhx
+	'''
+}
+
