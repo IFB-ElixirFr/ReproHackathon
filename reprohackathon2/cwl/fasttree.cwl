@@ -4,7 +4,7 @@ requirements:
 - class: InlineJavascriptRequirement
 hints:
   - class: DockerRequirement
-    dockerPull: evolbioinfo:fasttree
+    dockerPull: evolbioinfo/fasttree:v2.1.9
 baseCommand: ['FastTree', '-nt', '-gtr', '-gamma' ,'-spr', '4', '-mlacc', '2', '-slownni']
 inputs:
   chr:
