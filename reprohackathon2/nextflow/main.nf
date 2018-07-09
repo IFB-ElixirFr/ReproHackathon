@@ -21,6 +21,8 @@ process getalignments {
 	'''
 }
 
+align.into{alignFASTTREE}
+
 process getbesttrees {
 	publishDir "$resultdir/trees_best"
 
@@ -34,3 +36,19 @@ process getbesttrees {
 	'''
 }
 
+process fasttree {
+	publishDir "$resultdir/trees/fasttree"
+
+	tag "$align"
+
+	input:
+	file align from alignFASTTREE
+
+	output:
+	set val("fasttree"), file("${align}.nhx") into fasttree
+
+	shell:
+	'''
+	FastTree -nt -gtr -gamma -spr 4 -mlacc 2 -slownni !{align} > !{align}.nhx
+	'''
+}
