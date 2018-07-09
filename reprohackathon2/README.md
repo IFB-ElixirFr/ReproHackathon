@@ -9,6 +9,13 @@
   * de l'avancement au fur et à mesure
   * un bilan des réalisations en fin de hackathon
 
+## Exemples de lignes de commandes:
+
+* FastTree:
+```
+	FastTree -nt -gtr -gamma -spr 4 -mlacc 2 -slownni <align.fa> > !{align}.nhx
+```
+
 ## Participants/Groupes :
 
 
