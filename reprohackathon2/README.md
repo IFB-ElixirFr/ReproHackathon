@@ -43,6 +43,23 @@ mv *_phyml_tree_ID.txt outputphyml.nhx
 ```
 
 
+* Comparer 2 arbres: `gotree`
+
+```
+gotree compare trees --binary -i <arbre1> -c <arbre2>
+```
+
+* Reformater `fasta <=> phylip`
+
+    - Container: `evolbioinfo/goalign:v0.2.9`
+    - Commands:
+```
+# phylip => fasta
+goalign reformat fasta -i <align.phy> -p -o align.fa
+# fasta => phylip
+goalign reformat phylip -i <align.phy> -o align.fa
+```
+
 ## Participants/Groupes :
 
 
