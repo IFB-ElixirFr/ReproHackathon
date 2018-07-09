@@ -21,7 +21,7 @@ process getalignments {
 	'''
 }
 
-align.into{alignFASTTREE; alignRAXML}
+align.into{alignFASTTREE; alignRAXML; alignPHYML}
 
 process getbesttrees {
 	publishDir "$resultdir/trees_best"
@@ -72,3 +72,35 @@ process raxml {
 	'''
 }
 
+
+process tophylip {
+
+	input:
+	file align from alignPHYML
+
+	output:
+	file "${align.baseName}.phy" into alignPHYMLPhylip
+
+	shell:
+	'''
+	goalign reformat phylip -i !{align} -o !{align.baseName}.phy
+	'''
+}
+
+process phyml {
+	publishDir "$resultdir/trees/phyml"
+
+	tag "$align"
+
+	input:
+	file align from alignPHYMLPhylip
+
+	output:
+	set val("phyml"), file("${align}.nhx") into phyml
+
+	shell:
+	'''
+	phyml -i !{align} --r_seed 1 -d nt -b 0 -m GTR -f e -c 4 -a e -s SPR --n_rand_starts 1 -o tlr -p --run_id ID
+	mv !{align}_phyml_tree_ID.txt !{align}.nhx
+	'''
+}
