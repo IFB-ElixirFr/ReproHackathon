@@ -27,6 +27,22 @@ raxmlHPC -T <cpus> -p 1 -m GTRGAMMA --no-bfgs -s <align.phy> -n NAME
 	mv RAxML_bestTree.NAME raxmloutput.nhx
 ```
 
+* IQTree:
+    - Container: `evolbioinfo/iqtree:v1.4.2`
+    - Command:
+```
+iqtree -m GTR+G4 -s <align.fa> -seed 1 -nt <cpus>
+```
+
+* PhyML:
+    - Container: `evolbioinfo/phyml:v3.3.20180129`
+    - Command:
+```
+phyml -i <align.phy> --r_seed 1 -d nt -b 0 -m GTR -f e -c 4 -a e -s SPR --n_rand_starts 1 -o tlr -p --run_id ID
+mv *_phyml_tree_ID.txt outputphyml.nhx
+```
+
+
 ## Participants/Groupes :
 
 
