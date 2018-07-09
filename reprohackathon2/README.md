@@ -12,8 +12,19 @@
 ## Exemples de lignes de commandes:
 
 * FastTree:
+  - Container: `evolbioinfo/fasttree:v2.1.9`
+  - Command:
 ```
-	FastTree -nt -gtr -gamma -spr 4 -mlacc 2 -slownni <align.fa> > !{align}.nhx
+	FastTree -nt -gtr -gamma -spr 4 -mlacc 2 -slownni <align.fa> > <output.nhx>
+```
+
+* RAxML:
+
+    - Container: `evolbioinfo/raxml:v8.2.0-avx2`
+    - Command:    
+```
+raxmlHPC -T <cpus> -p 1 -m GTRGAMMA --no-bfgs -s <align.phy> -n NAME
+	mv RAxML_bestTree.NAME raxmloutput.nhx
 ```
 
 ## Participants/Groupes :
