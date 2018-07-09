@@ -44,7 +44,8 @@ mv *_phyml_tree_ID.txt outputphyml.nhx
 
 
 * Comparer 2 arbres: `gotree`
-
+    - Container: `evolbioinfo/gotree:v0.2.10`
+    - Command:
 ```
 gotree compare trees --binary -i <arbre1> -c <arbre2>
 ```
