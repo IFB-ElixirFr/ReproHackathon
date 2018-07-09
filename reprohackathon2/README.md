@@ -32,6 +32,7 @@ raxmlHPC -T <cpus> -p 1 -m GTRGAMMA --no-bfgs -s <align.phy> -n NAME
     - Command:
 ```
 iqtree -m GTR+G4 -s <align.fa> -seed 1 -nt <cpus>
+mv <align.fa>.treefile iqtreeoutput.nhx
 ```
 
 * PhyML:
