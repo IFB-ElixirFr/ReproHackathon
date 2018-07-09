@@ -57,7 +57,7 @@ gotree compare trees --binary -i <arbre1> -c <arbre2>
 # phylip => fasta
 goalign reformat fasta -i <align.phy> -p -o align.fa
 # fasta => phylip
-goalign reformat phylip -i <align.phy> -o align.fa
+goalign reformat phylip -i <align.fa> -o align.phy
 ```
 
 ## Participants/Groupes :
