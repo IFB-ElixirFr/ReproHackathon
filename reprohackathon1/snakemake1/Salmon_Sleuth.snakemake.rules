@@ -1,0 +1,254 @@
+"""
+
+This snakemake file handles the Salmon -> Wasabi -> Sleuth pipeline.
+Please refer to the joint yaml files to find some help.
+
+Authors : Maude Ardin, Emilie Drouineau, Jeremy Le Coz, Thibault Dayris
+IFB : Reprohackathon 2017
+06.02.2017
+
+"""
+
+from os.path import sep
+from snakemake.utils import available_cpu_count as cpu
+
+# Global functions
+def joins(*path_list):
+    return sep.join(path_list)
+
+onsuccess:
+    msg = (
+        "The Reprohackathon pipeline is successfull !"
+        " Please find results in %s" % config["OUTPUT_DIRECTORY"]
+    )
+    print(msg)
+
+onerror:
+    msg = (
+        "The Reprohackathon pipeline went wrong ..."
+        " Please find more information in %s" % config["LOG_DIRECTORY"]
+    )
+    print(msg)
+
+rule target:
+    input:
+        joins(config["OUTPUT_DIRECTORY"], "sleuth.rds")
+    message:
+        "Finishing the pipeline"
+
+rule salmon_index:
+    input:
+        transcriptome_fasta = config["TRANSCRIPTOME_FASTA"]
+    output:
+        joins(config["OUTPUT_DIRECTORY"], config["INDEX_STEM"]),
+        [joins(
+            config["OUTPUT_DIRECTORY"],
+            config["INDEX_STEM"],
+            "%s.bin" % f
+         ) for f in ["rsd", "sa", "txpInfo"]],
+        [joins(
+            config["OUTPUT_DIRECTORY"],
+            config["INDEX_STEM"],
+            "%s.json" % f
+         ) for f in ["versionInfo", "header"]],
+        temp([joins(
+            config["OUTPUT_DIRECTORY"],
+            config["INDEX_STEM"],
+            "%s.log" % f
+         ) for f in ["indexing", "quasi_index"]]),
+        [joins(
+            config["OUTPUT_DIRECTORY"],
+            config["INDEX_STEM"],
+            "hash_info.%s" % f
+         ) for f in ["bph", "val"]]
+    message:
+        "Building the Salmon index from {input.transcriptome_fasta}"
+    threads:
+        config["THREADS"]
+    params:
+        kmer_size = config["KMER_SIZE"],
+        gencode = ("--gencode" if config["GENCODE"] else ""),
+        index = joins(config["OUTPUT_DIRECTORY"], config["INDEX_STEM"])
+    log:
+        out = joins(config["LOG_DIRECTORY"], "%s.out" % config["INDEX_STEM"]),
+        err = joins(config["LOG_DIRECTORY"], "%s.err" % config["INDEX_STEM"])
+    shell:
+        "salmon index "  # Tool name and its subcommand
+        "-t {input.transcriptome_fasta} "  # Fasta input
+        "-k {params.kmer_size} "  # K-mer length
+        "-i {params.index} "  # Name of the index
+        "-p {threads} "  # Number of threads
+        "--perfectHash "  # Perform a perfect hash
+        "{params.gencode} "  # Ensembl or Gencode ?
+        "> {log.out} "  # Stdout redirection
+        "2> {log.err} "  # Stderr redirection
+
+rule salmon_quant_single:
+    input:
+        sample = "{samples}",
+        index = joins(config["OUTPUT_DIRECTORY"], config["INDEX_STEM"])
+    output:
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", f)
+         for f in ["quant.sf", "cmd_info.json", "lib_format_counts.json"]],
+        joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "lib_format_counts", "flenDist.txt"),
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "aux_info", f)
+         for f in ["expected_bias.gz", "fld.gz",
+                   "observed_bias.gz", "meta_info.json"]],
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}",
+               "aux_info", "bootstrap", f)
+         for f in ["bootstraps.gz", "names.tsv.gz"]],
+        temp(joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "logs", "salmon_quant.log")),
+        outdir = joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}")
+    message:
+        "Quantifying {input.sample}"
+    threads:
+        min(config["THREADS"], 10)
+    priority:
+        10
+    log:
+        out = joins(
+            config["LOG_DIRECTORY"],
+            "{samples}.out"
+        ),
+        err = joins(
+            config["LOG_DIRECTORY"],
+            "{samples}.err"
+        )
+    params:
+        bootstrap = config["BOOTSTRAP"],
+        library = config["LIBRARY"],
+        bias = ("--seqBias" if config["BIAS_CORRECT"] else ""),
+        gtf = ("--geneMap %s" % config["GTF"] if config["GTF"] != "" else "")
+    shell:
+        "salmon quant "  # Tool and its submodule
+        "-i {input.index} "  # Path to the index
+        "-p {threads} "  # Number of threads
+        "--numBootstraps {params.bootstrap} "  # Number of bootstrap
+        "-o {output.outdir} "  # Output
+        "-l {params.library} "  # Sequencing library
+        "{params.bias} "  # Bias correction or not
+        "{params.gtf} "  # Gene map used for gene quantification
+        "--unmatedReads {input.sample} "
+        "> {log.out} "  # Stdout redirection
+        "2> {log.err} "  # Stderr redirection
+
+rule salmon_quant_paired:
+    input:
+        upstream = "{upstream}",
+        downstream = "{downstream}",
+        index = joins(config["OUTPUT_DIRECTORY"], config["INDEX_STEM"])
+    output:
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}", f)
+         for f in ["quant.sf", "cmd_info.json", "lib_format_counts.json"]],
+        joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}",
+              "lib_format_counts", "flenDist.txt"),
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}", "aux_info", f)
+         for f in ["expected_bias.gz", "fld.gz",
+                   "observed_bias.gz", "meta_info.json"]],
+        [joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}", "aux_info", "bootstrap", f)
+         for f in ["bootstraps.gz", "names.tsv.gz"]],
+        temp(joins(config["OUTPUT_DIRECTORY"], "SAQuant_{upstream}_{downstream}",
+                   "logs", "salmon_quant.log")),
+        outdir = joins(config["OUTPUT_DIRECTORY"],
+                       "SAQuant_{upstream}_{downstream}")
+    message:
+        "Quantifying {input.upstream} and {input.downstream}"
+    threads:
+        min(config["THREADS"], 10)
+    priority:
+        10
+    log:
+        out = joins(
+            config["LOG_DIRECTORY"],
+            "{upstream}_{downstream}_salmon_quantification.err"
+        ),
+        err = joins(
+            config["LOG_DIRECTORY"],
+            "{upstream}_{downstream}_salmon_quantification.err"
+        )
+    params:
+        bootstrap = config["BOOTSTRAP"],
+        library = config["LIBRARY"],
+        bias = ("--seqBias" if config["BIAS_CORRECT"] else ""),
+        gtf = ("--geneMap %s" % config["GTF"] if config["GTF"] != "" else "")
+    shell:
+        "salmon quant "  # Tool and its submodule
+        "-i {input.index} "  # Path to the index
+        "-p {threads} "  # Number of threads
+        "--numBootstraps {params.bootstrap} "  # Number of bootstrap
+        "-o {output.outdir} "  # Output
+        "-l {params.library} "  # Sequencing library
+        "{params.bias} "  # Bias correction or not
+        "{params.gtf} "  # Gene map used for gene quantification
+        "-1 {input.upstream} "  # Path to upstream reads
+        "-2 {input.downstream} "  # Path to downstream reads
+        "> {log.out} "  # Stdout redirection
+        "2> {log.err} "  # Stderr redirection
+
+rule salmon_to_sleuth:
+    input:
+        joins(config["OUTPUT_DIRECTORY"], "SAQuant_{samples}", "quant.sf")
+    output:
+        temp(joins(config["OUTPUT_DIRECTORY"],
+                   "SAQuant_{samples}", "abundance.h5"))
+    threads:
+        1
+    message:
+        "Converting {input} from Salmon to Kallisto format"
+    log:
+        out = joins(config["LOG_DIRECTORY"], "wasabi_{samples}.out"),
+	err = joins(config["LOG_DIRECTORY"], "wasabi_{samples}.err")
+    shell:
+        'R --vanilla -e \'library("wasabi"); prepare_fish_for_sleuth(dirname("{input}"));\' > {log.out} 2> {log.err}'
+
+rule transcript_to_gene_table:
+    input:
+        config["GTF"]
+    output:
+        temp(joins(config["OUTPUT_DIRECTORY"], "t2g.tsv"))
+    message:
+        "Building the transcript to gene table from {input}"
+    threads:
+        1
+    log:
+        joins(config["LOG_DIRECTORY"], "t2g.err")
+    shell:
+        'grep -oP "gene_id \\\"[\w+\.]+\\\"; .*transcript_id \\\"[\w+\.]+\\\"; .*gene_name \\\"[A-Za-z0-9\/\_\.\-]+\\\";" {input} |'
+        ' grep -oP "(gene_id \\\"[\w+\.]+\\\"|transcript_id \\\"[\w+\.]+\\\"|gene_name \\\"[A-Za-z0-9\/\_\.\-]+\\\")" |'
+	' cut -d\'"\' -f2 | paste - - - | sort | uniq > {output} 2> {log}'
+
+rule sleuth:
+    input:
+        abundancies = [
+            "%s/SAQuant_%s/abundance.h5" % (config["OUTPUT_DIRECTORY"],
+                                            (sample if type(sample) == str
+                                             else "_".join(sample)))
+            for sample in config["SAMPLES"]
+        ],
+        tr_gene = joins(config["OUTPUT_DIRECTORY"], "t2g.tsv")
+    output:
+        [joins(config["OUTPUT_DIRECTORY"], "sleuth%s" % f)
+         for f in [".rds", "_transctipy_table.tsv", "_genes_table.tsv"]]
+    threads:
+        1
+    message:
+        "Performing differential expression"
+    log:
+        out = joins(config["LOG_DIRECTORY"], "Sleuth.out"),
+        err = joins(config["LOG_DIRECTORY"], "Sleuth.err")
+    params:
+        conditions = ",".join(config["CONDITIONS"]),
+        samples = ",".join([
+            "%s/SAQuant_%s/abundance.h5" % (config["OUTPUT_DIRECTORY"], (sample
+                                         if type(sample) == str
+                                         else "_".join(sample)))
+            for sample in config["SAMPLES"]
+        ])
+    shell:
+        "Rscript Sleuth.R "  # Path to script
+        "-q {params.samples} "  # Path to abundancies
+        "-d {params.conditions} "  # Expresmental design
+        "-t {input.tr_gene} "  # Path to transcript to gene table
+        "-o sleuth "  # Output stem name
+        "> {log.out} "  # Stdout
+        "2> {log.err} "  # Stderr

@@ -1,0 +1,6 @@
+data_managers:
+    - id: toolshed.g2.bx.psu.edu/repos/iuc/data_manager_star_index_builder/rna_star_index_builder/2.6.0
+      params:
+        - 'database': 'db_v20'
+      data_table_reload:
+        - metaphlan2_database

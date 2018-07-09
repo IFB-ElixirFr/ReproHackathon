@@ -17,14 +17,26 @@ Participants are encouraged to form teams and select
 
 ## ReproHackathons, first edition
 
-The first ReproHackathon will take place in [Gif-sur-Yvette](https://goo.gl/maps/ceg55oQTD6E2) the 1st and 2nd of June 2017. 
+The first ReproHackathon took place in [Gif-sur-Yvette](https://goo.gl/maps/ceg55oQTD6E2) the 1st and 2nd of June 2017. 
 
 [Two use cases](Hackathon_1-en.md) have been selected:
 * RNA-Seq patient data analysis in the context of uveal melanoma ;
 * Phylogenetics data analysis and simulation. 
 
-Due to logistic constraints, **the number of participants is limited to 20**. When registering to the ReproHackathon event, you engage yourself to participate and contribute as a developer. A feedback event will be later on organized. 
+## Steering Committee
 
-*The first ReproHackathon is supported by [GDR MaDICS](https://www.madics.fr) and Psay CompBio of Université Paris-Saclay*
+* Sarah Cohen-Boulakia, Université Paris-Sud, Paris-Saclay, Orsay
+* Khalid Belhajjame, Université Paris-Dauphine, Paris
+* Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
+* Alban Gaignard, CHU, Nantes
+* Konrad Hinsen, Centre de Biophysique Moléculaire, Orléans
+* Frédéric Lemoine, Institut Pasteur, Paris
+* Yvan Le Bras, Muséum National d'Histoire Naturelle, Concarneau
+* Fabien Mareuil, Institut Pasteur, Paris
+* Hervé Ménager, Institut Pasteur, Paris
+* Sandrine Perrin, Institut Français de Bioinformatique, Gif-sur-Yvette
+* Christophe Pradal, Cirad, Inria, Montpellier
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png)    ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) 
+*The first ReproHackathon is supported by [GDR MaDICS](https://www.madics.fr), Psay CompBio of Université Paris-Saclay and the [French Institute of Bioinformatics](http://www.france-bioinformatique.fr).*
+
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)

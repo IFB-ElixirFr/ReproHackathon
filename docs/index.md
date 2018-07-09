@@ -13,34 +13,25 @@ Les participants pourront se regrouper en équipes et choisir :
 * un cas d’utilisation parmi ceux proposés,
 * un système de workflows pour implémenter le cas d’utilisation et tester s'ils retrouvent les résultats attendus.
 
-## Première édition des ReproHackathons
+## Liste des ReproHackathons
 
-La première édition des ReproHackathons se déroulera les 1-2 juin 2017 à Gif-sur-Yvette ([Informations pratiques et programme](hackathon_1_programme.md)).
-
-### Cas d’utilisation
-
-[Deux cas d’utilisation](hackathon_1.md) ont été sélectionnés
-* analyse de données RNA-Seq issues de patients atteints de mélanome uvéal
-* analyse et simulation de données phylogénétiques
-
-### Inscription
-
-Les inscriptions sont closes.
+* [Première édition](hackathon_1_programme.md), 1-2 juin 2017, IFB-core, Campus CNRS, Gif-sur-Yvette
+* [Deuxième édition](hackathon_2_programme.md), 9-10 juillet 2018, LBBE-PRABI, Campus LyonTech-la Doua, Lyon
 
 ## Comité d'organisation
 
-* Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Sarah Cohen-Boulakia, Université Paris-Sud, Paris-Saclay, Orsay
 * Khalid Belhajjame, Université Paris-Dauphine, Paris
+* Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Alban Gaignard, CHU, Nantes
 * Konrad Hinsen, Centre de Biophysique Moléculaire, Orléans
 * Frédéric Lemoine, Institut Pasteur, Paris
 * Yvan Le Bras, Muséum National d'Histoire Naturelle, Concarneau
 * Fabien Mareuil, Institut Pasteur, Paris
 * Hervé Ménager, Institut Pasteur, Paris
-* Sandrine Perrin, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Christophe Pradal, Cirad, Inria, Montpellier
+* Philippe Véber, Laboratoire de Biométrie et Biologie Evolutive, Lyon
 
-*La première édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr) et par le groupe Psay CompBio de l'Université Paris-Saclay*
+*La série des ReproHackathons est (ou a été) soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) , le groupe Psay CompBio de l'Université Paris-Saclay et l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) 
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![BIM](https://ifb-elixirfr.github.io/ReproHackathon/logo-gdrbim-web.jpg) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)

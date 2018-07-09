@@ -1,0 +1,122 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "download_samples", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Samples"
+                }
+            ], 
+            "label": "Samples", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 324.96875
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Samples\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "792d7475-9faa-4815-9f85-fd303d2b173d", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/2.8.1.2", 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {
+                "input|file_list": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Extract reads in Fastq/a", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Extract reads in Fastq/a", 
+            "outputs": [
+                {
+                    "name": "list_paired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_collection", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_accession", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_file", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 506.53125, 
+                "top": 284.015625
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/2.8.1.2", 
+            "tool_shed_repository": {
+                "changeset_revision": "c7620aa7e1f0", 
+                "name": "sra_tools", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"adv\": \"{\\\"spotgroups\\\": \\\"\\\", \\\"maxID\\\": \\\"\\\", \\\"clip\\\": \\\"false\\\", \\\"minlen\\\": \\\"\\\", \\\"region\\\": \\\"\\\", \\\"skip_technical\\\": \\\"false\\\", \\\"minID\\\": \\\"\\\", \\\"split\\\": \\\"true\\\", \\\"readfilter\\\": \\\"\\\", \\\"matepairDist\\\": \\\"\\\", \\\"alignments\\\": \\\"both\\\"}\", \"input\": \"{\\\"file_list\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 2, \\\"input_select\\\": \\\"file_list\\\"}\", \"outputformat\": \"\\\"fastqsanger.gz\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": null}", 
+            "tool_version": "2.8.1.2", 
+            "type": "tool", 
+            "uuid": "7278e67c-4e16-46b5-82ac-d03a2161b125", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "__FLATTEN__", 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "list_paired"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Flatten Collection", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 826.03125, 
+                "top": 390.015625
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "__FLATTEN__", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"join_identifier\": \"\\\"_\\\"\", \"__page__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "6d0c054e-861e-439e-8dcf-930bc66687df", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "9b562094-09f3-462d-9ee6-8f66878d5ead"
+}

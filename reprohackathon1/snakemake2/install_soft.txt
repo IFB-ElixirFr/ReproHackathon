@@ -1,0 +1,21 @@
+apt-get install python3-pip
+pip3 install snakemake
+apt-get install sra-toolkit
+sudo apt-get install libz-dev
+apt-get install samtools
+git clone https://github.com/alexdobin/STAR.git
+cd STAR/source
+make STAR
+export PATH=$PATH:/root/STAR/source
+apt-get install r-base-core
+sudo apt install libcurl4-openssl-dev
+R
+>source("https://bioconductor.org/biocLite.R")
+>biocLite("DEXSeq")
+
+sudo apt-get install build-essential python2.7-dev python-numpy python-matplotlib
+apt-get install liblzma-dev
+cd /root/ReproHackathon/reprohackathon1/snakemake2
+wget https://pypi.python.org/packages/46/f7/6105848893b1d280692eac4f4f3c08ed7f424cec636aeda66b50bbcf217e/HTSeq-0.7.2.tar.gz
+tar -zxvf HTSeq-0.7.2.tar.gz
+python setup.py install --user

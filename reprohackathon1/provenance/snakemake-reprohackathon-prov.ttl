@@ -1,0 +1,1350 @@
+@base <http://snakemake-provenace#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sym:   <http://fr.symetric/vocab#> .
+@prefix crypto: <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<:gaignard-a> a prov:Agent, prov:Person . 
+
+<> 
+	a prov:Bundle, prov:Entity;
+	prov:wasAttributedTo <:gaignard-a>;
+	prov:generatedAtTime "2017-06-02T16:45:10.318396"^^xsd:dateTime.
+
+<#http://snakemake-provenace#activity-174abacc-898b-4232-993e-9313dce5fa24>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetGenome> ;
+	prov:startedAtTime "2017-06-02T16:45:10.494009"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.494029"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-174abacc-898b-4232-993e-9313dce5fa24>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetGenome> ;
+	prov:startedAtTime "2017-06-02T16:45:10.494044"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.494050"^^xsd:dateTime; 
+.
+
+<GetGenome/chr20.fa.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-174abacc-898b-4232-993e-9313dce5fa24>;
+    prov:wasAttributedTo <#GetGenome>;
+    rdfs:label "GetGenome/chr20.fa.gz"; 
+.
+
+<#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CreateIndex> ;
+	prov:startedAtTime "2017-06-02T16:45:10.494981"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.494994"^^xsd:dateTime; 
+	prov:used <GetGenome/chr20.fa.gz> ; 
+.
+
+<#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CreateIndex> ;
+	prov:startedAtTime "2017-06-02T16:45:10.495007"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.495013"^^xsd:dateTime; 
+	prov:used <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/chrName.txt>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/chrName.txt"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/Genome>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/Genome"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/chrNameLength.txt>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/chrNameLength.txt"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/SAindex>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/SAindex"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/chrStart.txt>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/chrStart.txt"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/chrLength.txt>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/chrLength.txt"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/SA>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/SA"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<CreateIndex/genomeParameters.txt>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a5d066b7-d55e-4d7f-868b-4b8b0a1e1f24>;
+    prov:wasAttributedTo <#CreateIndex>;
+    rdfs:label "CreateIndex/genomeParameters.txt"; 
+	prov:wasDerivedFrom <GetGenome/chr20.fa.gz> ; 
+.
+
+<#http://snakemake-provenace#activity-669ff1bb-4b25-4cac-8e09-d4392a45c226>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#PrepareAnnotations> ;
+	prov:startedAtTime "2017-06-02T16:45:10.496163"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.496174"^^xsd:dateTime; 
+	prov:used <tables.gtf> ; 
+	prov:used <tables_names.txt> ; 
+.
+
+<#http://snakemake-provenace#activity-669ff1bb-4b25-4cac-8e09-d4392a45c226>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#PrepareAnnotations> ;
+	prov:startedAtTime "2017-06-02T16:45:10.496182"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.496186"^^xsd:dateTime; 
+	prov:used <tables.gtf> ; 
+	prov:used <tables_names.txt> ; 
+.
+
+<PrepareAnnotations/PrepareAnnotations.gtf>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-669ff1bb-4b25-4cac-8e09-d4392a45c226>;
+    prov:wasAttributedTo <#PrepareAnnotations>;
+    rdfs:label "PrepareAnnotations/PrepareAnnotations.gtf"; 
+	prov:wasDerivedFrom <tables.gtf> ; 
+	prov:wasDerivedFrom <tables_names.txt> ; 
+.
+
+<#http://snakemake-provenace#activity-1b27cc93-c1f1-4242-b3f7-9c62261094a9>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#PrepareDEXSeqAnnotations> ;
+	prov:startedAtTime "2017-06-02T16:45:10.497074"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.497089"^^xsd:dateTime; 
+	prov:used <PrepareAnnotations/PrepareAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-1b27cc93-c1f1-4242-b3f7-9c62261094a9>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#PrepareDEXSeqAnnotations> ;
+	prov:startedAtTime "2017-06-02T16:45:10.497100"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.497106"^^xsd:dateTime; 
+	prov:used <PrepareAnnotations/PrepareAnnotations.gtf> ; 
+.
+
+<PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-1b27cc93-c1f1-4242-b3f7-9c62261094a9>;
+    prov:wasAttributedTo <#PrepareDEXSeqAnnotations>;
+    rdfs:label "PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf"; 
+	prov:wasDerivedFrom <PrepareAnnotations/PrepareAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-995a131c-ba5d-4a29-9c0d-0d867f079cbf>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.498187"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.498199"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-995a131c-ba5d-4a29-9c0d-0d867f079cbf>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.498205"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.498208"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628582_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-995a131c-ba5d-4a29-9c0d-0d867f079cbf>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628582_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628582_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-995a131c-ba5d-4a29-9c0d-0d867f079cbf>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628582_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-c6b130bd-77f3-4b69-b30b-bcadf66a4a33>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.499110"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.499123"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628582_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628582_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-c6b130bd-77f3-4b69-b30b-bcadf66a4a33>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.499136"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.499142"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628582_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628582_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628582.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-c6b130bd-77f3-4b69-b30b-bcadf66a4a33>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628582.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628582_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628582_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-a99e3f9e-1c2e-4392-a6ab-d1bab348322c>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.499868"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.499879"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628582.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-a99e3f9e-1c2e-4392-a6ab-d1bab348322c>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.499886"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.499889"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628582.bam> ; 
+.
+
+<IndexBam/SRR628582.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-a99e3f9e-1c2e-4392-a6ab-d1bab348322c>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628582.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628582.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-488c0a97-8560-40c9-9c9d-ac20d3052539>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.500751"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.500764"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628582.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-488c0a97-8560-40c9-9c9d-ac20d3052539>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.500777"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.500782"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628582.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628582.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-488c0a97-8560-40c9-9c9d-ac20d3052539>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628582.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628582.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-1011c1f3-40f3-4dc4-bc73-b32585cac5fd>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.501624"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.501635"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628582.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-1011c1f3-40f3-4dc4-bc73-b32585cac5fd>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.501642"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.501645"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628582.counts> ; 
+.
+
+<InsertConditions/SRR628582.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-1011c1f3-40f3-4dc4-bc73-b32585cac5fd>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628582.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628582.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-d1693f04-37c6-4582-b00d-39edcb8e38c2>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.502465"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.502474"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-d1693f04-37c6-4582-b00d-39edcb8e38c2>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.502481"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.502484"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628583_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-d1693f04-37c6-4582-b00d-39edcb8e38c2>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628583_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628583_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-d1693f04-37c6-4582-b00d-39edcb8e38c2>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628583_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-c9fc0c67-60e7-4d70-92bd-2bd19eb8d385>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.503686"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.503700"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628583_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628583_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-c9fc0c67-60e7-4d70-92bd-2bd19eb8d385>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.503713"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.503717"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628583_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628583_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628583.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-c9fc0c67-60e7-4d70-92bd-2bd19eb8d385>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628583.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628583_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628583_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-7bdd1b4e-51a8-417a-beb6-471142dfa044>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.504438"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.504447"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628583.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-7bdd1b4e-51a8-417a-beb6-471142dfa044>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.504454"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.504457"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628583.bam> ; 
+.
+
+<IndexBam/SRR628583.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-7bdd1b4e-51a8-417a-beb6-471142dfa044>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628583.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628583.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-50d4862b-88f4-4d70-950b-364a64a0ccab>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.505260"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.505268"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628583.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-50d4862b-88f4-4d70-950b-364a64a0ccab>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.505277"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.505280"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628583.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628583.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-50d4862b-88f4-4d70-950b-364a64a0ccab>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628583.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628583.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-d35981ca-790f-4474-ab65-2947d49f2200>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.506015"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.506023"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628583.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-d35981ca-790f-4474-ab65-2947d49f2200>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.506030"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.506033"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628583.counts> ; 
+.
+
+<InsertConditions/SRR628583.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-d35981ca-790f-4474-ab65-2947d49f2200>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628583.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628583.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-22bfb953-928b-495d-94dd-ece7f255116d>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.506768"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.506776"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-22bfb953-928b-495d-94dd-ece7f255116d>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.506782"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.506785"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628586_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-22bfb953-928b-495d-94dd-ece7f255116d>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628586_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628586_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-22bfb953-928b-495d-94dd-ece7f255116d>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628586_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-9370ddf6-d907-4621-8dfa-1e9b91bb252d>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.507531"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.507538"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628586_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628586_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-9370ddf6-d907-4621-8dfa-1e9b91bb252d>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.507546"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.507549"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628586_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628586_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628586.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-9370ddf6-d907-4621-8dfa-1e9b91bb252d>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628586.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628586_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628586_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-21bc90b3-acb9-4b0f-8abc-d1d099343ee6>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.508124"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.508132"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628586.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-21bc90b3-acb9-4b0f-8abc-d1d099343ee6>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.508139"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.508141"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628586.bam> ; 
+.
+
+<IndexBam/SRR628586.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-21bc90b3-acb9-4b0f-8abc-d1d099343ee6>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628586.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628586.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-0d70822c-8123-43c6-ace4-89e79e9bc3aa>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.509123"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.509135"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628586.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-0d70822c-8123-43c6-ace4-89e79e9bc3aa>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.509147"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.509152"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628586.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628586.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-0d70822c-8123-43c6-ace4-89e79e9bc3aa>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628586.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628586.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-dbc9567f-a702-4816-9465-be4cfcbbf8bf>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.510205"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.510215"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628586.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-dbc9567f-a702-4816-9465-be4cfcbbf8bf>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.510226"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.510231"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628586.counts> ; 
+.
+
+<InsertConditions/SRR628586.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-dbc9567f-a702-4816-9465-be4cfcbbf8bf>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628586.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628586.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-6e90df98-e5a7-453e-bd1b-538714ed90a6>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.511291"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.511301"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-6e90df98-e5a7-453e-bd1b-538714ed90a6>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.511310"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.511315"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628585_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-6e90df98-e5a7-453e-bd1b-538714ed90a6>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628585_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628585_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-6e90df98-e5a7-453e-bd1b-538714ed90a6>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628585_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-6e9f618d-38a6-493a-a951-3d6ef2b78413>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.512396"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.512406"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628585_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628585_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-6e9f618d-38a6-493a-a951-3d6ef2b78413>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.512419"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.512424"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628585_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628585_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628585.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-6e9f618d-38a6-493a-a951-3d6ef2b78413>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628585.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628585_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628585_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-125f5f3e-4667-4f48-846e-a066df719910>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.513268"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.513279"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628585.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-125f5f3e-4667-4f48-846e-a066df719910>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.513289"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.513295"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628585.bam> ; 
+.
+
+<IndexBam/SRR628585.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-125f5f3e-4667-4f48-846e-a066df719910>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628585.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628585.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-db393e0b-be4c-41f7-bdc4-66d6f0e73cd3>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.514193"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.514201"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628585.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-db393e0b-be4c-41f7-bdc4-66d6f0e73cd3>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.514208"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.514211"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628585.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628585.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-db393e0b-be4c-41f7-bdc4-66d6f0e73cd3>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628585.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628585.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-ba37303b-4365-47ce-819d-4267d71c5474>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.514894"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.514901"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628585.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-ba37303b-4365-47ce-819d-4267d71c5474>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.514908"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.514911"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628585.counts> ; 
+.
+
+<InsertConditions/SRR628585.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-ba37303b-4365-47ce-819d-4267d71c5474>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628585.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628585.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-59b72ed6-6d0c-4039-889d-cf179363ae52>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.515596"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.515603"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-59b72ed6-6d0c-4039-889d-cf179363ae52>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.515609"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.515612"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628589_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-59b72ed6-6d0c-4039-889d-cf179363ae52>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628589_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628589_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-59b72ed6-6d0c-4039-889d-cf179363ae52>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628589_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-deaefd4e-4e4e-4799-8519-5b8f32112c28>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.516298"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.516305"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628589_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628589_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-deaefd4e-4e4e-4799-8519-5b8f32112c28>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.516318"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.516321"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628589_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628589_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628589.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-deaefd4e-4e4e-4799-8519-5b8f32112c28>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628589.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628589_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628589_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-68d78ba8-872c-4b58-8f05-5185277e9464>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.516856"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.516863"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628589.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-68d78ba8-872c-4b58-8f05-5185277e9464>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.516870"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.516872"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628589.bam> ; 
+.
+
+<IndexBam/SRR628589.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-68d78ba8-872c-4b58-8f05-5185277e9464>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628589.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628589.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-2efa5550-bc67-4282-bad4-0d45be432b36>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.517539"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.517546"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628589.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-2efa5550-bc67-4282-bad4-0d45be432b36>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.517557"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.517560"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628589.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628589.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-2efa5550-bc67-4282-bad4-0d45be432b36>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628589.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628589.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-2e5937f1-e5d6-4289-a9a2-5b7fb600b07d>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.518399"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.518410"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628589.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-2e5937f1-e5d6-4289-a9a2-5b7fb600b07d>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.518418"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.518422"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628589.counts> ; 
+.
+
+<InsertConditions/SRR628589.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-2e5937f1-e5d6-4289-a9a2-5b7fb600b07d>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628589.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628589.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-d41fe231-b035-489f-9fff-5d3741b7a188>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.519745"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.519768"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-d41fe231-b035-489f-9fff-5d3741b7a188>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.519783"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.519790"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628588_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-d41fe231-b035-489f-9fff-5d3741b7a188>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628588_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628588_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-d41fe231-b035-489f-9fff-5d3741b7a188>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628588_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-8f05bf1f-a456-4de1-99f8-3b774db58cf4>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.524414"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.524476"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628588_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628588_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-8f05bf1f-a456-4de1-99f8-3b774db58cf4>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.524548"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.524578"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628588_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628588_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628588.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-8f05bf1f-a456-4de1-99f8-3b774db58cf4>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628588.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628588_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628588_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-dc70f09c-b4db-43c5-96eb-14f11c9e2384>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.527149"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.527168"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628588.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-dc70f09c-b4db-43c5-96eb-14f11c9e2384>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.527182"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.527186"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628588.bam> ; 
+.
+
+<IndexBam/SRR628588.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-dc70f09c-b4db-43c5-96eb-14f11c9e2384>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628588.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628588.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-1089e577-25cf-42f0-bbcf-7b2f85076c57>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.528202"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.528217"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628588.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-1089e577-25cf-42f0-bbcf-7b2f85076c57>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.528230"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.528236"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628588.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628588.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-1089e577-25cf-42f0-bbcf-7b2f85076c57>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628588.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628588.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-35ecc333-2582-425b-8592-547f006db6fc>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.529157"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.529177"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628588.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-35ecc333-2582-425b-8592-547f006db6fc>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.529192"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.529199"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628588.counts> ; 
+.
+
+<InsertConditions/SRR628588.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-35ecc333-2582-425b-8592-547f006db6fc>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628588.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628588.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-2ed68dd6-5237-40ae-a1b2-190f200afb31>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.530220"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.530237"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-2ed68dd6-5237-40ae-a1b2-190f200afb31>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.530249"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.530255"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628584_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-2ed68dd6-5237-40ae-a1b2-190f200afb31>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628584_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628584_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-2ed68dd6-5237-40ae-a1b2-190f200afb31>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628584_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-fb3a2e0f-9848-4340-a13e-34ea3a33fde6>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.531601"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.531618"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628584_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628584_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-fb3a2e0f-9848-4340-a13e-34ea3a33fde6>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.531634"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.531640"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628584_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628584_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628584.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-fb3a2e0f-9848-4340-a13e-34ea3a33fde6>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628584.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628584_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628584_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-9dd5aa26-5395-4a16-91e2-d436a879ed74>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.532645"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.532663"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628584.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-9dd5aa26-5395-4a16-91e2-d436a879ed74>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.532677"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.532684"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628584.bam> ; 
+.
+
+<IndexBam/SRR628584.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-9dd5aa26-5395-4a16-91e2-d436a879ed74>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628584.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628584.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-32c843df-a398-4154-ba2d-b8764893c0cc>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.534492"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.534513"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628584.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-32c843df-a398-4154-ba2d-b8764893c0cc>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.534531"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.534538"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628584.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628584.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-32c843df-a398-4154-ba2d-b8764893c0cc>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628584.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628584.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-87e61198-e78d-4340-bc84-06cad431f4b8>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.535808"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.535822"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628584.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-87e61198-e78d-4340-bc84-06cad431f4b8>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.535834"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.535840"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628584.counts> ; 
+.
+
+<InsertConditions/SRR628584.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-87e61198-e78d-4340-bc84-06cad431f4b8>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628584.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628584.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-6b7c54e5-20aa-4e48-8e37-fa7d86333ffe>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.537074"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.537088"^^xsd:dateTime; 
+.
+
+<#http://snakemake-provenace#activity-6b7c54e5-20aa-4e48-8e37-fa7d86333ffe>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#GetFastq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.537098"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.537103"^^xsd:dateTime; 
+.
+
+<GetFastq/SRR628587_1.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-6b7c54e5-20aa-4e48-8e37-fa7d86333ffe>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628587_1.fastq.gz"; 
+.
+
+<GetFastq/SRR628587_2.fastq.gz>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-6b7c54e5-20aa-4e48-8e37-fa7d86333ffe>;
+    prov:wasAttributedTo <#GetFastq>;
+    rdfs:label "GetFastq/SRR628587_2.fastq.gz"; 
+.
+
+<#http://snakemake-provenace#activity-13c03687-c8f1-493f-b5a1-52fc7db67474>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.538289"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.538304"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628587_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628587_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-13c03687-c8f1-493f-b5a1-52fc7db67474>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#MappingSTAR> ;
+	prov:startedAtTime "2017-06-02T16:45:10.538317"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.538322"^^xsd:dateTime; 
+	prov:used <GetFastq/SRR628587_1.fastq.gz> ; 
+	prov:used <GetFastq/SRR628587_2.fastq.gz> ; 
+	prov:used <CreateIndex/SAindex> ; 
+.
+
+<MappingSTAR/SRR628587.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-13c03687-c8f1-493f-b5a1-52fc7db67474>;
+    prov:wasAttributedTo <#MappingSTAR>;
+    rdfs:label "MappingSTAR/SRR628587.bam"; 
+	prov:wasDerivedFrom <GetFastq/SRR628587_1.fastq.gz> ; 
+	prov:wasDerivedFrom <GetFastq/SRR628587_2.fastq.gz> ; 
+	prov:wasDerivedFrom <CreateIndex/SAindex> ; 
+.
+
+<#http://snakemake-provenace#activity-b4aa5765-9710-4474-9e0f-7d4dc22f350c>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.539251"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.539265"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628587.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-b4aa5765-9710-4474-9e0f-7d4dc22f350c>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#IndexBam> ;
+	prov:startedAtTime "2017-06-02T16:45:10.539276"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.539282"^^xsd:dateTime; 
+	prov:used <MappingSTAR/SRR628587.bam> ; 
+.
+
+<IndexBam/SRR628587.sorted.bam>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-b4aa5765-9710-4474-9e0f-7d4dc22f350c>;
+    prov:wasAttributedTo <#IndexBam>;
+    rdfs:label "IndexBam/SRR628587.sorted.bam"; 
+	prov:wasDerivedFrom <MappingSTAR/SRR628587.bam> ; 
+.
+
+<#http://snakemake-provenace#activity-6fa2770b-a26d-4260-9b10-3105fe9faac7>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.540444"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.540458"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628587.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-6fa2770b-a26d-4260-9b10-3105fe9faac7>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#CountDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.540471"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.540477"^^xsd:dateTime; 
+	prov:used <IndexBam/SRR628587.sorted.bam> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<CountDEXSeq/SRR628587.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-6fa2770b-a26d-4260-9b10-3105fe9faac7>;
+    prov:wasAttributedTo <#CountDEXSeq>;
+    rdfs:label "CountDEXSeq/SRR628587.counts"; 
+	prov:wasDerivedFrom <IndexBam/SRR628587.sorted.bam> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-0572858a-636f-42ef-b6cc-fb0d589b3449>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.541880"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.541895"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628587.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-0572858a-636f-42ef-b6cc-fb0d589b3449>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#InsertConditions> ;
+	prov:startedAtTime "2017-06-02T16:45:10.541907"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.541913"^^xsd:dateTime; 
+	prov:used <CountDEXSeq/SRR628587.counts> ; 
+.
+
+<InsertConditions/SRR628587.counts>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-0572858a-636f-42ef-b6cc-fb0d589b3449>;
+    prov:wasAttributedTo <#InsertConditions>;
+    rdfs:label "InsertConditions/SRR628587.counts"; 
+	prov:wasDerivedFrom <CountDEXSeq/SRR628587.counts> ; 
+.
+
+<#http://snakemake-provenace#activity-f1e9f613-8dc1-4487-9420-a7339281bc95>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#AnalysisDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.543208"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.543261"^^xsd:dateTime; 
+	prov:used <InsertConditions/SRR628582.counts> ; 
+	prov:used <InsertConditions/SRR628583.counts> ; 
+	prov:used <InsertConditions/SRR628584.counts> ; 
+	prov:used <InsertConditions/SRR628585.counts> ; 
+	prov:used <InsertConditions/SRR628586.counts> ; 
+	prov:used <InsertConditions/SRR628587.counts> ; 
+	prov:used <InsertConditions/SRR628588.counts> ; 
+	prov:used <InsertConditions/SRR628589.counts> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-f1e9f613-8dc1-4487-9420-a7339281bc95>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#AnalysisDEXSeq> ;
+	prov:startedAtTime "2017-06-02T16:45:10.543300"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.543312"^^xsd:dateTime; 
+	prov:used <InsertConditions/SRR628582.counts> ; 
+	prov:used <InsertConditions/SRR628583.counts> ; 
+	prov:used <InsertConditions/SRR628584.counts> ; 
+	prov:used <InsertConditions/SRR628585.counts> ; 
+	prov:used <InsertConditions/SRR628586.counts> ; 
+	prov:used <InsertConditions/SRR628587.counts> ; 
+	prov:used <InsertConditions/SRR628588.counts> ; 
+	prov:used <InsertConditions/SRR628589.counts> ; 
+	prov:used <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<AnalysisDEXSeq/Exon.spliced>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-f1e9f613-8dc1-4487-9420-a7339281bc95>;
+    prov:wasAttributedTo <#AnalysisDEXSeq>;
+    rdfs:label "AnalysisDEXSeq/Exon.spliced"; 
+	prov:wasDerivedFrom <InsertConditions/SRR628582.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628583.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628584.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628585.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628586.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628587.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628588.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628589.counts> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<AnalysisDEXSeq/Dispersion.spliced>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-f1e9f613-8dc1-4487-9420-a7339281bc95>;
+    prov:wasAttributedTo <#AnalysisDEXSeq>;
+    rdfs:label "AnalysisDEXSeq/Dispersion.spliced"; 
+	prov:wasDerivedFrom <InsertConditions/SRR628582.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628583.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628584.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628585.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628586.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628587.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628588.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628589.counts> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<AnalysisDEXSeq/MAplot.spliced>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-f1e9f613-8dc1-4487-9420-a7339281bc95>;
+    prov:wasAttributedTo <#AnalysisDEXSeq>;
+    rdfs:label "AnalysisDEXSeq/MAplot.spliced"; 
+	prov:wasDerivedFrom <InsertConditions/SRR628582.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628583.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628584.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628585.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628586.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628587.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628588.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628589.counts> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<AnalysisDEXSeq/AnalysisDEXSeq.spliced>
+    a prov:Entity;
+    prov:wasGeneratedBy <#http://snakemake-provenace#activity-f1e9f613-8dc1-4487-9420-a7339281bc95>;
+    prov:wasAttributedTo <#AnalysisDEXSeq>;
+    rdfs:label "AnalysisDEXSeq/AnalysisDEXSeq.spliced"; 
+	prov:wasDerivedFrom <InsertConditions/SRR628582.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628583.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628584.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628585.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628586.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628587.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628588.counts> ; 
+	prov:wasDerivedFrom <InsertConditions/SRR628589.counts> ; 
+	prov:wasDerivedFrom <PrepareDEXSeqAnnotations/PrepareDEXSeqAnnotations.gtf> ; 
+.
+
+<#http://snakemake-provenace#activity-4c462cfa-8b9b-4c94-ad3a-8bd92a207358>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#targets> ;
+	prov:startedAtTime "2017-06-02T16:45:10.546060"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.546074"^^xsd:dateTime; 
+	prov:used <AnalysisDEXSeq/Exon.spliced> ; 
+	prov:used <AnalysisDEXSeq/MAplot.spliced> ; 
+	prov:used <AnalysisDEXSeq/Dispersion.spliced> ; 
+	prov:used <AnalysisDEXSeq/AnalysisDEXSeq.spliced> ; 
+.
+
+<#http://snakemake-provenace#activity-4c462cfa-8b9b-4c94-ad3a-8bd92a207358>
+	a prov:Activity ;
+	prov:wasAssociatedWith <#targets> ;
+	prov:startedAtTime "2017-06-02T16:45:10.546086"^^xsd:dateTime;
+	prov:endedAtTime "2017-06-02T16:45:10.546090"^^xsd:dateTime; 
+	prov:used <AnalysisDEXSeq/Exon.spliced> ; 
+	prov:used <AnalysisDEXSeq/MAplot.spliced> ; 
+	prov:used <AnalysisDEXSeq/Dispersion.spliced> ; 
+	prov:used <AnalysisDEXSeq/AnalysisDEXSeq.spliced> ; 
+.

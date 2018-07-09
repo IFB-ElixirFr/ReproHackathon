@@ -1,0 +1,30 @@
+__threads_GG = config["GetGenome"]["threads"]
+__version_GG = config["GetGenome"]["version"]
+__output_GG_Repertory = config["GetGenome"]["Repertory"]
+
+#####
+
+rule GetGenome : 
+  params :
+    chr = __params_GG_Chromosom,
+    repertory = __output_GG_Repertory
+
+  output :
+    genome = __output_GG_Genome
+
+  message :
+    "GetGenome with sra toolkit for {params.chr} NCBI_id"
+  
+  threads :
+    __threads_GG
+  
+  version :
+    __version_GG
+  
+  log :
+    out = __stdout_GG,
+    err = __stderr_GG
+
+  shell :
+    "wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/!{params.chr}.fa.gz 2> {log.err} 1> {log.out};\
+mv {params.chr}.fa.gz {params.repertory}{params.chr}.fa.gz"

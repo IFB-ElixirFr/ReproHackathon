@@ -1,0 +1,7 @@
+@@ -51,7 +51,7 @@
+ for f in HTSeq.GFF_Reader( gtf_file ):
+    if f.type != "exon":
+       continue
+-   f.attr['gene_id'] = f.attr['gene_id'].replace( ":", "_" )
++   f.attr['gene_id'] = f.iv.chrom + '_' + f.attr['gene_id'].replace( ":", "_" ) + f.iv.strand
+    exons[f.iv] += ( f.attr['gene_id'], f.attr['transcript_id'] )

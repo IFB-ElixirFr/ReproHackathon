@@ -1,0 +1,47 @@
+---
+
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+
+- name: 'ucsc_twobittofa'
+  owner: 'iuc'
+  tool_panel_section_label: 'Manipulation of files'
+
+- name: 'sra_tools'
+  owner: 'iuc'
+  tool_panel_section_label: 'Manipulation of files'
+
+- name: 'fastq_paired_end_deinterlacer'
+  owner: 'devteam'
+  tool_panel_section_label: 'Manipulation of files'
+
+- name: 'suite_samtools_1_2'
+  owner: 'devteam'
+  tool_panel_section_label: 'Manipulation of files'
+
+- name: 'text_processing'
+  owner: 'bgruening'
+  tool_panel_section_label: 'Manipulation of files'
+
+- name: 'fastqc'
+  owner: 'devteam'
+  tool_panel_section_label: 'Quality control'
+
+- name: 'trim_galore'
+  owner: 'bgruening'
+  tool_panel_section_label: 'Quality control'
+
+- name: 'rgrnastar'
+  owner: 'iuc'
+  tool_panel_section_label: 'Mapping'
+
+- name: 'rseqc'
+  owner: 'nilesh'
+  tool_panel_section_label: 'Mapping'
+
+- name: 'dexseq'
+  owner: 'iuc'
+  tool_panel_section_label: 'Differential analysis'
+
+
