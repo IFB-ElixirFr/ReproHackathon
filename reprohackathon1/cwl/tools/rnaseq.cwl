@@ -6,6 +6,7 @@ requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
   - class: InlineJavascriptRequirement
+  - class: StepInputExpressionRequirement
   - $import: types.yml
 
 inputs:
@@ -38,7 +39,7 @@ steps:
           outputSource: fastq-dump/fastqFile-reads
       steps:
         - id: get_sra
-          run: get_sra.cwl
+          run: cp_sra.cwl
           in:
             sraid: sraid
           out: [sraFile]
@@ -53,7 +54,7 @@ steps:
     out:
       [fastqFile-reads]
   - id: get_chrs
-    run: get_chr.cwl
+    run: cp_chr.cwl
     in:
       chr: chrs
     scatter: get_chrs/chr
@@ -69,11 +70,11 @@ steps:
     run: STAR.cwl
     in:
       runThreadN: 
-        valueFrom: ${return 10;}
+        valueFrom: ${return 2;}
       runMode: 
         valueFrom: 'genomeGenerate'
-      genomeFastaFiles: get_chrs/fastaFile
+      genomeFastaFiles: cat_chrs/fastaFile
       genomeDir: 
-        valueFrom: '/tmp/star_genome'
+        valueFrom: '.'
     out:
       [aligned]

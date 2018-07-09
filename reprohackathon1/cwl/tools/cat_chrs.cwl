@@ -2,8 +2,9 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
 - class: InlineJavascriptRequirement
-baseCommand: gunzip
-arguments: ['-c']
+baseCommand: cat
+#baseCommand: gunzip
+#arguments: ['-c']
 inputs:
   fastaGzFiles:
     type:

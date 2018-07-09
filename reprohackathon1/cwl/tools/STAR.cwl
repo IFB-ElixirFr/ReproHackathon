@@ -4,15 +4,15 @@ cwlVersion: v1.0
 class: CommandLineTool
 
 requirements:
-- $import: envvar-global.yml
+#- $import: envvar-global.yml
 - class: InlineJavascriptRequirement
 
-hints:
-- class: DockerRequirement
+#hints:
+#- class: DockerRequirement
     #dockerImageId: scidap/star:v2.5.0b #not yet ready
-  dockerPull: scidap/star:v2.5.0b
-  dockerFile: >
-    $import: STAR-Dockerfile
+#  dockerPull: scidap/star:v2.5.0b
+#  dockerFile: >
+#    $import: STAR-Dockerfile
 
 inputs:
   winBinNbits:
@@ -390,7 +390,7 @@ inputs:
       genomeGenerate         ... generate genome files
       inputAlignmentsFromBAM ... input alignments from BAM. Presently only works with --outWigType and --bamRemoveDuplicates.
   genomeFastaFiles:
-    type: File[]?
+    type: File
     inputBinding:
       position: 1
       itemSeparator: ' '
@@ -1298,15 +1298,15 @@ inputs:
       0
       int>0: minimum mapped length for a read mate that is spliced
 outputs:
-  indices:
-    type: File?
-    outputBinding:
-      glob: |
-        ${
-          if (inputs.runMode != "genomeGenerate")
-            return [];
-          return inputs.genomeDir;
-        }
+  #indices:
+  #  type: File?
+  #  outputBinding:
+  #    glob: |
+  #      ${
+  #        if (inputs.runMode != "genomeGenerate")
+  #          return [];
+  #        return inputs.genomeDir;
+  #      }
   aligned:
     type: File?
     outputBinding:
