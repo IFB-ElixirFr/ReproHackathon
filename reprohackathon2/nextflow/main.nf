@@ -21,7 +21,7 @@ process getalignments {
 	'''
 }
 
-align.into{alignFASTTREE; alignRAXML; alignPHYML}
+align.into{alignFASTTREE; alignRAXML; alignPHYML; alignIQTREE}
 
 process getbesttrees {
 	publishDir "$resultdir/trees_best"
@@ -102,5 +102,22 @@ process phyml {
 	'''
 	phyml -i !{align} --r_seed 1 -d nt -b 0 -m GTR -f e -c 4 -a e -s SPR --n_rand_starts 1 -o tlr -p --run_id ID
 	mv !{align}_phyml_tree_ID.txt !{align}.nhx
+	'''
+}
+
+process iqtree {
+	publishDir "$resultdir/trees/iqtree"
+
+	tag "$align"
+
+	input:
+	file align from alignIQTREE
+
+	output:
+	set val("iqtree"), file("${align}.treefile") into iqtree
+
+	shell:
+	'''
+	iqtree -m GTR+G4 -s !{align} -seed 1 -nt !{task.cpus}
 	'''
 }
