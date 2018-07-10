@@ -1,6 +1,6 @@
 dir: 
   class: Directory
-  location: SongD1
+  location: SongD1sample
 #  - class: File
 #    location: SongD1/gene1.aln
 #  - class: File

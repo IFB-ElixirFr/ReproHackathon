@@ -5,16 +5,24 @@ requirements:
 inputs:
   dir:
     type: Directory
-#    aligarray:
-#      type: File[]
-outputs: []
-#  treearray:
-#    type: File[]
-#    outputSource: step1/files #fasttree/tree   
+outputs:
+  aligfiles:
+    type: File[]
+    outputSource: listfiles/files
+  treefiles:
+    type: File[]
+    outputSource: fasttree/tree   
 steps:
-  step1:
+  listfiles:
     run: listfiles.cwl
     in:
       dir: dir
     out: 
       - id: files
+  fasttree:
+    run: fasttree.cwl
+    scatter: alig
+    in:
+      alig: listfiles/files
+    out:
+      - id: tree 
