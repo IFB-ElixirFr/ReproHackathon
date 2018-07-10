@@ -1,0 +1,75 @@
+import os
+
+all_datadir = "/data/single-gene_alignments"
+datadir = "/data/single-gene_alignments/XiD4"
+outputdir = "/data/results"
+tools = ["fasttree","raxml","iqtree","phyml"]
+single = True
+
+def get_output_files(tools):
+    list_files = []
+    for root, dirs, files in os.walk(all_datadir):
+        for tool in tools:
+            for d in dirs:
+                directory = outputdir +"/"+tool+"/"+d
+                if not os.path.exists(directory):
+                    os.makedirs(directory)
+    for root, dirs, files in os.walk(datadir):
+        if root != datadir or single:
+            for filename in files:
+                for method in tools:
+                    file_name, ext = os.path.splitext(filename)
+                    output_file = filename
+                    output_path = root.replace(all_datadir+"/", "")
+                    list_files.append(method+"/"+filename)
+                    #list_files.append(os.path.join(output_path,output_file))
+    return list_files
+
+# List of output files
+OUTPUT_FILES = get_output_files(tools)
+
+rule all:
+     input:
+         expand("{datadir}/{sample}.nhx", sample=OUTPUT_FILES, datadir=outputdir)
+     run: os.system('sh get_data.sh')
+
+rule fasttree:
+    input: "/data/single-gene_alignments/XiD4/{sample}"
+    output: "/data/results/fasttree/{sample}.nhx"
+    threads: 1
+    singularity:
+        "docker://evolbioinfo/fasttree:v2.1.9"
+    shell:
+        "FastTree -nt -gtr -gamma -spr 4 -mlacc 2 -slownni {input} > {output}"
+
+
+rule iqtree:
+    input: "/data/single-gene_alignments/XiD4/{sample}"
+    output: "/data/results/iqtree/{sample}.nhx"
+    threads: 1
+    singularity:
+        "docker://evolbioinfo/iqtree:v1.4.2"
+    shell:
+        "iqtree -m GTR+G4 -s {input} -seed 1 -nt 1;"
+	"mv {input} {output}"
+
+
+rule raxml:
+    input: "/data/single-gene_alignments/XiD4/{sample}"
+    output: "/data/results/raxml/{sample}.nhx"
+    threads: 1
+    singularity:
+        "docker://evolbioinfo/raxml:v8.2.0-avx2"
+    shell:
+        "touch {output}"
+
+
+rule phyml:
+    input: "/data/single-gene_alignments/XiD4/{sample}"
+    output: "/data/results/phyml/{sample}.nhx"
+    threads: 1
+    singularity:
+        "docker://evolbioinfo/phyml:v3.3.20180129"
+    shell:
+        "touch {output}"
+
