@@ -53,7 +53,6 @@ process fasttree {
 	'''
 }
 
-
 process raxml {
 	publishDir "$resultdir/trees/raxml"
 
@@ -71,7 +70,6 @@ process raxml {
 	mv RAxML_bestTree.!{align} !{align}.nhx
 	'''
 }
-
 
 process tophylip {
 
@@ -119,5 +117,65 @@ process iqtree {
 	shell:
 	'''
 	iqtree -m GTR+G4 -s !{align} -seed 1 -nt !{task.cpus}
+	'''
+}
+
+// Adding gene ID value
+besttree.map{ f -> tuple(f.baseName.replace(".best",""),f) }.into{ best1; best2; best3; best4 }
+// Adding gene ID value + join with besttree channel
+fastcomp = fasttree.map { it -> tuple(it[1].baseName.replace(".aln",""), it[0], it[1]) }.join(best1)
+iqcomp = iqtree.map{ it ->tuple(it[1].baseName.replace(".aln",""), it[0], it[1]) }.join(best2)
+raxcomp = raxml.map{ it ->tuple(it[1].baseName.replace(".aln",""), it[0], it[1]) }.join(best3)
+phycomp = phyml.map{ it ->tuple(it[1].baseName.replace(".phy",""), it[0], it[1]) }.join(best4)
+
+// Concatenate all channels
+compare = fastcomp.mix(iqcomp, raxcomp, phycomp)
+
+// Compare all trees to best tree
+process comparetrees {
+	input:
+	set val(id), val(method), file(tree), file(besttree) from compare
+
+	output:
+	file "comp" into compareresult
+
+	shell:
+	'''
+	echo !{id} !{method} $(gotree compare trees --binary -i !{tree} -c !{besttree} | tail -n +2 | cut -f 2) > comp
+	'''
+}
+
+// Final result
+compareresult.collectFile(name: "comparisons.txt").into{ result1; resultall}
+
+result1.subscribe{
+	file -> file.copyTo(resultdir.resolve(file.name))
+}
+
+// Plot histograms
+process plot {
+
+	publishDir "$resultdir/plots/"
+
+	input:
+	file resultall
+
+	output:
+	file "*.svg" into plots mode flatten
+
+	shell:
+	'''
+	#!/usr/bin/env Rscript
+	library("ggplot2")
+	library(reshape2)
+	comp=read.table("!{resultall}")
+	colnames(comp)=c("gene","method","found")
+	cast=dcast(comp, method ~ found, function(x) length(x))
+	total=(cast$false+cast$true)
+	cast$false = cast$false/total
+	cast$true = cast$true/total
+	svg("comparison.svg")
+	ggplot(cast, aes(method,true))+geom_bar(stat="identity")
+	dev.off()
 	'''
 }
