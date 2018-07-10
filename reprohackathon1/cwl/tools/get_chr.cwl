@@ -8,9 +8,9 @@ inputs:
     type: string
     inputBinding:
       position: 1
-      valueFrom: $('http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/' + inputs.chr + '.fa.gz')
+      valueFrom: $('http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/' + inputs.chr + '.fa')
 outputs: 
   fastaFile:
     type: File
     outputBinding:
-      glob: $(inputs.chr + '.fa.gz')
+      glob: $(inputs.chr + '.fa')

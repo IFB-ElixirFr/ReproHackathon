@@ -5,6 +5,8 @@ cwlVersion: v1.0
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
+  - class: InlineJavascriptRequirement
+  - class: StepInputExpressionRequirement
   - $import: types.yml
 
 inputs:
@@ -12,11 +14,19 @@ inputs:
     type: {type: array, items: string}
   chrs:
     type: {type: array, items: string}
+  #star_genome:
+  #  type: Directory
+  #  doc: "Genome directory containing STAR genome indices"
 outputs:
   fastqFile-reads:
     type: {type: array, items: types.yml#fastqPairedFiles}
     outputSource: get_reads/fastqFile-reads
-
+  fastaFile-genome:
+    type: File
+    outputSource: cat_chrs/fastaFile
+  fastaFile-indexedGenome:
+    type: File
+    outputSource: index/aligned
 steps:
   - id: get_reads
     run:
@@ -29,7 +39,7 @@ steps:
           outputSource: fastq-dump/fastqFile-reads
       steps:
         - id: get_sra
-          run: get_sra.cwl
+          run: cp_sra.cwl
           in:
             sraid: sraid
           out: [sraFile]
@@ -44,7 +54,7 @@ steps:
     out:
       [fastqFile-reads]
   - id: get_chrs
-    run: get_chr.cwl
+    run: cp_chr.cwl
     in:
       chr: chrs
     scatter: get_chrs/chr
@@ -56,3 +66,15 @@ steps:
       fastaGzFiles: get_chrs/fastaFile
     out:
       [fastaFile]
+  - id: index
+    run: STAR.cwl
+    in:
+      runThreadN: 
+        valueFrom: ${return 2;}
+      runMode: 
+        valueFrom: 'genomeGenerate'
+      genomeFastaFiles: cat_chrs/fastaFile
+      genomeDir: 
+        valueFrom: '.'
+    out:
+      [aligned]

@@ -8,9 +8,10 @@ inputs:
     type: string
     inputBinding:
       position: 1
-      valueFrom: $('http://appliances.france-bioinformatique.fr/reprohackathon/' + inputs.sraid + '.sra')
+      #valueFrom: $('http://appliances.france-bioinformatique.fr/reprohackathon/' + inputs.sraid + '.sra')
+      valueFrom: $('ftp://ftp.sra.ebi.ac.uk/vol1/srr/SRR628/' + inputs.sraid)
 outputs: 
   sraFile:
     type: File
     outputBinding:
-      glob: $(inputs.sraid + '.sra')
+      glob: $(inputs.sraid)

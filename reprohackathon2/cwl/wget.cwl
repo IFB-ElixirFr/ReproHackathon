@@ -2,16 +2,14 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
 - class: InlineJavascriptRequirement
-baseCommand: cat
-#baseCommand: gunzip
-#arguments: ['-c']
+baseCommand: ['wget', '-O', 'downloaded_file']
 inputs:
-  fastaGzFiles:
-    type:
-      type: array
-      items: File
+  url:
+    type: string
     inputBinding:
       position: 1
 outputs: 
   fastaFile:
-    type: stdout
+    type: File
+    outputBinding:
+      glob: 'downloaded_file'
