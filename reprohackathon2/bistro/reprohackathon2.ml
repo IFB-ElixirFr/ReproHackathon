@@ -154,12 +154,9 @@ let%bistro concat results =
     )
   |> Out_channel.write_lines [%dest]
 
-let random_alignment = input "single-gene_alignments/SongD1/gene100.aln"
 
 let repo = Repo.[
-    item ["random_tree.nhx"] (tree_inference `PhyML random_alignment) ;
-    item ["random_comparison"] (Gotree.compare_trees ~input:(tree_inference `IQTree random_alignment) ~reference:(tree_inference `RAXML random_alignment)) ;
-    item ["concatenated_comps"] (concat (comparisons `SongD1 `Fasttree)) ;
+    item ["concatenated_comps_fasttree"] (concat (comparisons `SongD1 `Fasttree)) ;
   ]
 
-let () = Repo.build ~loggers:[console_logger ()] ~np:4 ~mem:(`GB 4) ~outdir:"res" repo
+let () = Repo.build ~loggers:[console_logger ()] ~np:8 ~mem:(`GB 4) ~outdir:"res" repo
