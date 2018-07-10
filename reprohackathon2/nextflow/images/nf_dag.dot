@@ -1,0 +1,122 @@
+digraph nf_dag {
+p0 [label="getalignments"];
+p1 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p0 -> p1 [label="align"];
+
+p1 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p3 [label="fasttree"];
+p1 -> p3 [label="alignFASTTREE"];
+
+p1 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p7 [label="iqtree"];
+p1 -> p7 [label="alignIQTREE"];
+
+p1 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p4 [label="raxml"];
+p1 -> p4 [label="alignRAXML"];
+
+p1 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p5 [label="tophylip"];
+p1 -> p5 [label="alignPHYML"];
+
+p2 [label="getbesttrees"];
+p8 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p2 -> p8 [label="besttree"];
+
+p3 [label="fasttree"];
+p10 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p3 -> p10 [label="fasttree"];
+
+p4 [label="raxml"];
+p14 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p4 -> p14 [label="raxml"];
+
+p5 [label="tophylip"];
+p6 [label="phyml"];
+p5 -> p6 [label="alignPHYMLPhylip"];
+
+p6 [label="phyml"];
+p16 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p6 -> p16 [label="phyml"];
+
+p7 [label="iqtree"];
+p12 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p7 -> p12 [label="iqtree"];
+
+p8 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p9 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p8 -> p9;
+
+p9 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p11 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p9 -> p11 [label="best1"];
+
+p9 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p13 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p9 -> p13 [label="best2"];
+
+p9 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p15 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p9 -> p15 [label="best3"];
+
+p9 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p17 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p9 -> p17 [label="best4"];
+
+p10 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p11 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p10 -> p11;
+
+p11 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p18 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p11 -> p18 [label="fastcomp"];
+
+p12 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p13 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p12 -> p13;
+
+p13 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p18 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p13 -> p18 [label="iqcomp"];
+
+p14 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p15 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p14 -> p15;
+
+p15 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p18 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p15 -> p18 [label="raxcomp"];
+
+p16 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p17 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p16 -> p17;
+
+p17 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="join"];
+p18 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p17 -> p18 [label="phycomp"];
+
+p18 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p19 [label="comparetrees"];
+p18 -> p19 [label="compare"];
+
+p19 [label="comparetrees"];
+p20 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collectFile"];
+p19 -> p20 [label="compareresult"];
+
+p20 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collectFile"];
+p21 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p20 -> p21;
+
+p21 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p22 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="subscribe"];
+p21 -> p22 [label="result1"];
+
+p21 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p23 [label="plot"];
+p21 -> p23 [label="resultall"];
+
+p23 [label="plot"];
+p24 [shape=point];
+p23 -> p24 [label="plots"];
+
+}
