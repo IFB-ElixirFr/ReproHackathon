@@ -16,11 +16,5 @@ steps:
     run: listfiles.cwl
     in:
       dir: dir
-    out:
-      files: files
-#fasttree:
-#  run: fasttree.cwl
-#  scatter: alig
-#  in:
-#    alig: listaligns/files
-#  out: [tree]
+    out: 
+      - id: files
