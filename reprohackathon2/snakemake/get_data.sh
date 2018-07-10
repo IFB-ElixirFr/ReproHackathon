@@ -11,5 +11,10 @@ fi
 if [ ! -d /data/single-gene_alignments ]; then
     wget -O /data/single-gene_alignments.tar.bz2 https://ndownloader.figshare.com/files/9473962
     cd /data
-    tar xvjf single-gene_alignments.tar.bz2
+    tar xjf single-gene_alignments.tar.bz2
+fi
+if [ ! -d /data/single-gene_alignments ]; then
+    wget -O /data/single-gene_tree.tar.bz2 https://ndownloader.figshare.com/files/9473953
+    cd /data
+    tar xjf single-gene_tree.tar.bz2
 fi
