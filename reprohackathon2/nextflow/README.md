@@ -51,6 +51,14 @@ Launched on a 128 cpus machine on [IFB cloud](https://biosphere.france-bioinform
 
 ![SongD1](images/songd1.svg)
 
+|  method   |  &ne; Best |  = Best    |
+|-----------|------------|------------|
+|  fasttree |  0.9622642 | 0.03773585 |
+|  iqtree   |  0.1981132 | 0.80188679 |
+|  phyml    |  0.4528302 | 0.54716981 |
+|  raxml    |  0.4245283 | 0.57547170 |
+
+
 ### Report
 
 ![Report](images/report.png)
