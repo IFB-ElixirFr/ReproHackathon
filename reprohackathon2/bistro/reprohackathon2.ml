@@ -4,7 +4,7 @@
 
 *)
 
-#require "bistro bistro.bioinfo bistro.unix"
+#require "bistro bistro.bioinfo bistro.unix bistro.ppx"
 
 open Core_kernel
 open Bistro
@@ -147,11 +147,19 @@ let comparisons d meth =
     (Dataset.best_trees d)
     ~f:(fun input reference -> Gotree.compare_trees ~input ~reference)
 
+let%bistro concat results =
+  List.map [%deps results] ~f:(fun fn ->
+      In_channel.read_lines fn
+      |> Fn.flip List.nth_exn 1
+    )
+  |> Out_channel.write_lines [%dest]
+
 let random_alignment = input "single-gene_alignments/SongD1/gene100.aln"
 
 let repo = Repo.[
     item ["random_tree.nhx"] (tree_inference `PhyML random_alignment) ;
-    item ["random_comparison"] (Gotree.compare_trees ~input:(tree_inference `IQTree random_alignment) ~reference:(tree_inference `RAXML random_alignment))
+    item ["random_comparison"] (Gotree.compare_trees ~input:(tree_inference `IQTree random_alignment) ~reference:(tree_inference `RAXML random_alignment)) ;
+    item ["concatenated_comps"] (concat (comparisons `SongD1 `Fasttree)) ;
   ]
 
 let () = Repo.build ~loggers:[console_logger ()] ~np:4 ~mem:(`GB 4) ~outdir:"res" repo
