@@ -33,6 +33,18 @@ iqtree -m GTR+G4 -s !{align} -seed 1 -nt !{task.cpus}
 
 [![Workflow DAG](images/nf_dag.svg)](images/nf_dag.dot)
 
+## Machine
+
+Launched on a 128 cpus machine on [IFB cloud](https://biosphere.france-bioinformatique.fr/catalogue/appliance/119/).
+
+### Data extraction
+
+[![Data Extraction](images/data_extraction.png)](images/data_extraction.png)
+
+### Analysis started
+
+[![Analysis Started](images/analysis_started.png)](images/analysis_started.png)
+
 ## Results
 
 ### Histogram for SongD1 dataset
