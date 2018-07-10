@@ -1,0 +1,48 @@
+{
+  "name": "FastTree",
+  "tool-version": "2.1.9",
+  "description": "",
+  "command-line": "FastTree -nt -gtr -gamma -slownni [SPR] [MLACC] [FAFILE] > [FAFILE].nhx",
+  "docker-image": "evolbioinfo/fasttree:v2.1.9",
+  "docker-index": "http://index.docker.io",
+  "schema-version": "0.1",
+  "inputs": [
+    {
+      "id": "FAInputFile",
+      "name": "Input file",
+      "type": "File",
+      "description": "FA Input File",
+      "command-line-key": "[FAFILE]",
+      "optional": false
+    },
+    {
+      "id": "SPR",
+	  "command-line-flag": "-spr",
+      "name": "SPR",
+      "type": "String",
+      "description": "SPR",
+      "command-line-key": "[SPR]",
+	  "default-value": 4,
+      "optional": false
+    },
+    {
+      "id": "MLACC",
+	  "command-line-flag": "-mlacc",
+      "name": "MLACC",
+      "type": "String",
+      "description": "MLACC",
+      "command-line-key": "[MLACC]",
+      "optional": false,
+      "default-value": 2
+    }
+  ],
+  "output-files": [
+    {
+      "id": "OutputFile",
+      "name": "Output file",
+      "description": "Output file",
+      "path-template": "[FAFILE].nhx",
+      "optional": false
+    }
+  ]
+}
