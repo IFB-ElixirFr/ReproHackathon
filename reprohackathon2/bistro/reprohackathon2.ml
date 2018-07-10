@@ -6,12 +6,29 @@
 
 #require "bistro bistro.bioinfo bistro.unix"
 
+open Core_kernel
 open Bistro
 open Shell_dsl
 
-let dataset =
-  Bistro_unix.wget "https://ndownloader.figshare.com/files/9473962"
-  |> Bistro_unix.bunzip2
+module Dataset = struct
+  type t = [`SongD1]
+
+  let to_string = function
+    | `SongD1 -> "SongD1"
+
+  let alignments d =
+    Bistro_unix.wget "https://ndownloader.figshare.com/files/9473962"
+    |> Bistro_unix.tar_xfj
+    |> Fn.flip select (selector ["single-gene_alignments" ; to_string d ])
+    |> glob ~pattern:"*"
+
+  let best_trees d =
+    Bistro_unix.wget "https://ndownloader.figshare.com/files/9473953"
+    |> Bistro_unix.tar_xfj
+    |> Fn.flip select (selector ["single-gene_trees" ; to_string d ])
+    |> glob ~pattern:"*"
+
+end
 
 module Raxml = struct
   let env = docker_image ~account:"pveber" ~name:"raxml" ~tag:"8.2.9" ()
@@ -22,7 +39,7 @@ module Raxml = struct
         and_list [
           cd tmp ;
           cmd "raxmlHPC" [
-            opt "-T" (fun x -> x) np ;
+            opt "-T" ident np ;
             string "-p 1 -m GTRGAMMA --no-bfgs" ;
             opt "-s" dep alignment ;
             string "-n NAME" ;
@@ -57,9 +74,9 @@ module IQTree = struct
           cmd "ln" [ string "-s" ; dep fa ; tmp_ali ] ;
           cmd ~env "/usr/local/bin/iqtree" [ (* iqtree save its output right next to its input, hence this mess *)
             string "-m GTR+G4" ;
-            opt "-s" (fun x -> x) tmp_ali ;
+            opt "-s" ident tmp_ali ;
             string "-seed 1" ;
-            opt "-nt" (fun x -> x) np ;
+            opt "-nt" ident np ;
           ] ;
           mv (tmp // (tmp_ali_fn ^ ".treefile")) dest ;
         ]
@@ -79,7 +96,7 @@ module PhyML = struct
           cd tmp ;
           cmd "ln" [ string "-s" ; dep alignment ; tmp_ali ] ;
           cmd "/usr/local/bin/phyml" [
-            opt "-i" (fun x -> x) tmp_ali ;
+            opt "-i" ident tmp_ali ;
             string "--r_seed 1 -d nt -b 0 -m GTR -f e -c 4 -a e -s SPR --n_rand_starts 1 -o tlr -p --run_id ID" ;
           ] ;
           mv (tmp // (tmp_ali_fn ^ "*_phyml_tree_ID.txt")) dest ;
@@ -96,7 +113,7 @@ module Goalign = struct
       cmd "goalign" ~env [
         string "reformat phylip" ;
         opt "-i" dep fa ;
-        opt "-o" (fun x -> x) dest ;
+        opt "-o" ident dest ;
       ]
     ]
 end
@@ -104,30 +121,37 @@ end
 module Gotree = struct
   let env = docker_image ~account:"pveber" ~name:"gotree" ~tag:"0.2.10" ()
 
-  let compare_trees ~input ~compare =
+  let compare_trees ~input ~reference =
     shell ~descr:"gotree.compare" [
       cmd "/usr/local/bin/gotree" ~stdout:dest ~env [
         string "compare trees --binary" ;
         opt "-i" dep input ;
-        opt "-c" dep compare ;
+        opt "-c" dep reference ;
       ]
     ]
 end
 
 
-let tree_inference fa = function
+let tree_inference meth fa = match meth with
   | `Fasttree -> Fasttree.fasttree fa
   | `RAXML -> Raxml.hpc fa
   | `IQTree -> IQTree.iqtree fa
   | `PhyML -> PhyML.phyml (Goalign.phylip_of_fasta fa)
 
-(* let gene_alignments = glob dataset  *)
+let inferred_trees d meth =
+  map_workflows (Dataset.alignments d) ~f:(tree_inference meth)
+
+let comparisons d meth =
+  map2_workflows
+    (inferred_trees d meth)
+    (Dataset.best_trees d)
+    ~f:(fun input reference -> Gotree.compare_trees ~input ~reference)
 
 let random_alignment = input "single-gene_alignments/SongD1/gene100.aln"
 
 let repo = Repo.[
-    item ["random_tree.nhx"] (tree_inference random_alignment `PhyML) ;
-    item ["random_comparison"] (Gotree.compare_trees ~input:(tree_inference random_alignment `IQTree) ~compare:(tree_inference random_alignment `RAXML))
+    item ["random_tree.nhx"] (tree_inference `PhyML random_alignment) ;
+    item ["random_comparison"] (Gotree.compare_trees ~input:(tree_inference `IQTree random_alignment) ~reference:(tree_inference `RAXML random_alignment))
   ]
 
 let () = Repo.build ~loggers:[console_logger ()] ~np:4 ~mem:(`GB 4) ~outdir:"res" repo
