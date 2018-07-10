@@ -7,5 +7,5 @@ outputs:
 requirements:
   InlineJavascriptRequirement: {}
 expression: |
-  ${return inputs.inputdir.listing;}
+  ${return inputs.dir.listing;}
 
