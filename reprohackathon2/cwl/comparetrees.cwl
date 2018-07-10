@@ -19,5 +19,5 @@ inputs:
       prefix: -c
       position: 2
 outputs: 
-  question:
+  report:
     type: stdout
