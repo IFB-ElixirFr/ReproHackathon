@@ -25,7 +25,7 @@ module Dataset = struct
   let best_trees d =
     Bistro_unix.wget "https://ndownloader.figshare.com/files/9473953"
     |> Bistro_unix.tar_xfj
-    |> Fn.flip select (selector ["single-gene_trees" ; to_string d ])
+    |> Fn.flip select (selector ["single-gene_trees" ; to_string d ; "Best_observed"])
     |> glob ~pattern:"*"
 
 end
