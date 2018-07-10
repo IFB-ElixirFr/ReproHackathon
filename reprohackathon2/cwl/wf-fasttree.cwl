@@ -11,7 +11,7 @@ outputs:
     outputSource: listfiles/files
   treefiles:
     type: File[]
-    outputSource: fasttree/tree   
+    outputSource: [fasttree/tree]
 steps:
   listfiles:
     run: listfiles.cwl
@@ -21,8 +21,8 @@ steps:
       - id: files
   fasttree:
     run: fasttree.cwl
-    scatter: alig
+    scatter: [alig]
     in:
       alig: listfiles/files
     out:
-      - id: tree 
+      - id: tree
