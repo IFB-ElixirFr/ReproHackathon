@@ -69,5 +69,10 @@ goalign reformat phylip -i <align.fa> -o align.phy
 * Article: [Zhou MBE 2018](https://academic.oup.com/mbe/article/35/2/486/4644721)
 * Images Docker utiles: [evolbioinfo](https://hub.docker.com/r/evolbioinfo/)
 * Données de l'article: [FigShare](https://figshare.com/projects/Evaluating_fast_maximum_likelihood-based_phylogenetic_programs_using_empirical_phylogenomic_data_sets/22040)
+* Appliances disponibles dans Biosphère : [catalogue RAINBio](https://biosphere.france-bioinformatique.fr/catalogue) 
+  * [BioPipes](https://biosphere.france-bioinformatique.fr/catalogue/appliance/119) : Nextflow, SnakeMake, Conda configuré avec Bioconda, Docker and Compose 
+  * [Ubuntu-16.04](https://biosphere.france-bioinformatique.fr/catalogue/appliance/88), [Ubuntu-Desktop](https://biosphere.france-bioinformatique.fr/catalogue/appliance/118) : Docker, Ansible, Bioconda, Desktop MATE
+  * [cluster SLURM](https://biosphere.france-bioinformatique.fr/catalogue/appliance/102)
+  * [cluster SGE](https://biosphere.france-bioinformatique.fr/catalogue/appliance/69)
 
 ## Quelques commandes utiles
