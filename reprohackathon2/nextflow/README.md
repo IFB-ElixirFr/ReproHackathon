@@ -31,7 +31,7 @@ iqtree -m GTR+G4 -s !{align} -seed 1 -nt !{task.cpus}
 
 ## Workflow
 
-[![Workflow DAG](images/nf_dag.svg)](http://google.com.au/)![Workflow DAG](images/nf_dag.dot)
+[![Workflow DAG](images/nf_dag.svg)](images/nf_dag.dot)
 
 ## Results
 
