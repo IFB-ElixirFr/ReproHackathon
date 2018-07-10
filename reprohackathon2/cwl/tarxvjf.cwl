@@ -1,8 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-requirements:
-- class: InlineJavascriptRequirement
-baseCommand: ['wget', '-O', 'downloaded_file']
+baseCommand: ['tarxvjf', '-O', 'downloaded_file']
 inputs:
   url:
     type: string

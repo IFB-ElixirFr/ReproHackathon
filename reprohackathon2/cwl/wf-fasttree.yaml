@@ -1,0 +1,7 @@
+aligarray: 
+  - class: Directory
+    location: SongD1
+#  - class: File
+#    location: SongD1/gene1.aln
+#  - class: File
+#    location: SongD1/gene2.aln
