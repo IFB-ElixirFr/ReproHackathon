@@ -1,23 +1,27 @@
 class: Workflow
 cwlVersion: v1.0
+requirements:
+  StepInputExpressionRequirement: {}
 inputs:
   aligfile:
     type: File
   besttreefile:
     type: File
 outputs:
-  report:
-    type: File
-    outputSource: comparetree/report
+  line:
+    type: string
+    outputSource: comparetrees/line
 steps:
   fasttree:
     run: fasttree.cwl
     in:
       alig: aligfile
     out: [tree]
-  comparetree:
+  comparetrees:
     run: comparetrees.cwl
     in:
       tree: fasttree/tree
       besttree: besttreefile
-    out: [report]
+      method: 
+        valueFrom: "fasttree"
+    out: [line]
