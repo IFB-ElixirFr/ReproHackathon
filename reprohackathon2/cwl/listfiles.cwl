@@ -7,5 +7,9 @@ outputs:
 requirements:
   InlineJavascriptRequirement: {}
 expression: |
-  ${return {'files':inputs.dir.listing};}
+  ${var files = inputs.dir.listing.filter(
+     function(dirent){
+       return dirent.class=='File';
+     });
+     return {'files':files};}
 

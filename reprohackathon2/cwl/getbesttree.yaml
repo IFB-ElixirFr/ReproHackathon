@@ -1,0 +1,7 @@
+treedir:
+  class: Directory
+  path: 'SongD1sample/Best_observed'
+aligfile:
+  class: File
+  path: 'SongD1sample/gene12.aln'
+treeext: '.best.tre'

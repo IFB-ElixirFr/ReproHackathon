@@ -1,5 +1,7 @@
 cwlVersion: v1.0
 class: CommandLineTool
+requirements:
+  - class: InlineJavascriptRequirement
 hints:
   - class: DockerRequirement
     dockerPull: evolbioinfo/gotree:v0.2.10
@@ -18,6 +20,7 @@ inputs:
     inputBinding:
       prefix: -c
       position: 2
+stdout: $(inputs.tree.nameroot + '.csv')
 outputs: 
-  question:
+  report:
     type: stdout

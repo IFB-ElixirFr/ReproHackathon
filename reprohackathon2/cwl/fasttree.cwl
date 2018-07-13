@@ -8,7 +8,7 @@ hints:
 #baseCommand: fasttree
 baseCommand: ''
 arguments: ['-nt', '-gtr', '-gamma' ,'-spr', '4', '-mlacc', '2', '-slownni']
-stdout: $(inputs.alig.basename + '.nhx')
+stdout: $(inputs.alig.nameroot + '.nhx')
 inputs:
   alig:
     type: File
