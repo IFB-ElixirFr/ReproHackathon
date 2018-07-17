@@ -5,22 +5,29 @@ requirements:
 hints:
   - class: DockerRequirement
     dockerPull: evolbioinfo/gotree:v0.2.10
-#echo !{id} !{method} $(gotree compare trees --binary -i !{tree} -c !{besttree} | tail -n +2 | cut -f 2) > comp
 #baseCommand: gotree
 baseCommand: ''
-arguments: ['compare', 'trees', '--binary']
+arguments: 
+  - 'compare'
+  - 'trees'
+  - '--binary'
+  - '-i'
+  - $(inputs.tree.path)
+  - '-c'
+  - $(inputs.besttree.path)
 inputs:
   tree:
     type: File
-    inputBinding:
-      prefix: -i
-      position: 1
   besttree:
     type: File
-    inputBinding:
-      prefix: -c
-      position: 2
-stdout: $(inputs.tree.nameroot + '.csv')
+  method:
+    type: string?
+stdout: 'output.txt'
 outputs: 
-  report:
-    type: stdout
+  line:
+    type: string
+    outputBinding:
+      glob: 'output.txt'
+      loadContents: true
+      outputEval: |
+        ${return inputs.tree.nameroot + '\t' + inputs.method + '\t' + self[0].contents.split(/[\n\t]+/).slice(-2)[0];}
