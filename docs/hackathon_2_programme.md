@@ -36,7 +36,7 @@ Les inscriptions se font via [ce formulaire](https://goo.gl/bhyVHW).
 
 ## Resultats
 
-Les sources des workflows développés et les résultats sont disponibles sur le [dépôt github](../reprohackathon2).
+Les sources des workflows développés et les résultats sont disponibles sur le [dépôt github](https://github.com/IFB-ElixirFr/ReproHackathon/reprohackathon2).
 
 
 *La seconde édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
