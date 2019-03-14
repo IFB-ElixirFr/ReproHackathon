@@ -23,7 +23,7 @@ Les participants pourront se regrouper en équipes et choisir :
 * Sarah Cohen-Boulakia, Université Paris-Sud, Paris-Saclay, Orsay
 * Khalid Belhajjame, Université Paris-Dauphine, Paris
 * Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
-* Alban Gaignard, CHU, Nantes
+* Alban Gaignard, CNRS, institut du thorax, Nantes
 * Konrad Hinsen, Centre de Biophysique Moléculaire, Orléans
 * Frédéric Lemoine, Institut Pasteur, Paris
 * Yvan Le Bras, Muséum National d'Histoire Naturelle, Concarneau
