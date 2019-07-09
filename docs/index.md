@@ -17,6 +17,7 @@ Les participants pourront se regrouper en équipes et choisir :
 
 * [Première édition](hackathon_1_programme.md), 1-2 juin 2017, IFB-core, Campus CNRS, Gif-sur-Yvette
 * [Deuxième édition](hackathon_2_programme.md), 9-10 juillet 2018, LBBE-PRABI, Campus LyonTech-la Doua, Lyon
+* Troisième édition, 25-26 novembre 2019, Montpellier
 
 ## Comité d'organisation
 
