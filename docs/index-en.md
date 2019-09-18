@@ -15,7 +15,7 @@ Participants are encouraged to form teams and select
 * one of the proposed use cases ;
 * a workflow management system to implement the data analysis pipeline and try to obtain the expected results. 
 
-## ReproHackathons editions
+## ReproHackathons Series
 
 * [First edition](hackathon_1_programme.md), 1-2 June 2017, IFB-core, Campus CNRS, Gif-sur-Yvette
 * [Second edition](hackathon_2_programme.md), 9-10 July 2018, LBBE-PRABI, Campus LyonTech-la Doua, Lyon
