@@ -15,28 +15,26 @@ Participants are encouraged to form teams and select
 * one of the proposed use cases ;
 * a workflow management system to implement the data analysis pipeline and try to obtain the expected results. 
 
-## ReproHackathons, first edition
+## ReproHackathons editions
 
-The first ReproHackathon took place in [Gif-sur-Yvette](https://goo.gl/maps/ceg55oQTD6E2) the 1st and 2nd of June 2017. 
-
-[Two use cases](Hackathon_1-en.md) have been selected:
-* RNA-Seq patient data analysis in the context of uveal melanoma ;
-* Phylogenetics data analysis and simulation. 
+* [First edition](hackathon_1_programme.md), 1-2 June 2017, IFB-core, Campus CNRS, Gif-sur-Yvette
+* [Second edition](hackathon_2_programme.md), 9-10 July 2018, LBBE-PRABI, Campus LyonTech-la Doua, Lyon
+* Third edition, 25-26 November 2019, Montpellier
 
 ## Steering Committee
 
 * Sarah Cohen-Boulakia, Université Paris-Sud, Paris-Saclay, Orsay
 * Khalid Belhajjame, Université Paris-Dauphine, Paris
-* Christophe Blanchet, Institut Français de Bioinformatique, Gif-sur-Yvette
+* Christophe Blanchet, Institut Français de Bioinformatique, Lyon
 * Alban Gaignard, CHU, Nantes
 * Konrad Hinsen, Centre de Biophysique Moléculaire, Orléans
 * Frédéric Lemoine, Institut Pasteur, Paris
 * Yvan Le Bras, Muséum National d'Histoire Naturelle, Concarneau
 * Fabien Mareuil, Institut Pasteur, Paris
 * Hervé Ménager, Institut Pasteur, Paris
-* Sandrine Perrin, Institut Français de Bioinformatique, Gif-sur-Yvette
 * Christophe Pradal, Cirad, Inria, Montpellier
+* Philippe Véber, Laboratoire de Biométrie et Biologie Evolutive, Lyon
 
-*The first ReproHackathon is supported by [GDR MaDICS](https://www.madics.fr), Psay CompBio of Université Paris-Saclay and the [French Institute of Bioinformatics](http://www.france-bioinformatique.fr).*
+*ReproHackathons are supported by [GDR MaDICS](https://www.madics.fr), Psay CompBio of Université Paris-Saclay and the [French Institute of Bioinformatics](http://www.france-bioinformatique.fr).*
 
 ![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![Paris-Saclay](https://ifb-elixirfr.github.io/ReproHackathon/logo-paris-saclay.png) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
