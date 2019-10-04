@@ -34,6 +34,8 @@ La troisième édition des [ReproHackathons](index.md) se tiendra au Cirad, [Lav
 
 Les inscriptions se font via [ce formulaire](http://www.madics.fr/manifestations/organisation/inscription/?manif=1567779026.5358).
 
+Merci de remplir également [ce formulaire](https://framaforms.org/reprohackathon-3-1568983223) pour l'organisation sur place.
+
 ## Resultats
 
 Les sources des workflows développés et les résultats seront disponibles sur le [dépôt github](https://github.com/IFB-ElixirFr/ReproHackathon/tree/master/reprohackathon3).
