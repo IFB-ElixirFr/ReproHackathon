@@ -26,7 +26,7 @@ Des notebooks Jupiter, illustrant les différentes étapes, sont disponibles dan
 
 
 ## Références
-* [1] [Artzet et al. (bioarxiv, 2019)](https://github.com/openalea/phenomenal)
+* [1] [Artzet et al. (bioarxiv, 2019)](https://doi.org/10.1101/805739)
 
 *Cette troisième édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
