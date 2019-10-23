@@ -43,5 +43,4 @@ Les sources des workflows développés et les résultats seront disponibles sur 
 
 *La troisième édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![BIM](https://ifb-elixirfr.github.io/ReproHackathon/logo-gdrbim-web.jpg) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png) ![#DigitAg](https://ifb-elixirfr.github.io/ReproHackathon/logoDigitAg-reserve.png)
-
+[![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png)](http://www.madics.fr/) [![BIM](https://ifb-elixirfr.github.io/ReproHackathon/logo-gdrbim-web.jpg)](http://www.gdr-bim.cnrs.fr/) [![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)](https://www.france-bioinformatique.fr/fr) [<img src="https://ifb-elixirfr.github.io/ReproHackathon/logoDigitAg-reserve.png" alt="#DigitAg" width="200"/>](https://www.hdigitag.fr/fr/)
