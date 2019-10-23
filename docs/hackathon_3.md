@@ -1,4 +1,4 @@
-# ReproHackathon-3, 25-27 novembre 2019
+# ReproHackathon-3, 25-26 novembre 2019
 
 ## Analyse de phénotypage à partir d'images issues d'une plateforme de phéotypage haut-débit de plantes.
 
@@ -30,4 +30,4 @@ Des notebooks Jupiter, illustrant les différentes étapes, sont disponibles dan
 
 *Cette troisième édition des ReproHackathons est soutenue par le [GDR MaDICS](https://www.madics.fr), le [GDR BIM](http://www.gdr-bim.cnrs.fr) et par l'[Institut Français de Bioinformatique](http://www.france-bioinformatique.fr).*
 
-![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![BIM](https://ifb-elixirfr.github.io/ReproHackathon/logo-gdrbim-web.jpg) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png)
+![MaDICS](https://ifb-elixirfr.github.io/ReproHackathon/logo-madics.png) ![BIM](https://ifb-elixirfr.github.io/ReproHackathon/logo-gdrbim-web.jpg) ![IFB](https://ifb-elixirfr.github.io/ReproHackathon/logo-ifb.png) ![#DigitAg](https://ifb-elixirfr.github.io/ReproHackathon/logoDigitAg-reserve.png)
