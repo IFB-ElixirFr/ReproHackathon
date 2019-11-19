@@ -2,7 +2,7 @@
 
 **25-26 novembre 2019**
 
-La troisième édition des [ReproHackathons](index.md) se tiendra au Cirad, [Lavalette](https://http://cartes.cirad.fr//) à Montpellier.
+La troisième édition des [ReproHackathons](index.md) se tiendra au Cirad, [Lavalette](https://http://cartes.cirad.fr//) (Bâtiment 2 Salle 111) à Montpellier.
 
 ## Cas d'usage
 
