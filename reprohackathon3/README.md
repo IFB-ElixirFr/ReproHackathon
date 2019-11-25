@@ -16,7 +16,7 @@
 ## Liens utiles
 
 * Article: [Artzet BioRxiv 2019](https://doi.org/10.1101/805739)
-* Dépôt [git Phenomenal] (https://github.com/openalea/phenomenal)
+* Dépôt [git Phenomenal](https://github.com/openalea/phenomenal)
 * Appliances disponibles dans Biosphère : [catalogue RAINBio](https://biosphere.france-bioinformatique.fr/catalogue)
   * [Ubuntu-16.04](https://biosphere.france-bioinformatique.fr/catalogue/appliance/88), [Ubuntu-Desktop](https://biosphere.france-bioinformatique.fr/catalogue/appliance/118) : Docker, Ansible, Bioconda, Desktop MATE
 
