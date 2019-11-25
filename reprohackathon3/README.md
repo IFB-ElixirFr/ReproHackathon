@@ -32,3 +32,7 @@ wget https://raw.githubusercontent.com/pradal/ReproHackathon/master/reprohackath
 # Create a conda environment
 conda create --name phenomenal --file pkglist.txt
 ```
+# Install on another image
+
+conda create -n phenomenal pandas=0.24.2 vtk=8.2.0 opencv=4.1.0 networkx=2.2 scikit-image=0.14.2 scikit-learn=0.20.3 scipy=1.2.1 cython=0.29.7 numba=0.43.1 numpy=1.15.4 matplotlib=2.2.3 python=2.7.16  openalea.deploy openalea.phenomenal -c openalea
+```
