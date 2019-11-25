@@ -23,6 +23,12 @@
   - [Se connecter](https://biosphere.france-bioinformatique.fr/cloud),
   - Appliances disponibles : [catalogue RAINBio](https://biosphere.france-bioinformatique.fr/catalogue)
     - [Ubuntu-16.04](https://biosphere.france-bioinformatique.fr/catalogue/appliance/88), [Ubuntu-Desktop](https://biosphere.france-bioinformatique.fr/catalogue/appliance/118) : Docker, Ansible, Bioconda, Desktop MATE
+* Données de travail 
+  - Créer sa VM sur le site **ifb-core-cloud**
+  - dans sa VM, les données sont dans le répertoire
+```
+/ifb/data/public/teachdata/reprohack3/
+```
 
 ## Installation avec conda sur l'image Ubuntu 16.04
 
