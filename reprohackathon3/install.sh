@@ -15,3 +15,6 @@ conda activate phenomenal
 git clone https://github.com/openalea/phenomenal.git
 conda install -c openalea openalea.phenomenal
 conda install -c conda-forge ipyvolume
+###############################################################################
+conda activate phenomenal
+jupyter notebook
