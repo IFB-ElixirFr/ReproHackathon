@@ -3,7 +3,7 @@
 ssh-keygen -t rsa
 
 ## ouvrir jupyter de la VM sur ma machine locale
-ssh -L 8848:localhost:8888 ubuntu@134.158.247.12
+ssh -L 8888:localhost:8888 ubuntu@134.158.247.12
 
 ## connexion VM
 ssh ubuntu@134.158.247.12
