@@ -1,7 +1,10 @@
-VM Jupyter phenomenal nextflow
+# VM Jupyter phenomenal nextflow
 
 ssh -L 8888:localhost:8888 ubuntu@134.158.247.155
 
+## Install software
+
+```
 # Install openGL
 sudo apt install freeglut3-dev 
 
@@ -30,7 +33,7 @@ cd ../../
 [I 09:20:23.199 NotebookApp] Serving notebooks from local directory: /home/ubuntu
 [I 09:20:23.199 NotebookApp] The Jupyter Notebook is running at:
 [I 09:20:23.199 NotebookApp] http://localhost:8888/?token=b19825b59604349e1b1c2196d29f3496eaab760257527a99
-
+```
 => on peut afficher dans un navigateur le notebook
 
 #Les données d'images de phénotypage du maïs sont là
