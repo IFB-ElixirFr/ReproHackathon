@@ -43,7 +43,7 @@ cd /home/ubuntu
 [I 09:20:23.199 NotebookApp] The Jupyter Notebook is running at:
 [I 09:20:23.199 NotebookApp] http://localhost:8888/?token=b19825b59604349e1b1c2196d29f3496eaab760257527a99
 ```
-=> on peut afficher dans un navigateur le notebook
+=> on peut afficher le notebook des workflow phenomenal en copiant collant l'adresse http dans un navigateur de son ordinateur personnel 
 
 Les données d'images de phénotypage du maïs sont là
      
