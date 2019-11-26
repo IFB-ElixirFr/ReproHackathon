@@ -66,7 +66,7 @@ def get_bin_images(row, prefix=PREFIX):
 def get_calibrations(row, prefix='./'):
 	calib = {}
 	for view in set(row.view_type):
-		path = prefix + row.cabin + '_' + view + '_1_1_wide.json'
+		path = os.path.join(prefix, (row.cabin + '_' + view + '_1_1_wide.json'))
 		calib[view] = CalibrationCamera.load(path)
 	return calib
 
