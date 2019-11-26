@@ -15,6 +15,8 @@ binaries=params.binaries
 calibration=params.calibration
 
 process multiview {
+	publishDir 'results', mode: 'copy'
+
 	conda 'env.yaml'
 
 	input:
@@ -25,7 +27,8 @@ process multiview {
 	val calibration
 
 	output:
-	set val(stdout), file("mesh.out") into meshout
+	file "*.ply" into meshout
+	file "*.npz" into voxel
 
 	shell:
 	'''
@@ -34,6 +37,20 @@ process multiview {
 	echo "!{l}" | cut -d ";" -f 10
 	multiview.py in.csv '!{binaries}' '!{calibration}' '!{id}'
 	rm in.csv
+	'''
+}
+
+process segmentation {
+        publishDir 'results', mode: 'copy'
+
+        conda 'env.yaml'
+
+	input:
+	file vox from voxel
+
+	shell:
+	'''
+	voxel.py !{vox}
 	'''
 }
 

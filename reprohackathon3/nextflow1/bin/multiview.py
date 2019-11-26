@@ -2,6 +2,7 @@
 
 import sys
 import openalea.phenomenal.display as phm_display
+import openalea.phenomenal.mesh as phm_mesh
 
 from funcs import *
 
@@ -57,13 +58,15 @@ voxel_grid = phm_mvr.reconstruction_3d(image_views,
 #phm_display.show_voxel_grid(voxel_grid, size=1)
 
 voxel_grid.write("plant_{}_size_{}.npz".format(plant_number, voxels_size))
-voxel_grid = phm_obj.VoxelGrid.read("plant_{}_size_{}.npz".format(plant_number, voxels_size))
-phm_display_notebook.show_voxel_grid(voxel_grid, size=1)
+#voxel_grid = phm_obj.VoxelGrid.read("plant_{}_size_{}.npz".format(plant_number, voxels_size))
+#phm_display_notebook.show_voxel_grid(voxel_grid, size=1)
 vertices, faces = phm_mesh.meshing(voxel_grid.to_image_3d(),
                                    reduction=0.90,
                                    smoothing_iteration=5,
                                    verbose=True)
 
-print("Number of vertices : {nb_vertices}".format(nb_vertices=len(vertices)))
-print("Number of faces : {nb_faces}".format(nb_faces=len(faces)))
-phm_display.show_mesh(vertices, faces)
+#print("Number of vertices : {nb_vertices}".format(nb_vertices=len(vertices)))
+#print("Number of faces : {nb_faces}".format(nb_faces=len(faces)))
+#phm_display.show_mesh(vertices, faces)
+
+phm_mesh.write_vertices_faces_to_ply_file("mesh_{}.ply".format(plant_number), vertices, faces)
