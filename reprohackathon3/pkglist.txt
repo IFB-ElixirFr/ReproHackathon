@@ -90,12 +90,11 @@ numba=0.43.1=py27h962f231_0
 numpy=1.15.4=py27h99e49ec_0
 numpy-base=1.15.4=py27h2f8d375_0
 olefile=0.46=py27_0
-openalea-deploy=2.1.6=pypi_0
-openalea.deploy=2.1.6=py27_0
+openalea-deploy
 openalea.phenomenal=1.7.0.beta=phenomenal
 opencv=4.1.0=py27h5517eff_4
 openh264=1.8.0=hdbcaa40_1000
-openssl=1.1.1=h7b6447c_0
+openssl
 packaging=19.2=py_0
 pandas=0.24.2=py27he6710b0_0
 path.py=10.3.1=py27_0

@@ -9,73 +9,47 @@
   * de l'avancement au fur et à mesure
   * un bilan des réalisations en fin de hackathon
 
-## Exemples de lignes de commandes:
-
-* FastTree:
-  - Container: `evolbioinfo/fasttree:v2.1.9`
-  - Command:
-```
-	FastTree -nt -gtr -gamma -spr 4 -mlacc 2 -slownni <align.fa> > <output.nhx>
-```
-
-* RAxML:
-
-    - Container: `evolbioinfo/raxml:v8.2.0-avx2`
-    - Command:
-```
-raxmlHPC -T <cpus> -p 1 -m GTRGAMMA --no-bfgs -s <align.phy> -n NAME
-	mv RAxML_bestTree.NAME raxmloutput.nhx
-```
-
-* IQTree:
-    - Container: `evolbioinfo/iqtree:v1.4.2`
-    - Command:
-```
-iqtree -m GTR+G4 -s <align.fa> -seed 1 -nt <cpus>
-mv <align.fa>.treefile iqtreeoutput.nhx
-```
-
-* PhyML:
-    - Container: `evolbioinfo/phyml:v3.3.20180129`
-    - Command:
-```
-phyml -i <align.phy> --r_seed 1 -d nt -b 0 -m GTR -f e -c 4 -a e -s SPR --n_rand_starts 1 -o tlr -p --run_id ID
-mv *_phyml_tree_ID.txt outputphyml.nhx
-```
-
-
-* Comparer 2 arbres: [gotree](https://github.com/fredericlemoine/gotree)
-    - Container: `evolbioinfo/gotree:v0.2.10`
-    - Command:
-```
-gotree compare trees --binary -i <arbre1> -c <arbre2>
-```
-
-* Reformater `fasta <=> phylip`: [goalign](https://github.com/fredericlemoine/goalign)
-    - Container: `evolbioinfo/goalign:v0.2.9`
-    - Commands:
-```
-# phylip => fasta
-goalign reformat fasta -i <align.phy> -p -o align.fa
-# fasta => phylip
-goalign reformat phylip -i <align.fa> -o align.phy
-```
 
 ## Participants/Groupes :
 
 
 ## Liens utiles
 
-* Article: [Artzet BioRxiv 2019](https://doi.org/10.1101/805739)
-* Appliances disponibles dans Biosphère : [catalogue RAINBio](https://biosphere.france-bioinformatique.fr/catalogue)
-  * [Ubuntu-16.04](https://biosphere.france-bioinformatique.fr/catalogue/appliance/88), [Ubuntu-Desktop](https://biosphere.france-bioinformatique.fr/catalogue/appliance/118) : Docker, Ansible, Bioconda, Desktop MATE
+* Présentations :
+  - IFB [Cloud Biosphère](https://box.in2p3.fr/index.php/s/3jMBqcK5R3FE28a)
+  - Usecase, [Phenomics@Lepse](2019_Phenoarch@ReproHackaton.pdf)
+  - Article: [Artzet BioRxiv 2019](https://doi.org/10.1101/805739)
+* Cloud IFB-Biosphère
+  - [Se connecter](https://biosphere.france-bioinformatique.fr/cloud),
+  - Appliances disponibles : [catalogue RAINBio](https://biosphere.france-bioinformatique.fr/catalogue)
+    - [Ubuntu-16.04](https://biosphere.france-bioinformatique.fr/catalogue/appliance/88), [Ubuntu-Desktop](https://biosphere.france-bioinformatique.fr/catalogue/appliance/118) : Docker, Ansible, Bioconda, Desktop MATE
+* Dépôt [git Phenomenal](https://github.com/openalea/phenomenal)
+* Données de travail 
+  - Créer sa VM sur le site **ifb-core-cloud**
+  - dans sa VM, les données sont dans le répertoire
+```
+/ifb/data/public/teachdata/reprohack3/
+```
 
-## Quelques commandes utiles
+## Installation avec conda sur l'image Ubuntu 16.04
 
-* Installation avec conda:
 ```
 # Get the pkglist file
-wget
+wget https://raw.githubusercontent.com/pradal/ReproHackathon/master/reprohackathon3/pkglist.txt
 # Create a conda environment
 conda create --name phenomenal --file pkglist.txt
 ```
+# Install on another image
+
+```
+sudo apt-get install freeglut3-dev
+conda create -n phenomenal pandas=0.24.2 vtk=8.2.0 opencv=4.1.0 networkx=2.2 scikit-image=0.14.2 scikit-learn=0.20.3 scipy=1.2.1 cython=0.29.7 numba=0.43.1 numpy=1.15.4 matplotlib=2.2.3 python=2.7.16  openalea.deploy openalea.phenomenal -c openalea
+conda activate phenomenal
+conda install ipyvolume -c conda-forge
+```
+
+# Acces aux données
+
+Sur une machine de l'ifb-core::
+
+    cd /ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
