@@ -13,7 +13,7 @@ rule all:
 ## Multi-view reconstruction and Meshing 
 rule reconstruction:
     params:
-        expand("{id}",id=config["lignes"])
+        lambda wildcards, output
     output:
         expand("meshes/ligne_{id}.txt", id=config["lignes"])
     log:
