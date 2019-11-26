@@ -2,6 +2,8 @@
 
 ## Deploy & connect IFB cloud VM 
 
+A partir du [RAINBio Catalogue des appliances bioinformatiques dans le cloud](https://biosphere.france-bioinformatique.fr/catalogue/)
+
  Ubuntu 16.04 (16.04.6) Phenomenal_ubuntu
  
  ![](https://github.com/sidibebocs/ReproHackathon/blob/master/reprohackathon3/nextflow2/IFB_cloud_deploy_appliance.png
