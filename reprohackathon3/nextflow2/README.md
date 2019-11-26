@@ -34,10 +34,10 @@ conda install -c conda-forge ipyvolume
 git clone https://github.com/openalea/phenomenal.git
 cd phenomenal/test
 nosetests
-
-cd ../../
-(phenomenal) ubuntu@machine784abada-0e9f-4176-b408-77dad21a0fd7:~$ pwd
-/home/ubuntu
+```
+## Read phenomenal jupyter notebook
+```
+cd /home/ubuntu
 (phenomenal) ubuntu@machine784abada-0e9f-4176-b408-77dad21a0fd7:~$ jupyter notebook
 [I 09:20:23.199 NotebookApp] Serving notebooks from local directory: /home/ubuntu
 [I 09:20:23.199 NotebookApp] The Jupyter Notebook is running at:
