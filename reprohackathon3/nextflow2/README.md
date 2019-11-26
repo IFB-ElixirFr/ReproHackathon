@@ -106,7 +106,7 @@ To run the Nextflow and SnakeMake, first activate the default conda environment 
 # Install openGL
 sudo apt install freeglut3-dev 
 
-# activate already created environment
+# create environment
 conda create -n phenomenal python=2.7
 
 # To activate this environment, use
@@ -163,6 +163,8 @@ Le problème c'est que nextflow n'est plus connu, on l'appelle donc en chemin ab
 ```
 /var/lib/miniconda3/bin/nextflow mcormil_valid.nf
 ```
+Pour une manière plus propre d'installer Phenomenal dans l'environnement de base de Nextflow voir avec Frédéric Lemoine (peut-être faire conda activate, puis conda install -c openalea openalea.phenomenal)
+
 De même que sur l'appliance précédente, nous n'avons pas continué car les données McCormick n'étaient pas dans
 
      /home/ubuntu/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
