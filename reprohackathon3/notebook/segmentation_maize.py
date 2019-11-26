@@ -128,4 +128,9 @@ def segmentation(row):
     return vmsi
 
 #phm_display_notebook.show_segmentation(vmsi, size=1)
-
+def plant_seg(row):
+    try:
+        vmsi = segmentation(row)
+    except:
+        vmsi = None
+    return vmsi

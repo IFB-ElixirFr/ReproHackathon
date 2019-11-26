@@ -1,0 +1,4 @@
+.DS_Store
+# Python files
+*.py[cod]
+.ipynb_checkpoints
