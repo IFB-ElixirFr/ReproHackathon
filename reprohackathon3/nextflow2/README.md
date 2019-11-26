@@ -228,3 +228,14 @@ Chemin des données d'images de phénotypage du maïs sur l'appliance
      
      /home/ubuntu/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
 
+## Install Java & Nextflow
+
+```
+# Install Java
+sudo apt install default-jdk 
+
+# Set up NextFlow
+curl -s https://get.nextflow.io | bash
+
+## Run a small NextFlow
+
