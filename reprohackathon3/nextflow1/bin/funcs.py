@@ -16,12 +16,9 @@ import pandas
 
 
 ## read index
-def read_index(prefix='./'):
-    df = pandas.read_csv(prefix,sep=';')
-    for col in ('path_http','camera_angle', 'dates', 'view_type'):
-	df.loc[:,col] = map(eval, df.loc[:,col])
+def read_index(csv):
+    df = pandas.read_csv(csv,sep=';')
     return df
-
 
 ## binary path
 def get_remote_path_bin(row, prefix="./", delta=0):
@@ -31,13 +28,13 @@ def get_remote_path_bin(row, prefix="./", delta=0):
     date = date + datetime.timedelta(seconds=delta)
     str_date = date.strftime('%Y-%m-%d_%H-%M-%S')
 
-    str_views = ['sv' if v == 'side' else 'tv' for v in row["view_type"]]
+    str_views = ['sv' if v == 'side' else 'tv' for v in eval(row["view_type"])]
 
     filenames = list()
-    for filename, view, angle, date in zip(row["path_http"],
+    for filename, view, angle, date in zip(eval(row["path_http"]),
                                            str_views,
-                                           row["camera_angle"],
-                                           row["dates"]):
+                                           eval(row["camera_angle"]),
+                                           eval(row["dates"])):
 
         r = filename.split('/')
 
@@ -66,15 +63,15 @@ def get_bin_images(row, prefix="./"):
 			break
 	if delta == 4:
 		raise ValueError('Can not find binaries')
-	imdict={t:{} for t in set(row.view_type)}
-	for view, angle, path in zip(row.view_type,row.camera_angle,filenames):
+	imdict={t:{} for t in set(eval(row.view_type))}
+	for view, angle, path in zip(eval(row.view_type),eval(row.camera_angle),filenames):
 		imdict[view][angle]=cv2.imread(path, cv2.IMREAD_UNCHANGED)
 	return imdict
 
 
 def get_calibrations(row, prefix="./"):
 	calib = {}
-	for view in set(row.view_type):
+	for view in set(eval(row.view_type)):
 		path = os.path.join(prefix, (row.cabin + '_' + view + '_1_1_wide.json'))
 		calib[view] = CalibrationCamera.load(path)
 	return calib

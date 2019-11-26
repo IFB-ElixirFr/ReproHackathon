@@ -3,28 +3,34 @@ params.data="/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/ZA16_organized
 params.binaries='/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries'
 params.calibration='/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/calibration'
 
-
 rownum=params.rownum
-data=file(params.data)
+header = Channel.fromPath(params.data).splitText(by: 1, limit: 1 ).map{it -> it.trim()}
+id = 0
+lines  = Channel.fromPath(params.data).splitText(by: 1, limit: 10).map{it -> id++; [id,it.trim()]}.buffer(size: 1, skip:1).map{it -> [it[0][0], it[0][1]]}
+
+//lines.subscribe{println it}
+
 binaries=params.binaries
 calibration=params.calibration
 
-process mutiview{
+process multiview {
 	conda 'env.yaml'
 
 	input:
 	val rownum
-	file data
+	val h from header.first()
+	set val(id), val(l) from lines
 	val binaries
 	val calibration
 
-
 	shell:
 	'''
-	multiview.py !{data} !{binaries} !{calibration}
+	echo -e "!{h}\n!{l}" > in.csv
+	multiview.py in.csv '!{binaries}' '!{calibration}' '!{id}'
+	rm in.csv
 	'''
 }
-
+//
 //outchan.subscribe{
 //	println(it)
 //}
