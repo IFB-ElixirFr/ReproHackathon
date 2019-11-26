@@ -71,6 +71,8 @@ To access to notebooks run your browser at the http://localhost:8888/ address
 Sur une machine de l'ifb-core::
 
     cd /ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
+    
+In the file data/datacloud.py functions are implemented to access data on the cloud
 
 ```python
     import datacloud as dc
