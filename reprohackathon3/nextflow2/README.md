@@ -1,6 +1,12 @@
 # VM Jupyter phenomenal nextflow
 
+## Deploy & connect IFB cloud VM 
+
+ Ubuntu 16.04 (16.04.6) Phenomenal_ubuntu
+ 
+```
 ssh -L 8888:localhost:8888 ubuntu@134.158.247.155
+```
 
 ## Install software
 
