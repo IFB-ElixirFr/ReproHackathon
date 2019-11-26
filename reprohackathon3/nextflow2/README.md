@@ -224,7 +224,7 @@ phm_display_notebook.show_mesh(vertices, faces)
 VkJveChjaGlsZHJlbj0oRmlndXJlKGFuZ2xleD0xLjU3MDc5NjMyNjc5NDg5NjYsIGNhbWVyYV9jZW50ZXI9WzAuMCwgMC4wLCAwLjBdLCBoZWlnaHQ9NTAwLCBtYXRyaXhfcHJvamVjdGlvbj3igKY=
 
 
-Les données d'images de phénotypage du maïs sont là
+Chemin des données d'images de phénotypage du maïs sur l'appliance
      
      /home/ubuntu/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
 
