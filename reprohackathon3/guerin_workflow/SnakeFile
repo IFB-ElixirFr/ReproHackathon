@@ -6,7 +6,7 @@ configfile: "config.yaml"
 
 rule all:
     input:
-        expand("meshes/ligne_{id}.txt", id=configfile["lignes"])
+        expand("meshes/ligne_{id}.txt", id=config["lignes"])
 
 
 
@@ -14,9 +14,9 @@ rule all:
 ## Multi-view reconstruction and Meshing 
 rule reconstruction:
     params:
-        ligne=configFile["ligne"]
+        ligne=config["ligne"]
     output:
-        expand("meshes/ligne_{id}.txt", id=configfile["lignes"])
+        expand("meshes/ligne_{id}.txt", id=config["lignes"])
     log:
         expand("log/ligne_{id}.log")
     shell:
