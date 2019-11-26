@@ -13,7 +13,7 @@ A partir du [RAINBio Catalogue des appliances bioinformatiques dans le cloud](ht
 ssh -L 8888:localhost:8888 ubuntu@134.158.247.155
 ```
 
-## Install software
+## Install open alea phenomenal & jupyter software
 
 ```
 # Install openGL
