@@ -161,7 +161,7 @@ Python 2.7.15
 ```
 Le problème c'est que nextflow n'est plus connu, on l'appelle donc en chemin absolu
 ```
-/var/lib/miniconda3/bin/nextflow mcormil_valid.sh
+/var/lib/miniconda3/bin/nextflow mcormil_valid.nf
 ```
 De même que sur l'appliance précédente, nous n'avons pas continué car les données McCormick n'étaient pas dans
 
