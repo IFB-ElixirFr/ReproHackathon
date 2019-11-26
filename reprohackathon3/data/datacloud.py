@@ -5,6 +5,7 @@ import pandas
 from openalea.phenomenal.calibration import CalibrationCamera
 
 
+PREFIX='/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries'
 
 ## read index
 def read_index(prefix='./'):
@@ -14,7 +15,7 @@ def read_index(prefix='./'):
 	return df
 
 ## binary path
-def get_remote_path_bin(row, prefix='/binaries',delta=0):
+def get_remote_path_bin(row, prefix=PREFIX, delta=0):
     pot_number = int(row["plant"][:4])
 
     date = datetime.datetime.strptime(row["date"], "%Y-%m-%d %H:%M:%S.%f")
@@ -46,28 +47,27 @@ def get_remote_path_bin(row, prefix='/binaries',delta=0):
         filenames.append(f)
 
     return filenames
-	
 
-def get_bin_images(row, prefix='/binaries'):
+
+def get_bin_images(row, prefix=PREFIX):
 	#find filenames
 	for delta in [0, -1, 1, -2, 2, -3, 3, -4, 4]:
 		filenames = get_remote_path_bin(row, prefix=prefix,delta=delta)
 		if os.path.exists(filenames[0]):
 			break
 	if delta == 4:
-		raise ValueError('Can't find binaries')
+		raise ValueError('Can not find binaries')
 	imdict={t:{} for t in set(row.view_type)}
 	for view, angle, path in zip(row.view_type,row.camera_angle,filenames):
 		imdict[view][angle]=cv2.imread(path, cv2.IMREAD_UNCHANGED)
 	return imdict
-	
-	
+
+
 def get_calibrations(row, prefix='./'):
 	calib = {}
 	for view in set(row.view_type):
 		path = prefix + row.cabin + '_' + view + '_1_1_wide.json'
 		calib[view] = CalibrationCamera.load(path)
 	return calib
-	
-	
-	
+
+
