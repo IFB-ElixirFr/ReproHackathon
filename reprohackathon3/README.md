@@ -91,7 +91,7 @@ Biosphere :
 ```
 docker ps
 # copier l'ID du conteneur
-docker exec -it --user root <id_conteneur>
+docker exec -it --user root <id_conteneur> bash
 ```
 
 ```
