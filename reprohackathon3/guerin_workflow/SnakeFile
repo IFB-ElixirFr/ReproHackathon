@@ -18,7 +18,7 @@ rule reconstruction:
     output:
         expand("meshes/ligne_{id}.txt", id=config["lignes"])
     log:
-        expand("log/ligne_{id}.log")
+        expand("log/ligne_{id}.log", id=config["lignes"])
     shell:
         '''python2 reconstruct.py -r {wildcards.params.ligne} > {output} 2> {log}'''
 
