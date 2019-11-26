@@ -60,7 +60,7 @@ process Voxelization_mc_cormik_data {
         vertices, faces, voxels_size=voxels_size)
         voxels_position = numpy.array(voxels_position)
         voxel_grid = phm_obj.VoxelGrid(voxels_position, voxels_size)
-
+        print voxel_grid
     '''
 }
 
