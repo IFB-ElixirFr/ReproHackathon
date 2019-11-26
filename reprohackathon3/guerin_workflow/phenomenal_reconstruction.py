@@ -26,18 +26,13 @@ phm_display.show_images(bin_images['side'].values() + bin_images['top'].values()
 ###############################################################################
 ### Associate images and projection function
 def routine_select_ref_angle(bin_side_images):
-
     max_len = 0
-    max_angle = None
-    
-    for angle in bin_side_images:
-    
+    max_angle = None    
+    for angle in bin_side_images:    
         x_pos, y_pos, x_len, y_len = cv2.boundingRect(cv2.findNonZero(bin_side_images[angle]))
-
         if x_len > max_len:
             max_len = x_len
             max_angle = angle
-
     return max_angle
 
 refs_angle_list = [routine_select_ref_angle(bin_images["side"])]

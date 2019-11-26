@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get install -y libarchive-dev
+sudo apt-get install -y libarchive-dev
 VERSION=2.5.1
 wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
 tar xvf singularity-$VERSION.tar.gz
