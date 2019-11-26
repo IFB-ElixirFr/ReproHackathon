@@ -241,14 +241,11 @@ curl -s https://get.nextflow.io | bash
 ## Run a small NextFlow
 
 ```
+cd
 conda activate phenomenal
-(phenomenal) ubuntu@machine784abada-0e9f-4176-b408-77dad21a0fd7:~$ python -version
-Unknown option: -e
-usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
-Try `python -h' for more information.
 (phenomenal) ubuntu@machine784abada-0e9f-4176-b408-77dad21a0fd7:~$ python --version
 Python 2.7.15
-(phenomenal) ubuntu@machine784abada-0e9f-4176-b408-77dad21a0fd7:~$ ./nextflow ReproHackathon/reprohackathon3/nextflow2/mcormil_valid.nf 
+./nextflow ReproHackathon/reprohackathon3/nextflow2/mcormil_valid.nf 
 N E X T F L O W  ~  version 19.10.0
 Launching `ReproHackathon/reprohackathon3/nextflow2/mcormil_valid.nf` [chaotic_mendel] - revision: 6288436889
 executor >  local (2)
