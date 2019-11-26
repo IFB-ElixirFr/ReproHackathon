@@ -1,0 +1,94 @@
+Nov-26 14:58:22.611 [main] DEBUG nextflow.cli.Launcher - $> nextflow ./test_nextflow.io
+Nov-26 14:58:22.873 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 19.10.0
+Nov-26 14:58:22.889 [main] INFO  nextflow.cli.CmdRun - Launching `./test_nextflow.io` [marvelous_liskov] - revision: 2a7743a6c9
+Nov-26 14:58:23.010 [main] DEBUG nextflow.extension.OperatorEx - Dataflow extension methods: branch,buffer,chain,choice,collate,collect,collectFile,combine,concat,count,countBy,countFasta,countFastq,countLines,countText,cross,distinct,filter,first,flatMap,flatten,fork,groupBy,groupTuple,ifEmpty,into,join,last,map,max,mean,merge,min,mix,phase,print,println,randomSample,reduce,separate,set,splitCsv,splitFasta,splitFastq,splitText,spread,subscribe,sum,take,tap,toDouble,toFloat,toInteger,toList,toLong,toSortedList,transpose,unique,until,view
+Nov-26 14:58:23.029 [main] DEBUG nextflow.Session - Session uuid: f3ae541d-5518-4d07-94cd-3321da570e2b
+Nov-26 14:58:23.029 [main] DEBUG nextflow.Session - Run name: marvelous_liskov
+Nov-26 14:58:23.032 [main] DEBUG nextflow.Session - Executor pool size: 2
+Nov-26 14:58:23.137 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 19.10.0 build 5170
+  Created: 21-10-2019 15:07 UTC 
+  System: Linux 4.4.0-166-generic
+  Runtime: Groovy 2.5.8 on OpenJDK 64-Bit Server VM 11.0.1+13-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 17743@machine36c64831-04aa-4c5c-843a-76594ef099c3 [10.158.16.164]
+  CPUs: 1 - Mem: 3.9 GB (783.5 MB) - Swap: 0 (0)
+Nov-26 14:58:23.184 [main] DEBUG nextflow.Session - Work-dir: /home/ubuntu/multiviewReconstruction/work [ext2/ext3]
+Nov-26 14:58:23.184 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/ubuntu/multiviewReconstruction/bin
+Nov-26 14:58:23.207 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Nov-26 14:58:23.210 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-26 14:58:23.383 [main] DEBUG nextflow.Session - Session start invoked
+Nov-26 14:58:23.840 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-26 14:58:23.900 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: csv_per_line2/; pattern: *.csv; options: [:]
+Nov-26 14:58:24.019 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 14:58:24.019 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 14:58:24.023 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-26 14:58:24.032 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=1; memory=3.9 GB; capacity=1; pollInterval=100ms; dumpInterval=5m
+Nov-26 14:58:24.116 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > load_data -- maxForks: 2
+Nov-26 14:58:24.158 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 14:58:24.160 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 14:58:24.163 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > multi_view_reconstruction -- maxForks: 2
+Nov-26 14:58:24.174 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 14:58:24.174 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 14:58:24.181 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > meshing -- maxForks: 2
+Nov-26 14:58:24.186 [main] DEBUG nextflow.script.BaseScript - No entry workflow defined
+Nov-26 14:58:24.187 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Nov-26 14:58:24.187 [main] DEBUG nextflow.Session - Session await
+Nov-26 14:58:24.402 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 14:58:24.417 [Task submitter] INFO  nextflow.Session - [9f/e1fe66] Submitted process > load_data (2)
+Nov-26 14:58:25.715 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: load_data (2); status: COMPLETED; exit: 1; error: -; workDir: /home/ubuntu/multiviewReconstruction/work/9f/e1fe66ed4c483e32684032c50360a5]
+Nov-26 14:58:25.721 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 14:58:25.726 [Task submitter] INFO  nextflow.Session - [2a/ba28b9] Submitted process > load_data (1)
+Nov-26 14:58:25.775 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'load_data (2)'
+
+Caused by:
+  Process `load_data (2)` terminated with an error exit status (1)
+
+Command executed:
+
+  /home/ubuntu/multiviewReconstruction/1_load_data.py test_0.csv
+
+Command exit status:
+  1
+
+Command output:
+  ['/home/ubuntu/multiviewReconstruction/1_load_data.py', 'test_0.csv']
+        cabin                                       camera_angle                        date  ...                                          view_type pos line
+  0  elcom_c1  [330, 300, 270, 240, 210, 150, 180, 90, 120, 3...  2016-05-18 04:30:13.018825  ...  [u'side', u'side', u'side', u'side', u'side', ...   1    1
+  
+  [1 rows x 17 columns]
+
+Command error:
+  Traceback (most recent call last):
+    File "/home/ubuntu/multiviewReconstruction/1_load_data.py", line 22, in <module>
+      bin_images = dc.get_bin_images(row)
+    File "/home/ubuntu/multiviewReconstruction/datacloud.py", line 55, in get_bin_images
+      filenames = get_remote_path_bin(row, prefix=prefix,delta=delta)
+    File "/home/ubuntu/multiviewReconstruction/datacloud.py", line 19, in get_remote_path_bin
+      pot_number = int(row["plant"][:4])
+    File "/var/lib/miniconda3/envs/phenomenal/lib/python2.7/site-packages/pandas/core/series.py", line 91, in wrapper
+      return converter(self.iloc[0])
+  ValueError: invalid literal for int() with base 10: '0001/Lo1270_H/ZM2887/d151/WD/3/01_01/ARCH2016-04-15'
+
+Work dir:
+  /home/ubuntu/multiviewReconstruction/work/9f/e1fe66ed4c483e32684032c50360a5
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+Nov-26 14:58:25.804 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `load_data (2)` terminated with an error exit status (1)
+Nov-26 14:58:25.868 [Task monitor] DEBUG nextflow.Session - The following nodes are still active:
+[process] multi_view_reconstruction
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] meshing
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Nov-26 14:58:25.876 [main] DEBUG nextflow.Session - Session await > all process finished
+Nov-26 14:58:25.877 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-26 14:58:25.895 [main] WARN  n.processor.TaskPollingMonitor - Killing pending tasks (1)
+Nov-26 14:58:25.923 [main] DEBUG nextflow.trace.StatsObserver - Workflow completed > WorkflowStats[succeedCount=0; failedCount=2; ignoredCount=0; cachedCount=0; succeedDuration=0ms; failedDuration=1.2s; cachedDuration=0ms]
+Nov-26 14:58:25.999 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Nov-26 14:58:26.025 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

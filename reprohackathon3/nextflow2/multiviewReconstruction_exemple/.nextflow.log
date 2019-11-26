@@ -1,0 +1,48 @@
+Nov-26 15:20:28.303 [main] DEBUG nextflow.cli.Launcher - $> nextflow ./test_nextflow.io
+Nov-26 15:20:28.547 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 19.10.0
+Nov-26 15:20:28.562 [main] INFO  nextflow.cli.CmdRun - Launching `./test_nextflow.io` [elated_colden] - revision: 55e54435e9
+Nov-26 15:20:28.681 [main] DEBUG nextflow.extension.OperatorEx - Dataflow extension methods: branch,buffer,chain,choice,collate,collect,collectFile,combine,concat,count,countBy,countFasta,countFastq,countLines,countText,cross,distinct,filter,first,flatMap,flatten,fork,groupBy,groupTuple,ifEmpty,into,join,last,map,max,mean,merge,min,mix,phase,print,println,randomSample,reduce,separate,set,splitCsv,splitFasta,splitFastq,splitText,spread,subscribe,sum,take,tap,toDouble,toFloat,toInteger,toList,toLong,toSortedList,transpose,unique,until,view
+Nov-26 15:20:28.700 [main] DEBUG nextflow.Session - Session uuid: de9fb407-a210-438d-97d1-dfd496e5bffa
+Nov-26 15:20:28.700 [main] DEBUG nextflow.Session - Run name: elated_colden
+Nov-26 15:20:28.703 [main] DEBUG nextflow.Session - Executor pool size: 2
+Nov-26 15:20:28.848 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 19.10.0 build 5170
+  Created: 21-10-2019 15:07 UTC 
+  System: Linux 4.4.0-166-generic
+  Runtime: Groovy 2.5.8 on OpenJDK 64-Bit Server VM 11.0.1+13-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 18556@machine36c64831-04aa-4c5c-843a-76594ef099c3 [10.158.16.164]
+  CPUs: 1 - Mem: 3.9 GB (1.1 GB) - Swap: 0 (0)
+Nov-26 15:20:28.897 [main] DEBUG nextflow.Session - Work-dir: /home/ubuntu/ReproHackathon/reprohackathon3/nextflow2/multiviewReconstruction/work [ext2/ext3]
+Nov-26 15:20:28.933 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Nov-26 15:20:28.935 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-26 15:20:29.135 [main] DEBUG nextflow.Session - Session start invoked
+Nov-26 15:20:29.698 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-26 15:20:29.812 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 15:20:29.812 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 15:20:29.818 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-26 15:20:29.825 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=1; memory=3.9 GB; capacity=1; pollInterval=100ms; dumpInterval=5m
+Nov-26 15:20:29.966 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > load_data -- maxForks: 2
+Nov-26 15:20:30.055 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 15:20:30.055 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 15:20:30.066 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > multi_view_reconstruction -- maxForks: 2
+Nov-26 15:20:30.071 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 15:20:30.071 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 15:20:30.100 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > meshing -- maxForks: 2
+Nov-26 15:20:30.109 [main] DEBUG nextflow.script.BaseScript - No entry workflow defined
+Nov-26 15:20:30.110 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Nov-26 15:20:30.120 [main] DEBUG nextflow.Session - Session await
+Nov-26 15:20:30.330 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:20:30.340 [Task submitter] INFO  nextflow.Session - [5d/bd0a6e] Submitted process > load_data
+Nov-26 15:20:43.523 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: load_data; status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/ReproHackathon/reprohackathon3/nextflow2/multiviewReconstruction/work/5d/bd0a6e7aa91d669189f309c3ea1192]
+Nov-26 15:20:43.569 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:20:43.573 [Task submitter] INFO  nextflow.Session - [2c/0150b9] Submitted process > multi_view_reconstruction
+Nov-26 15:21:38.785 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: multi_view_reconstruction; status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/ReproHackathon/reprohackathon3/nextflow2/multiviewReconstruction/work/2c/0150b920735067577c0730cee3c0b7]
+Nov-26 15:21:38.822 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:21:38.823 [Task submitter] INFO  nextflow.Session - [39/2a945d] Submitted process > meshing
+Nov-26 15:21:46.283 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: meshing; status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/ReproHackathon/reprohackathon3/nextflow2/multiviewReconstruction/work/39/2a945dc5bef8dd981090dd4b4e199d]
+Nov-26 15:21:46.287 [main] DEBUG nextflow.Session - Session await > all process finished
+Nov-26 15:21:46.294 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-26 15:21:46.311 [main] DEBUG nextflow.trace.StatsObserver - Workflow completed > WorkflowStats[succeedCount=3; failedCount=0; ignoredCount=0; cachedCount=0; succeedDuration=1m 16s; failedDuration=0ms; cachedDuration=0ms]
+Nov-26 15:21:46.503 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Nov-26 15:21:46.546 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
