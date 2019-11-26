@@ -4,6 +4,9 @@
 
  Ubuntu 16.04 (16.04.6) Phenomenal_ubuntu
  
+ ![](https://github.com/sidibebocs/ReproHackathon/blob/master/reprohackathon3/nextflow2/IFB_cloud_deploy_appliance.png
+ "IFB cloud Ubuntu appliance")
+ 
 ```
 ssh -L 8888:localhost:8888 ubuntu@134.158.247.155
 ```
