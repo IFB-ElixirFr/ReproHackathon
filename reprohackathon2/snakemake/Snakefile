@@ -64,31 +64,31 @@ rule iqtree:
         "iqtree -m GTR+G4 -s {input} -seed 1 -nt 1;"
 	    "mv {input}.treefile {output}"
 
-rule phyml:
-    input: "/data/single-gene_alignments/XiD4/{sample}.nt.aln.phy"
-    output: "/data/results/phyml/{sample}.nhx"
-    threads: 1
-    singularity:
-        "docker://evolbioinfo/phyml:v3.3.20180129"
-    shell:
-        "phyml -i {input} --r_seed 1 -d nt -b 0 -m GTR -f e -c 4 -a e -s SPR --n_rand_starts 1 -o tlr -p --run_id ID;"
-        "mv {input}_phyml_tree_ID.txt {output}"
+#rule phyml:
+#    input: "/data/single-gene_alignments/XiD4/{sample}.nt.aln.phy"
+#    output: "/data/results/phyml/{sample}.nhx"
+#    threads: 1
+#    singularity:
+#        "docker://evolbioinfo/phyml:v3.3.20180129"
+#    shell:
+#        "phyml -i {input} --r_seed 1 -d nt -b 0 -m GTR -f e -c 4 -a e -s SPR --n_rand_starts 1 -o tlr -p --run_id ID;"
+#        "mv {input}_phyml_tree_ID.txt {output}"
 
-rule fasta2phylip:
-    input: "/data/single-gene_alignments/XiD4/{sample}.nt.aln"
-    output: "/data/single-gene_alignments/XiD4/{sample}.nt.aln.phy"
-    threads: 1
-    singularity:
-        "docker://evolbioinfo/goalign:v0.2.9"
-    shell:
-        "goalign reformat phylip -i {input} -o {output}"
+#rule fasta2phylip:
+#    input: "/data/single-gene_alignments/XiD4/{sample}.nt.aln"
+#    output: "/data/single-gene_alignments/XiD4/{sample}.nt.aln.phy"
+#    threads: 1
+#    singularity:
+#        "docker://evolbioinfo/goalign:v0.2.9"
+#    shell:
+#        "goalign reformat phylip -i {input} -o {output}"
 
-rule raxml:
-    input: "/data/single-gene_alignments/XiD4/{sample}.nt.aln"
-    output: "/data/results/raxml/{sample}.nhx"
-    threads: 1
-    singularity:
-        "docker://evolbioinfo/raxml:v8.2.0-avx2"
-    shell:
-        "raxmlHPC -T 1 -p 1 -m GTRGAMMA --no-bfgs -s {input} -n NAME;"
-	    "mv RAxML_bestTree.NAME {output}"
+#rule raxml:
+#    input: "/data/single-gene_alignments/XiD4/{sample}.nt.aln"
+#    output: "/data/results/raxml/{sample}.nhx"
+#    threads: 1
+#    singularity:
+#        "docker://evolbioinfo/raxml:v8.2.0-avx2"
+#    shell:
+#        "raxmlHPC -T 1 -p 1 -m GTRGAMMA --no-bfgs -s {input} -n NAME;"
+#	    "mv RAxML_bestTree.NAME {output}"
