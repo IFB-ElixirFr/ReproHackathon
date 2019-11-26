@@ -18,3 +18,9 @@ conda install -c conda-forge ipyvolume
 ###############################################################################
 conda activate phenomenal
 jupyter notebook
+
+###############################################################################
+## Sur une machine de l'ifb-core::
+## localisation des donnees a tester
+cd /ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
+###############################################################################
