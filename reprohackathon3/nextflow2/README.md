@@ -1,3 +1,5 @@
+Vincent Nègre code in pairs with Stéphanie Bocs
+
 # VM Jupyter phenomenal NextFlow
 
 ## Deploy & connect IFB cloud VM 
