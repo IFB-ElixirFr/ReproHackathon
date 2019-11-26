@@ -47,7 +47,7 @@ cd /home/ubuntu
 ```
 => on peut afficher le notebook des workflow phenomenal en copiant collant l'adresse http dans un navigateur de son ordinateur personnel 
 
-Par exemple reconstruction 3D de la plante et construire des triangles pour l'interception de la lumière pour les autres exemples voir github openalea phenomenal:
+Par exemple reconstruction 3D de la plante et calculer des triangles pour l'interception de la lumière pour les autres exemples voir github openalea phenomenal:
 
 [McCormick_Validation](https://github.com/openalea/phenomenal/blob/master/examples/McCormick_Validation.ipynb)
 
@@ -76,4 +76,9 @@ Launching `ReproHackathon/reprohackathon3/nextflow2/mcormil_valid.nf` [chaotic_m
 executor >  local (2)
 [e4/9247a8] process > import_mc_cormik_data       [100%] 1 of 1 ✔
 [f4/f4a599] process > Voxelization_mc_cormik_data [100%] 1 of 1 ✔
+<openalea.phenomenal.object.voxelGrid.VoxelGrid object at 0x7f85a0c9f890>
 ```
+Nous n'avons pas continué car les données McCormick n'étaient pas dans
+
+     /home/ubuntu/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
+
