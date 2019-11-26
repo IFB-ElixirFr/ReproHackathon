@@ -3,6 +3,7 @@ params.data="/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/ZA16_organized
 params.binaries='/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries'
 params.calibration='/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/calibration'
 
+
 rownum=params.rownum
 header = Channel.fromPath(params.data).splitText(by: 1, limit: 1 ).map{it -> it.trim()}
 id = 0
@@ -23,13 +24,19 @@ process multiview {
 	val binaries
 	val calibration
 
+	output:
+	set val(stdout), file("mesh.out") into meshout
+
 	shell:
 	'''
 	echo -e "!{h}\n!{l}" > in.csv
+	# Plant number
+	echo "!{l}" | cut -d ";" -f 10
 	multiview.py in.csv '!{binaries}' '!{calibration}' '!{id}'
 	rm in.csv
 	'''
 }
+
 //
 //outchan.subscribe{
 //	println(it)

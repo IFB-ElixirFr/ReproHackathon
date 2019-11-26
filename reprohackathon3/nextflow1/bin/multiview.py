@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+import openalea.phenomenal.display as phm_display
 
 from funcs import *
 
@@ -24,8 +25,7 @@ plant_number=sys.argv[4]
 bin_images=get_bin_images(df.loc[0,:],sys.argv[2])
 calibrations=get_calibrations(df.loc[0,:],sys.argv[3])
 
-
-print(bin_images)
+#phm_display.show_images(bin_images['side'].values() + bin_images['top'].values())
 
 refs_angle_list = [routine_select_ref_angle(bin_images["side"])]
 
@@ -54,6 +54,8 @@ error_tolerance = 0
 voxel_grid = phm_mvr.reconstruction_3d(image_views, 
                                        voxels_size=voxels_size,
                                        error_tolerance=error_tolerance)
+#phm_display.show_voxel_grid(voxel_grid, size=1)
+
 voxel_grid.write("plant_{}_size_{}.npz".format(plant_number, voxels_size))
 voxel_grid = phm_obj.VoxelGrid.read("plant_{}_size_{}.npz".format(plant_number, voxels_size))
 phm_display_notebook.show_voxel_grid(voxel_grid, size=1)
@@ -64,3 +66,4 @@ vertices, faces = phm_mesh.meshing(voxel_grid.to_image_3d(),
 
 print("Number of vertices : {nb_vertices}".format(nb_vertices=len(vertices)))
 print("Number of faces : {nb_faces}".format(nb_faces=len(faces)))
+phm_display.show_mesh(vertices, faces)
