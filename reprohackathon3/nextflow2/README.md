@@ -42,6 +42,6 @@ cd ../../
 ```
 => on peut afficher dans un navigateur le notebook
 
-#Les données d'images de phénotypage du maïs sont là
-/home/ubuntu/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
+Les données d'images de phénotypage du maïs sont là
+   /home/ubuntu/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries
 
