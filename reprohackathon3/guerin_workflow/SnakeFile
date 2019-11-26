@@ -14,7 +14,7 @@ rule all:
 ## Multi-view reconstruction and Meshing 
 rule reconstruction:
     params:
-        ligne=config["ligne"]
+        ligne=config["lignes"]
     output:
         expand("meshes/ligne_{id}.txt", id=config["lignes"])
     log:
