@@ -1,0 +1,25 @@
+__author__ = "Pierre-Edouard Guerin"
+__license__ = "MIT"
+
+configfile: "config.yaml"
+
+
+rule all:
+    input:
+        expand("meshes/ligne_{id}.txt", id=configfile["lignes"])
+
+
+
+
+## Multi-view reconstruction and Meshing 
+rule reconstruction:
+    params:
+        ligne=configFile["ligne"]
+    output:
+        expand("meshes/ligne_{id}.txt", id=configfile["lignes"])
+    log:
+        expand("log/ligne_{id}.log")
+    shell:
+        '''python2 reconstruct.py -r {wildcards.params.ligne} > {output} 2> {log}'''
+
+
