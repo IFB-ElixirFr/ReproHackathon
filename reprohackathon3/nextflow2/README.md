@@ -1,4 +1,4 @@
-Vincent Nègre code in pairs with Stéphanie Bocs
+Binôme Vincent Nègre & Stéphanie Bocs
 
 # VM Jupyter phenomenal NextFlow
 
