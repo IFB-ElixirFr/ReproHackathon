@@ -236,6 +236,7 @@ sudo apt install default-jdk
 
 # Set up NextFlow
 curl -s https://get.nextflow.io | bash
+```
 
 ## Run a small NextFlow
 
