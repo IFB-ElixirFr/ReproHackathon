@@ -9,7 +9,7 @@ A partir du [RAINBio Catalogue des appliances bioinformatiques dans le cloud](ht
  Ubuntu 16.04 (16.04.6) Phenomenal_ubuntu
  16 Cœur, 64 Go, 920 Go
 
- ![](https://github.com/sidibebocs/ReproHackathon/blob/master/reprohackathon3/nextflow2/IFB_cloud_deploy_appliance.png
+ ![](https://github.com/sidibebocs/ReproHackathon/blob/master/reprohackathon3/nextflow4/IFB_cloud_deploy_appliance.png
  "IFB cloud Ubuntu appliance")
  
 ```
