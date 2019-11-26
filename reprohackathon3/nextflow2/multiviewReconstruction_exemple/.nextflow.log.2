@@ -1,0 +1,53 @@
+Nov-26 15:08:59.246 [main] DEBUG nextflow.cli.Launcher - $> nextflow ./test_nextflow.io
+Nov-26 15:08:59.482 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 19.10.0
+Nov-26 15:08:59.497 [main] INFO  nextflow.cli.CmdRun - Launching `./test_nextflow.io` [sharp_hawking] - revision: 2a7743a6c9
+Nov-26 15:08:59.658 [main] DEBUG nextflow.extension.OperatorEx - Dataflow extension methods: branch,buffer,chain,choice,collate,collect,collectFile,combine,concat,count,countBy,countFasta,countFastq,countLines,countText,cross,distinct,filter,first,flatMap,flatten,fork,groupBy,groupTuple,ifEmpty,into,join,last,map,max,mean,merge,min,mix,phase,print,println,randomSample,reduce,separate,set,splitCsv,splitFasta,splitFastq,splitText,spread,subscribe,sum,take,tap,toDouble,toFloat,toInteger,toList,toLong,toSortedList,transpose,unique,until,view
+Nov-26 15:08:59.687 [main] DEBUG nextflow.Session - Session uuid: 9ce9c224-3ded-4525-bb83-0bc7f4be0d07
+Nov-26 15:08:59.688 [main] DEBUG nextflow.Session - Run name: sharp_hawking
+Nov-26 15:08:59.692 [main] DEBUG nextflow.Session - Executor pool size: 2
+Nov-26 15:08:59.831 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 19.10.0 build 5170
+  Created: 21-10-2019 15:07 UTC 
+  System: Linux 4.4.0-166-generic
+  Runtime: Groovy 2.5.8 on OpenJDK 64-Bit Server VM 11.0.1+13-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 18162@machine36c64831-04aa-4c5c-843a-76594ef099c3 [10.158.16.164]
+  CPUs: 1 - Mem: 3.9 GB (998.6 MB) - Swap: 0 (0)
+Nov-26 15:08:59.883 [main] DEBUG nextflow.Session - Work-dir: /home/ubuntu/multiviewReconstruction/work [ext2/ext3]
+Nov-26 15:08:59.883 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/ubuntu/multiviewReconstruction/bin
+Nov-26 15:08:59.910 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Nov-26 15:08:59.913 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-26 15:09:00.184 [main] DEBUG nextflow.Session - Session start invoked
+Nov-26 15:09:00.810 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-26 15:09:00.885 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: csv_per_line2/; pattern: *.csv; options: [:]
+Nov-26 15:09:01.043 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 15:09:01.043 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 15:09:01.048 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-26 15:09:01.060 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=1; memory=3.9 GB; capacity=1; pollInterval=100ms; dumpInterval=5m
+Nov-26 15:09:01.152 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > load_data -- maxForks: 2
+Nov-26 15:09:01.198 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 15:09:01.200 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 15:09:01.202 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > multi_view_reconstruction -- maxForks: 2
+Nov-26 15:09:01.259 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-26 15:09:01.260 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-26 15:09:01.262 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > meshing -- maxForks: 2
+Nov-26 15:09:01.279 [main] DEBUG nextflow.script.BaseScript - No entry workflow defined
+Nov-26 15:09:01.284 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Nov-26 15:09:01.284 [main] DEBUG nextflow.Session - Session await
+Nov-26 15:09:01.480 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:09:01.500 [Task submitter] INFO  nextflow.Session - [5d/069f06] Submitted process > load_data (1)
+Nov-26 15:09:15.247 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: load_data (1); status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/multiviewReconstruction/work/5d/069f06447e8a7a80315955e6fabb5d]
+Nov-26 15:09:15.255 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:09:15.262 [Task submitter] INFO  nextflow.Session - [56/84a3e8] Submitted process > load_data (2)
+Nov-26 15:09:29.780 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: load_data (2); status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/multiviewReconstruction/work/56/84a3e89a0087851a6304a9b8b66e41]
+Nov-26 15:09:29.784 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:09:29.793 [Task submitter] INFO  nextflow.Session - [85/eb7a18] Submitted process > multi_view_reconstruction (1)
+Nov-26 15:10:24.643 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: multi_view_reconstruction (1); status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/multiviewReconstruction/work/85/eb7a185e83f3c17cc8767d48380551]
+Nov-26 15:10:24.646 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:10:24.657 [Task submitter] INFO  nextflow.Session - [48/25b043] Submitted process > multi_view_reconstruction (2)
+Nov-26 15:11:20.653 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: multi_view_reconstruction (2); status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/multiviewReconstruction/work/48/25b043d29f4735b765c74a72179297]
+Nov-26 15:11:20.659 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:11:20.672 [Task submitter] INFO  nextflow.Session - [01/92fdbc] Submitted process > meshing (1)
+Nov-26 15:12:15.750 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: meshing (1); status: COMPLETED; exit: 0; error: -; workDir: /home/ubuntu/multiviewReconstruction/work/01/92fdbc9656350530df5d7054a51698]
+Nov-26 15:12:15.758 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 15:12:15.761 [Task submitter] INFO  nextflow.Session - [95/be89b3] Submitted process > meshing (2)
