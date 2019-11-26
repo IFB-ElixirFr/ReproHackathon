@@ -19,7 +19,7 @@ import openalea.phenomenal.mesh as phm_mesh
 import openalea.phenomenal.segmentation as phm_seg
 import openalea.phenomenal.display.notebook as phm_display_notebook
 
-
+import datacloud as dc
 
 # ## 1. Prerequisites
 #
