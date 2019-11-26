@@ -9,7 +9,7 @@ PREFIX='/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries'
 
 ## read index
 def read_index(prefix='./'):
-	df = pandas.read_csv(prefix + 'ZA16_organized_database.csv',sep=';')
+	df = pandas.read_csv(prefix + 'ZA16_organized_database.csv.gz',sep=';')
 	for col in ('path_http','camera_angle', 'dates', 'view_type'):
 		df.loc[:,col] = map(eval, df.loc[:,col])
 	return df
