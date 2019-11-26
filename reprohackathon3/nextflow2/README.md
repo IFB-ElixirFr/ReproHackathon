@@ -1,4 +1,4 @@
-# VM Jupyter phenomenal nextflow
+# VM Jupyter phenomenal NextFlow
 
 ## Deploy & connect IFB cloud VM 
 
@@ -46,6 +46,8 @@ cd /home/ubuntu
 [I 09:20:23.199 NotebookApp] http://localhost:8888/?token=b19825b59604349e1b1c2196d29f3496eaab760257527a99
 ```
 => on peut afficher le notebook des workflow phenomenal en copiant collant l'adresse http dans un navigateur de son ordinateur personnel 
+
+Par exemple reconstruction 3D de la plante et construire des triangles pour l'interception de la lumière pour les autres exemples voir [github openalea phenomenal](https://github.com/openalea/phenomenal/tree/master/examples)
 
 ### Multi-view reconstruction and Meshing
 
@@ -143,7 +145,7 @@ voxel_grid = phm_mvr.reconstruction_3d(image_views,
                                        error_tolerance=error_tolerance)
 ```
 
-##### 2.4 Save / Load voxel grid
+##### 2.3 Save / Load voxel grid
 
 
 ```python
@@ -155,7 +157,7 @@ voxel_grid.write("plant_{}_size_{}.npz".format(plant_number, voxels_size))
 voxel_grid = phm_obj.VoxelGrid.read("plant_{}_size_{}.npz".format(plant_number, voxels_size))
 ```
 
-##### 2.5 Viewing
+##### 2.4 Viewing
 
 
 ```python
