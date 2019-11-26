@@ -21,40 +21,6 @@ from openalea.phenomenal.calibration import CalibrationCamera
 #==============================================================================
 #FUNCTIONS
 #==============================================================================
-
-
-#==============================================================================
-#ARGUMENTS
-#==============================================================================
-parser = argparse.ArgumentParser(description='DEMORT - DEmultiplexing MOnitoring Report Tool')
-parser.add_argument("-r","--index_row", type=str)
-
-args = parser.parse_args()
-index_row = args.index_row
-
-db = dc.read_index()
-
-
-row = db.loc[index_row]
-bin_images = dc.get_bin_images(row)
-calibrations = dc.get_calibrations(row)
-
-#==============================================================================
-# MULTIVIEW
-#==============================================================================
-
-
-## Prerequisites
-###############################################################################
-## LOAD DATA
-plant_number = 2# Available : 1, 2, 3, 4 or 5
-bin_images = phm_data.bin_images(plant_number=plant_number)
-calibrations = phm_data.calibrations(plant_number=plant_number)
-
-phm_display.show_images(bin_images['side'].values() + bin_images['top'].values())
-
-## Multi-view reconstruction
-###############################################################################
 ### Associate images and projection function
 def routine_select_ref_angle(bin_side_images):
     max_len = 0
@@ -65,6 +31,32 @@ def routine_select_ref_angle(bin_side_images):
             max_len = x_len
             max_angle = angle
     return max_angle
+
+#==============================================================================
+#ARGUMENTS
+#==============================================================================
+parser = argparse.ArgumentParser(description='recontruction multiview')
+parser.add_argument("-r","--index_row", type=str)
+
+args = parser.parse_args()
+index_row = args.index_row
+
+db = dc.read_index()
+
+## Prerequisites
+###############################################################################
+## LOAD DATA
+row = db.loc[index_row]
+bin_images = dc.get_bin_images(row)
+calibrations = dc.get_calibrations(row)
+
+#==============================================================================
+# MULTIVIEW
+#==============================================================================
+
+
+## Multi-view reconstruction
+###############################################################################
 
 refs_angle_list = [routine_select_ref_angle(bin_images["side"])]
 
