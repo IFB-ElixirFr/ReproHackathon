@@ -9,17 +9,16 @@ rule all:
         expand("meshes/ligne_{id}.txt", id=config["lignes"])
 
 
-meslignes=config["lignes"]
 
 ## Multi-view reconstruction and Meshing 
 rule reconstruction:
     params:
-        ligne=config["lignes"]
+        expand("{id}",id=config["lignes"])
     output:
         expand("meshes/ligne_{id}.txt", id=config["lignes"])
     log:
         expand("log/ligne_{id}.log", id=config["lignes"])
     shell:
-        '''python2 reconstruct.py -r {wildcards.meslignes} > {output} 2> {log}'''
+        '''python2 reconstruct.py -r {params} > {output} 2> {log}'''
 
 
