@@ -82,3 +82,26 @@ In the file data/datacloud.py functions are implemented to access data on the cl
     bin_images = dc.get_bin_images(row)
     calibrations = dc.get_calibrations(row)
 ```
+
+# Installation avec appliance Jupyter
+
+Biosphere :
+[Jupyter](https://biosphere.france-bioinformatique.fr/catalogue/appliance/131/)
+
+```
+docker ps
+# copier l'ID du conteneur
+docker exec -it --user root <id_conteneur>
+```
+
+```
+apt-get update
+apt-get install freeglut3-dev
+conda create -n phenomenal pandas=0.24.2 vtk=8.2.0 opencv=4.1.0 networkx=2.2 scikit-image=0.14.2 scikit-learn=0.20.3 scipy=1.2.1 cython=0.29.7 numba=0.43.1 numpy=1.15.4 matplotlib=2.2.3 python=2.7.16  openalea.deploy openalea.phenomenal -c openalea
+conda activate phenomenal
+conda install ipyvolume -c conda-forge
+python2 -m pip install ipykernel
+python -m ipykernel install --user --name phenomenal --display-name "Python (phenomenal)"
+```
+Depuis l'interface jupyter, changer le kernel et selectionner le kernel
+précédemment créé.
