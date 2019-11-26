@@ -8,8 +8,8 @@ from openalea.phenomenal.calibration import CalibrationCamera
 PREFIX='/ifb/data/public/teachdata/reprohack3/ARCH2016-04-15/binaries'
 
 ## read index
-def read_index(prefix='./'):
-	df = pandas.read_csv(prefix + 'ZA16_organized_database.csv.gz',sep=';')
+def read_index(prefix=os.path.join(PREFIX,'..')):
+	df = pandas.read_csv(os.path.join(prefix, 'ZA16_organized_database.csv'),sep=';')
 	for col in ('path_http','camera_angle', 'dates', 'view_type'):
 		df.loc[:,col] = map(eval, df.loc[:,col])
 	return df
@@ -63,7 +63,7 @@ def get_bin_images(row, prefix=PREFIX):
 	return imdict
 
 
-def get_calibrations(row, prefix='./'):
+def get_calibrations(row, prefix=os.path.join(PREFIX,'..','calibration')):
 	calib = {}
 	for view in set(row.view_type):
 		path = os.path.join(prefix, (row.cabin + '_' + view + '_1_1_wide.json'))
