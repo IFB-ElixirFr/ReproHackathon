@@ -28,3 +28,11 @@ outputs:
     outputBinding:
       glob: $(inputs.alig.basename).treefile
 
+
+$namespaces:
+  s: http://schema.org/
+
+$schemas:
+- http://schema.org/version/latest/schema.rdf
+
+s:license: http://www.apache.org/licenses/LICENSE-2.0
